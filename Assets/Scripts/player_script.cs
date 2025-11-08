@@ -5,6 +5,7 @@ public class player_script : MonoBehaviour
 {
 
     public float speed;
+    public float runSpeed;
     private Animator anim;
     private Rigidbody rb;
     private Transform tr;
@@ -44,11 +45,22 @@ public class player_script : MonoBehaviour
         {
             anim.SetBool("walking", true);
             tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
-            controller.Move(moveDir * speed * Time.deltaTime);
+            float move_speed = anim.GetBool("running") ? runSpeed : speed;
+            controller.Move(moveDir * move_speed * Time.deltaTime);
         }
         else
         {
             anim.SetBool("walking", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && anim.GetBool("walking"))
+        {
+            anim.SetBool("running", !anim.GetBool("running"));
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            anim.SetBool("crouching", !anim.GetBool("crouching"));
         }
 
     }
