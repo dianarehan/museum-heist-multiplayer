@@ -6,10 +6,15 @@ public class player_script : MonoBehaviour
 
     public float speed;
     public float runSpeed;
+    public float crouchSpeed;
     private Animator anim;
     private Rigidbody rb;
     private Transform tr;
     private CharacterController controller;
+
+    // first and 2nd person follow
+    public Transform FPF;
+    public Transform TPF;
 
     public Camera cameraObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +24,9 @@ public class player_script : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
         controller = GetComponent<CharacterController>();
+
+        //float TPF_y = TPF.position.y;
+        //float FPF_y = FPF.position.y;
     }
 
     // Update is called once per frame
@@ -45,7 +53,7 @@ public class player_script : MonoBehaviour
         {
             anim.SetBool("walking", true);
             tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
-            float move_speed = anim.GetBool("running") ? runSpeed : speed;
+            float move_speed = anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ?  crouchSpeed : speed;
             controller.Move(moveDir * move_speed * Time.deltaTime);
         }
         else
@@ -61,6 +69,17 @@ public class player_script : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             anim.SetBool("crouching", !anim.GetBool("crouching"));
+        }
+
+        if (anim.GetBool("crouching"))
+        {
+            TPF.position = new Vector3(TPF.position.x, 2f, TPF.position.z);
+            FPF.position = new Vector3(FPF.position.x, 4f, FPF.position.z);
+        }
+        else
+        {
+            TPF.position = new Vector3(TPF.position.x, 4f, TPF.position.z);
+            FPF.position = new Vector3(FPF.position.x, 6f, FPF.position.z);
         }
 
     }
