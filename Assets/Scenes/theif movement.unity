@@ -212,11 +212,11 @@ MonoBehaviour:
   m_StreamingVersion: 0
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 761583017}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -634,7 +634,7 @@ MonoBehaviour:
       Owner: {fileID: 1724013333}
       Enabled: 1
       Input:
-        InputAction: {fileID: 0}
+        InputAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
         Gain: 1
         LegacyInput: 
         LegacyGain: 1
@@ -647,7 +647,7 @@ MonoBehaviour:
       Owner: {fileID: 1724013333}
       Enabled: 1
       Input:
-        InputAction: {fileID: 0}
+        InputAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
         Gain: -1
         LegacyInput: 
         LegacyGain: 1
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetOffset: {x: 0, y: 0, z: 0}
+  TargetOffset: {x: 0, y: 0, z: 3}
   TrackerSettings:
     BindingMode: 4
     PositionDamping: {x: 1, y: 1, z: 1}
@@ -740,14 +740,14 @@ MonoBehaviour:
   Radius: 10
   Orbits:
     Top:
-      Radius: 2
-      Height: 5
+      Radius: 15
+      Height: 12
     Center:
-      Radius: 4
-      Height: 2.25
+      Radius: 15
+      Height: 5
     Bottom:
-      Radius: 2.5
-      Height: 0.1
+      Radius: 15
+      Height: 0
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
@@ -761,7 +761,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 17.5
+    Value: 28.2
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -773,7 +773,7 @@ MonoBehaviour:
   RadialAxis:
     Value: 1
     Center: 1
-    Range: {x: 1, y: 1}
+    Range: {x: 1, y: 10}
     Wrap: 0
     Recentering:
       Enabled: 0
@@ -804,7 +804,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -831,8 +831,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724013329}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2534013, y: 0.0000000059708083, z: -0.0000000015640595, w: 0.9673613}
-  m_LocalPosition: {x: -2.038833, y: 6.15, z: 1.1738586}
+  m_LocalRotation: {x: 0.29304224, y: 3.3972264e-15, z: 5.6715743e-16, w: 0.9560995}
+  m_LocalPosition: {x: -2.038833, y: 12.219736, z: -7.12342}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -899,7 +899,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 60
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -925,8 +925,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829976663}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2534013, y: 0.0000000059708074, z: -0.0000000015640594, w: 0.9673613}
-  m_LocalPosition: {x: -2.038833, y: 6.15, z: 1.1738586}
+  m_LocalRotation: {x: 0.2930422, y: 3.9413083e-15, z: -1.2080016e-15, w: 0.9560995}
+  m_LocalPosition: {x: -2.038833, y: 12.219736, z: -7.12342}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
