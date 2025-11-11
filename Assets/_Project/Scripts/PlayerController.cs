@@ -1,7 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 
-public class Player : MonoBehaviourPunCallbacks
+public class PlayerController : MonoBehaviourPunCallbacks
 {
     public float speed;
     public float runSpeed;
@@ -21,6 +21,10 @@ public class Player : MonoBehaviourPunCallbacks
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
         controller = GetComponent<CharacterController>();
+        if(cameraObj == null)
+        {
+            cameraObj = Camera.main;
+        }
     }
 
     void Update()
