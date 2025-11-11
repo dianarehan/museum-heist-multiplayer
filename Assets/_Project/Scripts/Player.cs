@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
+using Photon.Pun;
 
-public class player_script : MonoBehaviour
+public class Player : MonoBehaviourPunCallbacks
 {
-
     public float speed;
     public float runSpeed;
     public float crouchSpeed;
@@ -15,21 +14,15 @@ public class player_script : MonoBehaviour
     // first and 2nd person follow
     public Transform FPF;
     public Transform TPF;
-
     public Camera cameraObj;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
         controller = GetComponent<CharacterController>();
-
-        //float TPF_y = TPF.position.y;
-        //float FPF_y = FPF.position.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float h = Input.GetAxis("Horizontal");
@@ -37,7 +30,6 @@ public class player_script : MonoBehaviour
         Vector3 move = new Vector3(h, 0f, v).normalized;
 
 
-        // get camera forward/right directions
         Vector3 camForward = cameraObj.transform.forward;
         Vector3 camRight = cameraObj.transform.right;
 
@@ -46,7 +38,6 @@ public class player_script : MonoBehaviour
         camForward.Normalize();
         camRight.Normalize();
 
-        // move relative to camera direction
         Vector3 moveDir = (camForward * v + camRight * h).normalized;
 
         if (move.magnitude >= 0.1f)
@@ -81,6 +72,5 @@ public class player_script : MonoBehaviour
             TPF.position = new Vector3(TPF.position.x, 4f, TPF.position.z);
             FPF.position = new Vector3(FPF.position.x, 6f, FPF.position.z);
         }
-
     }
 }
