@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace prefabs.SecurityGuard.scripts
 {
@@ -49,8 +50,19 @@ public class FirstPersonMovement : MonoBehaviour
     [SerializeField] private string isSprintingParam = "IsSprinting";
     [SerializeField] private string isCrouchingParam = "IsCrouching";
     [SerializeField] private string jumpTriggerParam = "Jump";
+     // Directional walk booleans 
+    [SerializeField] private string walkFrontParam = "isWalkingFront";
+    [SerializeField] private string walkBackParam = "isWalkingBack";
+    [SerializeField] private string walkLeftParam = "isWalkingLeft";
+    [SerializeField] private string walkRightParam = "isWalkingRight";
+
+    // Small inputs are ignored to prevent flicker
+    [SerializeField] private float walkDirDeadzone = 0.15f;
+
     
-    // Components
+
+
+     // Components
     private CharacterController characterController;
     
     // Movement state
@@ -87,16 +99,29 @@ public class FirstPersonMovement : MonoBehaviour
         
         // Set initial height
         standingHeight = characterController.height;
-        
-        // Validate ground mask
-        if (groundMask == 0)
+
+       
+
+
+            // Validate ground mask
+            if (groundMask == 0)
         {
             Debug.LogWarning("FirstPersonMovement: Ground mask not set. Using default layer.");
             groundMask = ~0; // All layers
         }
     }
-    
-    private void Update()
+
+        private void SetOneHotWalkBools(bool front, bool back, bool left, bool right)
+        {
+            if (animator == null) return;
+            if (HasParameter(animator, walkFrontParam)) animator.SetBool(walkFrontParam, front);
+            if (HasParameter(animator, walkBackParam)) animator.SetBool(walkBackParam, back);
+            if (HasParameter(animator, walkLeftParam)) animator.SetBool(walkLeftParam, left);
+            if (HasParameter(animator, walkRightParam)) animator.SetBool(walkRightParam, right);
+        }
+
+
+        private void Update()
     {
         HandleInput();
         CheckGrounded();
@@ -109,11 +134,15 @@ public class FirstPersonMovement : MonoBehaviour
     
     private void HandleInput()
     {
-        // Movement input
-        moveInput = new Vector2(
-            Input.GetAxisRaw("Horizontal"),
-            Input.GetAxisRaw("Vertical")
+        var Horizontal = Input.GetAxisRaw("Horizontal");
+        var Vertical = Input.GetAxisRaw("Vertical");
+            // Movement input
+            moveInput = new Vector2(
+            Horizontal,
+            Vertical
         );
+
+            
         
         // Jump input
         jumpInput = Input.GetButtonDown("Jump");
@@ -239,13 +268,15 @@ public class FirstPersonMovement : MonoBehaviour
     
     private void UpdateAnimator()
     {
+
         if (animator == null) return;
         
-        // Calculate movement speed (0-1 normalized)
-        float speed = currentVelocity.magnitude;
+            // Calculate movement speed (0-1 normalized)
+            float speed = currentVelocity.magnitude;
         float normalizedSpeed = 0f;
         
-        if (isCrouching)
+
+            if (isCrouching)
         {
             normalizedSpeed = speed / crouchSpeed;
         }
@@ -267,7 +298,8 @@ public class FirstPersonMovement : MonoBehaviour
         // Local movement direction for blend tree
         Vector3 localVelocity = transform.InverseTransformDirection(currentVelocity);
         
-        if (HasParameter(animator, moveXParam))
+
+            if (HasParameter(animator, moveXParam))
         {
             animator.SetFloat(moveXParam, localVelocity.x / walkSpeed);
         }
@@ -297,7 +329,39 @@ public class FirstPersonMovement : MonoBehaviour
         {
             animator.SetBool(isCrouchingParam, isCrouching);
         }
-    }
+
+            Vector2 planar = new Vector2(localVelocity.x, localVelocity.z);
+
+            if (planar.magnitude < walkDirDeadzone)
+            {
+                SetOneHotWalkBools(false, false, false, false);
+            }
+            else
+            {
+                // Normalize to get direction only
+                planar.Normalize();
+
+                // Decide which axis dominates (forward/back vs left/right)
+                bool goFront = false, goBack = false, goLeft = false, goRight = false;
+
+                
+
+                if (Mathf.Abs(planar.y) >= Mathf.Abs(planar.x))
+                {
+                    // Forward/back dominates
+                    if (planar.y > 0f) goFront = true;
+                    else if (planar.y < 0f) goBack = true;
+                }
+                else
+                {
+                    // Left/right dominates
+                    if (planar.x > 0f) goRight = true;
+                    else if (planar.x < 0f) goLeft = true;
+                }
+                Debug.Log("" + goFront + goBack+ goLeft+ goRight);
+                SetOneHotWalkBools(goFront, goBack, goLeft, goRight);
+            }
+        }
     
     /// <summary>
     /// Check if animator has a parameter

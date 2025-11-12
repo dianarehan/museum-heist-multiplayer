@@ -1052,7 +1052,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
-  animator: {fileID: 0}
+  animator: {fileID: 157876658}
   useLegacyParameters: 1
   moveSpeedParam: MoveSpeed
   moveXParam: MoveX
@@ -1062,6 +1062,11 @@ MonoBehaviour:
   isSprintingParam: IsSprinting
   isCrouchingParam: IsCrouching
   jumpTriggerParam: Jump
+  walkFrontParam: isWalkingFront
+  walkBackParam: isWalkingBack
+  walkLeftParam: isWalkingLeft
+  walkRightParam: isWalkingRight
+  walkDirDeadzone: 0.15
 --- !u!65 &1957637850
 BoxCollider:
   m_ObjectHideFlags: 0
