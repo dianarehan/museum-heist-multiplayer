@@ -2550,7 +2550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f82ff03a43550468cd85c7aab2dac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: theif movement
+  sceneName: GuardActions
 --- !u!1 &1503756982
 GameObject:
   m_ObjectHideFlags: 0
