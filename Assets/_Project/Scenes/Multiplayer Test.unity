@@ -953,6 +953,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5833021501416853672, guid: 5134cec5105aac2498e7b0a7f80d5d1e, type: 3}
+      propertyPath: cameraObj
+      value: 
+      objectReference: {fileID: 1829976665}
     - target: {fileID: 6972316381976863894, guid: 5134cec5105aac2498e7b0a7f80d5d1e, type: 3}
       propertyPath: m_Name
       value: NetworkedPlayer

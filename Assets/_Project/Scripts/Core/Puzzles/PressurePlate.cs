@@ -4,7 +4,6 @@ using Photon.Pun;
 public class PressurePlate : MonoBehaviour
 {
     [SerializeField] private LaserGrid mainLaserGrid;
-
     [SerializeField] private Material activeMaterial;
     
     private Material defaultMaterial;

@@ -3,18 +3,19 @@ using Photon.Pun;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
-    public float speed;
-    public float runSpeed;
-    public float crouchSpeed;
+    [SerializeField] private float speed=5f;
+    [SerializeField] private float runSpeed=6f;
+    [SerializeField] private float crouchSpeed=2f;
+    // first and 2nd person follow
+    [SerializeField] private Transform firstPersonFollow;
+    [SerializeField] private Transform thirdPersonFollow;
+    [SerializeField] private Camera cameraObj;
+
     private Animator anim;
     private Rigidbody rb;
     private Transform tr;
     private CharacterController controller;
 
-    // first and 2nd person follow
-    public Transform FPF;
-    public Transform TPF;
-    public Camera cameraObj;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -68,13 +69,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
         if (anim.GetBool("crouching"))
         {
-            TPF.position = new Vector3(TPF.position.x, 2f, TPF.position.z);
-            FPF.position = new Vector3(FPF.position.x, 4f, FPF.position.z);
+            thirdPersonFollow.position = new Vector3(thirdPersonFollow.position.x, 2f, thirdPersonFollow.position.z);
+            firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 4f, firstPersonFollow.position.z);
         }
         else
         {
-            TPF.position = new Vector3(TPF.position.x, 4f, TPF.position.z);
-            FPF.position = new Vector3(FPF.position.x, 6f, FPF.position.z);
+            thirdPersonFollow.position = new Vector3(thirdPersonFollow.position.x, 4f, thirdPersonFollow.position.z);
+            firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 6f, firstPersonFollow.position.z);
         }
     }
 }

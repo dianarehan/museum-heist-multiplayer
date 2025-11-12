@@ -182,11 +182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a193bd0d970de642aa2654776cd6a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  runSpeed: 0
-  crouchSpeed: 0
-  FPF: {fileID: 8670457016003383156}
-  TPF: {fileID: 2194225724661925623}
+  speed: 6
+  runSpeed: 5
+  crouchSpeed: 2
+  firstPersonFollow: {fileID: 8670457016003383156}
+  thirdPersonFollow: {fileID: 2194225724661925623}
   cameraObj: {fileID: 0}
 --- !u!143 &7656548503368364140
 CharacterController:
