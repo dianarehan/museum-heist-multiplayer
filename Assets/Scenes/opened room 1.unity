@@ -449,6 +449,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2046764481646368383, guid: f2ec715f783d6a34d931781c5bf0a158, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 747d8ce52dcd2ae4d8f8edaf7104f221, type: 2}
     - target: {fileID: 6482517956262800584, guid: f2ec715f783d6a34d931781c5bf0a158, type: 3}
       propertyPath: m_Name
       value: opened room 1
