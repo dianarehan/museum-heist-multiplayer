@@ -1,0 +1,11 @@
+Model Information:
+* title:	Carrion Crow (Corvus corone) - Reconstructed
+* source:	https://sketchfab.com/3d-models/carrion-crow-corvus-corone-reconstructed-eca85e10314e4a0c920e1c76d7f0ae38
+* author:	Chapel_Prints_CO (https://sketchfab.com/McKie_Foundation)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Carrion Crow (Corvus corone) - Reconstructed" (https://sketchfab.com/3d-models/carrion-crow-corvus-corone-reconstructed-eca85e10314e4a0c920e1c76d7f0ae38) by Chapel_Prints_CO (https://sketchfab.com/McKie_Foundation) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
