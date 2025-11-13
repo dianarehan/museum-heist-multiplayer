@@ -449,9 +449,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1505652098695218507, guid: f6c9427d02ff0ea41b2fc9575d74fe9c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 22.172852
+      objectReference: {fileID: 0}
     - target: {fileID: 3402986899150956559, guid: f6c9427d02ff0ea41b2fc9575d74fe9c, type: 3}
       propertyPath: m_Name
       value: closed room 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845896975638801027, guid: f6c9427d02ff0ea41b2fc9575d74fe9c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.3666687
       objectReference: {fileID: 0}
     - target: {fileID: 5520389974216672288, guid: f6c9427d02ff0ea41b2fc9575d74fe9c, type: 3}
       propertyPath: m_LocalPosition.x
