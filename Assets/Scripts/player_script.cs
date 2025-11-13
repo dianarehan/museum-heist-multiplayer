@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
@@ -27,6 +28,10 @@ public class player_script : MonoBehaviour
 
         //float TPF_y = TPF.position.y;
         //float FPF_y = FPF.position.y;
+
+        TPF.position = new Vector3(TPF.position.x, 16f, TPF.position.z);
+
+        FPF.position = new Vector3(FPF.position.x, 16f, FPF.position.z);
     }
 
     // Update is called once per frame
@@ -55,6 +60,11 @@ public class player_script : MonoBehaviour
             tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
             float move_speed = anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ?  crouchSpeed : speed;
             controller.Move(moveDir * move_speed * Time.deltaTime);
+            FPF.Translate(moveDir * move_speed * Time.deltaTime);
+            TPF.Translate(moveDir * move_speed * Time.deltaTime);
+
+
+
         }
         else
         {
@@ -73,13 +83,13 @@ public class player_script : MonoBehaviour
 
         if (anim.GetBool("crouching"))
         {
-            TPF.position = new Vector3(TPF.position.x, 2f, TPF.position.z);
-            FPF.position = new Vector3(FPF.position.x, 4f, FPF.position.z);
+            TPF.position = new Vector3(TPF.position.x, 8f, TPF.position.z);
+            FPF.position = new Vector3(FPF.position.x, 8f, FPF.position.z);
         }
         else
         {
-            TPF.position = new Vector3(TPF.position.x, 4f, TPF.position.z);
-            FPF.position = new Vector3(FPF.position.x, 6f, FPF.position.z);
+            TPF.position = new Vector3(TPF.position.x, 16f, TPF.position.z);
+            FPF.position = new Vector3(FPF.position.x, 16f, FPF.position.z);
         }
 
     }
