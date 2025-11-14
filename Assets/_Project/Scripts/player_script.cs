@@ -29,7 +29,7 @@ public class player_script : MonoBehaviour
         //float TPF_y = TPF.position.y;
         //float FPF_y = FPF.position.y;
 
-        TPF.position = new Vector3(TPF.position.x, 6f * (tr.localScale.y / 1 ), 5f);
+        TPF.position = new Vector3(TPF.position.x, 6f * (tr.localScale.y / 1 ), TPF.position.z);
 
         FPF.position = new Vector3(FPF.position.x, 10f * (tr.localScale.y / 1), FPF.position.z);
     }
@@ -83,12 +83,12 @@ public class player_script : MonoBehaviour
 
         if (anim.GetBool("crouching"))
         {
-            TPF.position = new Vector3(TPF.position.x, 4f * (tr.localScale.y / 1), 10f);
+            TPF.position = new Vector3(TPF.position.x, 4f * (tr.localScale.y / 1), TPF.position.z);
             FPF.position = new Vector3(FPF.position.x, 6f * (tr.localScale.y / 1), FPF.position.z);
         }
         else
         {
-            TPF.position = new Vector3(TPF.position.x, 6f * (tr.localScale.y / 1), 5f);
+            TPF.position = new Vector3(TPF.position.x, 6f * (tr.localScale.y / 1), TPF.position.z);
             FPF.position = new Vector3(FPF.position.x, 10f * (tr.localScale.y / 1), FPF.position.z);
         }
 
