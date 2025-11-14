@@ -423,54 +423,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 703181459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &886346891
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 886346893}
-  - component: {fileID: 886346892}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &886346892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886346891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9a086657d656ce4f9cd25eb9ff9b8ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guardPrefabName: NetworkedTheif
-  thiefPrefabName: NetworkedGuard
-  guardSpawnPoint: {fileID: 2055262519}
-  thiefSpawnPoint: {fileID: 750305280}
---- !u!4 &886346893
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886346891}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.24149, y: 0, z: 2.93246}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &990708859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,6 +1241,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 703181459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8711019139465539173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1995548021393343119, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.24149
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995548021393343119, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995548021393343119, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.93246
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995548021393343119, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995548021393343119, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995548021393343119, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995548021393343119, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995548021393343119, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995548021393343119, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995548021393343119, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117891241027221477, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721466029986232476, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: guardSpawnPoint
+      value: 
+      objectReference: {fileID: 2055262519}
+    - target: {fileID: 5721466029986232476, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: 'thiefSpawnPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1210185177}
+    - target: {fileID: 5721466029986232476, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: 'thiefSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 750305280}
+    - target: {fileID: 5721466029986232476, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: 'thiefSpawnPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 601775226}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
 --- !u!1001 &9214005376792018646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1363,5 +1388,5 @@ SceneRoots:
   - {fileID: 1315495393}
   - {fileID: 202778596}
   - {fileID: 1698180093}
-  - {fileID: 886346893}
+  - {fileID: 8711019139465539173}
   - {fileID: 703181459}
