@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 198581314342388286}
   - component: {fileID: 6010242520678852662}
   - component: {fileID: 7933840720234997156}
-  - component: {fileID: 2747510833936058673}
   m_Layer: 0
   m_Name: NetworkedThief
   m_TagString: Untagged
@@ -108,7 +107,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9186890002551214560}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
@@ -130,7 +129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9186890002551214560}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 326837823b3264c4f9d1f0a4cca230db, type: 3}
   m_Name: 
@@ -145,22 +144,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 16262ad62b803904bbd2ecd7de82bf63, type: 2}
   - {fileID: 2100000, guid: 07f420e23c304fc45898c302e14d6640, type: 2}
   - {fileID: 2100000, guid: 07f420e23c304fc45898c302e14d6640, type: 2}
---- !u!114 &2747510833936058673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9186890002551214560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1001 &141668348589737768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -451,6 +434,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 371170589783112517}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4716738994052308199}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6658067305418349467}
     - targetCorrespondingSourceObject: {fileID: -3939475405887833782, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 649108036012794133}
@@ -564,7 +553,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 4716738994052308199}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -590,6 +580,52 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 16262ad62b803904bbd2ecd7de82bf63, type: 2}
   - {fileID: 2100000, guid: 07f420e23c304fc45898c302e14d6640, type: 2}
   - {fileID: 2100000, guid: 07f420e23c304fc45898c302e14d6640, type: 2}
+--- !u!114 &4716738994052308199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941672932897892586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: walking
+  - Type: 4
+    SynchronizeType: 1
+    Name: running
+  - Type: 4
+    SynchronizeType: 1
+    Name: crouching
+  - Type: 4
+    SynchronizeType: 1
+    Name: crouch walking
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+--- !u!114 &6658067305418349467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941672932897892586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!4 &4465444420238897744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}

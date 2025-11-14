@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 8117899038581213607}
   - component: {fileID: 9003294068891598647}
   - component: {fileID: 3417346363681171015}
+  - component: {fileID: -2437513146420548690}
   m_Layer: 0
   m_Name: NetworkedGuard
   m_TagString: Untagged
@@ -639,7 +640,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 3417346363681171015}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -681,6 +683,22 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &-2437513146420548690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530347482223586906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &8590006068141508949
 GameObject:
   m_ObjectHideFlags: 0
