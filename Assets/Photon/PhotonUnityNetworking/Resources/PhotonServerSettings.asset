@@ -43,6 +43,7 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - RPC_DisableLasers
+  - RPC_SetPlayerVisuals
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
