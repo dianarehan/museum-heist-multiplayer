@@ -103,5 +103,6 @@ public class MenuCustomizer : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         customPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
+        saveButton.GetComponentInChildren<TMP_Text>().text = "Save Changes";
     }
 }
