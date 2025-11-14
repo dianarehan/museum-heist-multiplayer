@@ -107,7 +107,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9186890002551214560}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
@@ -117,8 +117,10 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 6658067305418349467}
+  - {fileID: 4716738994052308199}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -129,12 +131,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9186890002551214560}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 326837823b3264c4f9d1f0a4cca230db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerModel: {fileID: 8530347482223586906, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
+  playerModel: {fileID: 3941672932897892586}
   nameDisplay: {fileID: 5120613096183079}
   isCustomizable: 1
   allPossibleMaterials:
@@ -542,7 +544,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3941672932897892586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
@@ -555,6 +557,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 4716738994052308199}
+  - {fileID: 6658067305418349467}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -565,12 +568,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3941672932897892586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 326837823b3264c4f9d1f0a4cca230db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerModel: {fileID: 9186890002551214560}
+  playerModel: {fileID: 3941672932897892586}
   nameDisplay: {fileID: 5120613096183079}
   isCustomizable: 1
   allPossibleMaterials:
