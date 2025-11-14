@@ -3,9 +3,7 @@ using TMPro;
 
 public class PlayerSetup : MonoBehaviour
 {
-
     [SerializeField] private GameObject playerModel;
-    
     [SerializeField] private TMP_Text nameDisplay;
 
     void Start()
