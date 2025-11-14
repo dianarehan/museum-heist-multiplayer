@@ -1,18 +1,23 @@
 using UnityEngine;
+using Photon.Pun;
 
-public class GuardAnimatorController : MonoBehaviour
+public class GuardAnimatorController : MonoBehaviourPunCallbacks
 {
     Animator animator;
     CharacterController controller;
 
     void Start()
     {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
+
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
+
         // 1. Get player movement input
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");

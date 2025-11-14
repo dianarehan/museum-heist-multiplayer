@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 
 namespace prefabs.SecurityGuard.scripts
 {
@@ -8,8 +9,8 @@ namespace prefabs.SecurityGuard.scripts
    /// This makes the character aim weapons in the direction the player is looking
    /// Attach this to the Player root object
    /// </summary>
-   public class UpperBodyIK : MonoBehaviour
-   {
+    public class UpperBodyIK :MonoBehaviourPunCallbacks
+    {
        [Header("References")]
        [Tooltip(
            "The transform that the upper body should look at (usually CameraHolder or a point in front of camera)")]
@@ -53,7 +54,8 @@ namespace prefabs.SecurityGuard.scripts
        private Transform characterModelTransform;
 
        private void Start()
-       {
+        {
+            if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
            InitializeBodyIK();
        }
 

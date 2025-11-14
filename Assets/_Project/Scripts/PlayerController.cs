@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
+        
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
@@ -44,6 +46,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     void Update()
     {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         Vector3 move = new Vector3(h, 0f, v).normalized;
