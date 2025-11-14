@@ -326,6 +326,7 @@ MonoBehaviour:
   laserLinesObject:
   - {fileID: 2889091827698737803}
   - {fileID: 7108835754509198702}
+  disableDuration: 1
 --- !u!1 &4939563910240454541
 GameObject:
   m_ObjectHideFlags: 0

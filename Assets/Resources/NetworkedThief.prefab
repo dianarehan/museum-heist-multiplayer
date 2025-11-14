@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 6010242520678852662}
   - component: {fileID: 7933840720234997156}
   m_Layer: 0
-  m_Name: NetworkedTheif
+  m_Name: NetworkedThief
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
