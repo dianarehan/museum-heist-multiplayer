@@ -1,0 +1,11 @@
+Model Information:
+* title:	Egyptian Cat Statue
+* source:	https://sketchfab.com/3d-models/egyptian-cat-statue-6500c27f06fc4ed191fabc9dd0d8b1f2
+* author:	dayuchuu (https://sketchfab.com/dayuchuu)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Egyptian Cat Statue" (https://sketchfab.com/3d-models/egyptian-cat-statue-6500c27f06fc4ed191fabc9dd0d8b1f2) by dayuchuu (https://sketchfab.com/dayuchuu) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

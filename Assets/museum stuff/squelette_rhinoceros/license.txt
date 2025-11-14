@@ -1,0 +1,11 @@
+Model Information:
+* title:	Squelette rhinocéros
+* source:	https://sketchfab.com/3d-models/squelette-rhinoceros-452f06432d7445d98042f97d2889ef1b
+* author:	Tavernier Amaury (https://sketchfab.com/svtavernier)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Squelette rhinocéros" (https://sketchfab.com/3d-models/squelette-rhinoceros-452f06432d7445d98042f97d2889ef1b) by Tavernier Amaury (https://sketchfab.com/svtavernier) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
