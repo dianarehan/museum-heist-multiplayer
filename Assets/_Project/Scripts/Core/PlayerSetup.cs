@@ -5,9 +5,10 @@ public class PlayerSetup : MonoBehaviour
 {
     [SerializeField] private GameObject playerModel;
     [SerializeField] private TMP_Text nameDisplay;
-
+    [SerializeField] private bool isCustomizable = true;
+    
     void Start()
-    {
+    {           
         if (PlayerData.PlayerMaterial != null && playerModel != null)
         {
             Renderer[] renderers = playerModel.GetComponentsInChildren<Renderer>();

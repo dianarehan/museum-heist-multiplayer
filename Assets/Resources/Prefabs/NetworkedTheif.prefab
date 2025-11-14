@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198581314342388286}
   m_Layer: 0
-  m_Name: Networked theif
+  m_Name: NetworkedTheif
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
