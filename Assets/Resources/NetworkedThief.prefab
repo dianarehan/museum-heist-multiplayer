@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 198581314342388286}
   - component: {fileID: 6010242520678852662}
   - component: {fileID: 7933840720234997156}
+  - component: {fileID: 2747510833936058673}
   m_Layer: 0
   m_Name: NetworkedThief
   m_TagString: Untagged
@@ -144,6 +145,22 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 16262ad62b803904bbd2ecd7de82bf63, type: 2}
   - {fileID: 2100000, guid: 07f420e23c304fc45898c302e14d6640, type: 2}
   - {fileID: 2100000, guid: 07f420e23c304fc45898c302e14d6640, type: 2}
+--- !u!114 &2747510833936058673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9186890002551214560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1001 &141668348589737768
 PrefabInstance:
   m_ObjectHideFlags: 0
