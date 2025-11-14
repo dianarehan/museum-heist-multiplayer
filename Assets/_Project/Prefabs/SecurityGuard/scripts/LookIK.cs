@@ -1,6 +1,7 @@
 using UnityEngine;
+using Photon.Pun;
 
-public class LookIK : MonoBehaviour
+public class LookIK : MonoBehaviourPunCallbacks
 {
     public Animator animator;
     public Transform lookTarget; // child of Camera Holder, a bit forward
@@ -12,6 +13,7 @@ public class LookIK : MonoBehaviour
 
     void OnAnimatorIK(int layerIndex)
     {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
         if (!animator || !lookTarget) return;
         animator.SetLookAtWeight(weight, bodyWeight, headWeight, eyesWeight, clampWeight);
         animator.SetLookAtPosition(lookTarget.position);

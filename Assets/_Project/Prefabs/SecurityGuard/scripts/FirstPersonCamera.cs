@@ -1,4 +1,5 @@
 using UnityEngine;
+using Photon.Pun;
 
 namespace prefabs.SecurityGuard.scripts
 {
@@ -7,7 +8,7 @@ namespace prefabs.SecurityGuard.scripts
     /// First Person Camera Controller with optional target following
     /// Handles camera rotation, head bobbing, and smooth target tracking
     /// </summary>
-    public class FirstPersonCamera : MonoBehaviour
+    public class FirstPersonCamera : MonoBehaviourPunCallbacks
     {
         [Header("Camera References")]
         [Tooltip("The transform that represents the player's head/eye position")]
@@ -48,6 +49,7 @@ namespace prefabs.SecurityGuard.scripts
 
         private void Start()
         {
+            if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
             InitializeCamera();
         }
 
@@ -82,6 +84,8 @@ namespace prefabs.SecurityGuard.scripts
 
         private void Update()
         {
+            if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
+
             HandleCameraRotation();
             HandleHeadBob();
 

@@ -3,10 +3,12 @@ using Photon.Pun;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private float speed=5f;
-    [SerializeField] private float runSpeed=6f;
-    [SerializeField] private float crouchSpeed=2f;
-    // first and 2nd person follow
+    // --- Variables from Script 1 (safer [SerializeField]) ---
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float runSpeed = 6f;
+    [SerializeField] private float crouchSpeed = 2f;
+    
+    // --- Variables with clearer names from Script 1 ---
     [SerializeField] private Transform firstPersonFollow;
     [SerializeField] private Transform thirdPersonFollow;
     [SerializeField] private Camera cameraObj;
@@ -18,23 +20,39 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
+        
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
         controller = GetComponent<CharacterController>();
-        if(cameraObj == null)
+
+        // --- Fallback from Script 1 ---
+        if (cameraObj == null)
         {
             cameraObj = Camera.main;
+        }
+
+        // --- Scale-relative logic from Script 2 ---
+        if (thirdPersonFollow != null)
+        {
+            thirdPersonFollow.position = new Vector3(thirdPersonFollow.position.x, 6f * (tr.localScale.y / 1), thirdPersonFollow.position.z);
+        }
+        if (firstPersonFollow != null)
+        {
+            firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 10f * (tr.localScale.y / 1), firstPersonFollow.position.z);
         }
     }
 
     void Update()
     {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         Vector3 move = new Vector3(h, 0f, v).normalized;
 
-
+        // Get camera forward/right directions
         Vector3 camForward = cameraObj.transform.forward;
         Vector3 camRight = cameraObj.transform.right;
 
@@ -43,14 +61,25 @@ public class PlayerController : MonoBehaviourPunCallbacks
         camForward.Normalize();
         camRight.Normalize();
 
+        // Move relative to camera direction
         Vector3 moveDir = (camForward * v + camRight * h).normalized;
 
         if (move.magnitude >= 0.1f)
         {
             anim.SetBool("walking", true);
             tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
-            float move_speed = anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ?  crouchSpeed : speed;
+            float move_speed = anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ? crouchSpeed : speed;
             controller.Move(moveDir * move_speed * Time.deltaTime);
+
+            // --- CRITICAL MERGE from Script 2: Move camera points with player ---
+            if (firstPersonFollow != null)
+            {
+                firstPersonFollow.Translate(moveDir * move_speed * Time.deltaTime);
+            }
+            if (thirdPersonFollow != null)
+            {
+                thirdPersonFollow.Translate(moveDir * move_speed * Time.deltaTime);
+            }
         }
         else
         {
@@ -67,15 +96,28 @@ public class PlayerController : MonoBehaviourPunCallbacks
             anim.SetBool("crouching", !anim.GetBool("crouching"));
         }
 
+        // --- MERGED from Script 2: Use scale-relative logic for height ---
         if (anim.GetBool("crouching"))
         {
-            thirdPersonFollow.position = new Vector3(thirdPersonFollow.position.x, 2f, thirdPersonFollow.position.z);
-            firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 4f, firstPersonFollow.position.z);
+            if (thirdPersonFollow != null)
+            {
+                thirdPersonFollow.position = new Vector3(thirdPersonFollow.position.x, 4f * (tr.localScale.y / 1), thirdPersonFollow.position.z);
+            }
+            if (firstPersonFollow != null)
+            {
+                firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 6f * (tr.localScale.y / 1), firstPersonFollow.position.z);
+            }
         }
         else
         {
-            thirdPersonFollow.position = new Vector3(thirdPersonFollow.position.x, 4f, thirdPersonFollow.position.z);
-            firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 6f, firstPersonFollow.position.z);
+            if (thirdPersonFollow != null)
+            {
+                thirdPersonFollow.position = new Vector3(thirdPersonFollow.position.x, 6f * (tr.localScale.y / 1), thirdPersonFollow.position.z);
+            }
+            if (firstPersonFollow != null)
+            {
+                firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 10f * (tr.localScale.y / 1), firstPersonFollow.position.z);
+            }
         }
     }
 }

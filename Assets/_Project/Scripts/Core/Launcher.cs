@@ -31,6 +31,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     [Tooltip("The Button players click to ready up")]
     [SerializeField] private Button readyButton;
     private const string READY_PROPERTY_KEY = "isReady";
+    private const string ROLE_PROPERTY_KEY = "Role";
     void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -127,10 +128,24 @@ public class Launcher : MonoBehaviourPunCallbacks
         if (statusText != null) statusText.text = $"Joined Room: {PhotonNetwork.CurrentRoom.Name}";
 
         PhotonNetwork.NickName = PlayerData.PlayerName;
-        
-        Hashtable initialProps = new Hashtable() { { READY_PROPERTY_KEY, false } };
-        PhotonNetwork.LocalPlayer.SetCustomProperties(initialProps);
 
+        string playerRole;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            playerRole = "Guard";
+        }
+        else
+        {
+            playerRole = "Thief";
+        }
+
+        Hashtable initialProps = new Hashtable
+        {
+            { READY_PROPERTY_KEY, false },
+            { ROLE_PROPERTY_KEY, playerRole }
+        };        
+
+        PhotonNetwork.LocalPlayer.SetCustomProperties(initialProps);
         UpdatePlayerListUI();
     }
 
@@ -169,7 +184,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         if (playerListText == null) return;
 
         string playerList = "Players:\n";
-        foreach (Player player in PhotonNetwork.PlayerList)
+        foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
         {
             object isReady;
             bool readyState = false;
@@ -178,7 +193,14 @@ public class Launcher : MonoBehaviourPunCallbacks
                 readyState = (bool)isReady;
             }
 
-            playerList += $"{player.NickName} - {(readyState ? "<color=green>Ready</color>" : "<color=red>Waiting</color>")}\n";
+            object role;
+            string roleName = "Joining...";
+            if (player.CustomProperties.TryGetValue(ROLE_PROPERTY_KEY, out role))
+            {
+                roleName = (string)role;
+            }
+
+            playerList += $"{player.NickName} - [<color=yellow>{roleName}</color>] - {(readyState ? "<color=green>Ready</color>" : "<color=red>Waiting</color>")}\n";
         }
 
         playerListText.text = playerList;
