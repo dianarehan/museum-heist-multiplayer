@@ -7,6 +7,9 @@ TagManager:
   - door
   - Laser
   - SwitchPlate
+  - LootTheft
+  - Thief
+  - Guard
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Stealable
   - 
   - 
   - 

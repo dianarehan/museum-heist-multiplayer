@@ -64,7 +64,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             firstPersonFollow.position = new Vector3(
                 firstPersonFollow.position.x,
-                10f * (tr.localScale.y / 1),
+                firstPersonFollow.position.y,
+                //10f * (tr.localScale.y / 1),
                 firstPersonFollow.position.z
             );
         }
@@ -100,18 +101,19 @@ public class PlayerController : MonoBehaviourPunCallbacks
             controller.Move(moveDir * move_speed * Time.deltaTime);
 
             // --- CRITICAL MERGE from Script 2: Move camera points with player ---
-            
+            /*
             if (firstPersonFollow != null)
             {
                 firstPersonFollow.position = transform.position + new Vector3(0, 10.0f, 0);
                 firstPersonFollow.rotation = cameraObj.transform.rotation;
 
             }
+            
             if (thirdPersonFollow != null)
             {
                 thirdPersonFollow.Translate(moveDir * move_speed * Time.deltaTime);
-            }
-            
+            }*/
+
         }
         else
         {

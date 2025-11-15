@@ -44,6 +44,8 @@ MonoBehaviour:
   - RespawnSpaceship
   - RPC_DisableLasers
   - RPC_SetPlayerVisuals
+  - RPC_RequestDestroy
+  - RPC_OnStolen
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
