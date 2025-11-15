@@ -1938,7 +1938,7 @@ MonoBehaviour:
   statusText: {fileID: 1619109872}
   playerListText: {fileID: 2054441451}
   roomCodeInput: {fileID: 1010206773}
-  gameSceneName: Multiplayer Test
+  gameSceneName: Multiplayer Main
   readyButton: {fileID: 1823737707}
 --- !u!4 &784213810
 Transform:
