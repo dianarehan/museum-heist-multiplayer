@@ -185,8 +185,8 @@ MonoBehaviour:
   speed: 6
   runSpeed: 5
   crouchSpeed: 2
-  firstPersonFollow: {fileID: 8670457016003383156}
-  thirdPersonFollow: {fileID: 2194225724661925623}
+  FPF: {fileID: 0}
+  TPF: {fileID: 0}
   cameraObj: {fileID: 0}
 --- !u!143 &7656548503368364140
 CharacterController:
