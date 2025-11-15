@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpCamera: {fileID: 197728546261492687}
-  audioListener: {fileID: 527325520345423490}
+  tpCamera: {fileID: 0}
 --- !u!4 &4465444420238897744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}
@@ -800,4 +800,4 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7528690740291529010}
-  m_Enabled: 1
+  m_Enabled: 0
