@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 9003294068891598647}
   - component: {fileID: 3417346363681171015}
   - component: {fileID: -2437513146420548690}
+  - component: {fileID: 326387005414151782}
   m_Layer: 0
   m_Name: NetworkedGuard
   m_TagString: Untagged
@@ -714,6 +715,23 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
+--- !u!114 &326387005414151782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530347482223586906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c825db7799f5fac40b14adb052fcec2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 5931602077748030951}
+  audioListener: {fileID: 4017194739190368249}
+  inputScripts:
+  - {fileID: 3460209214078566102}
+  - {fileID: 7012258444095013592}
 --- !u!1 &8590006068141508949
 GameObject:
   m_ObjectHideFlags: 0

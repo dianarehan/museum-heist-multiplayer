@@ -1294,9 +1294,17 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 5721466029986232476, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: guardPrefabName
+      value: NetworkedGuard
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721466029986232476, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
       propertyPath: guardSpawnPoint
       value: 
       objectReference: {fileID: 2055262519}
+    - target: {fileID: 5721466029986232476, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
+      propertyPath: thiefPrefabName
+      value: NetworkedThief
+      objectReference: {fileID: 0}
     - target: {fileID: 5721466029986232476, guid: 6baec32541e42dd44a0b3f7fdb701993, type: 3}
       propertyPath: 'thiefSpawnPoints.Array.data[0]'
       value: 
