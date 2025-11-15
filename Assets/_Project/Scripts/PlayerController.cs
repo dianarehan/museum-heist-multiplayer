@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private Animator anim;
     private Rigidbody rb;
     private Transform tr;
-    private CharacterController controller;
+    //private CharacterController controller;
 
     void Start()
     {
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
 
         // --- Fallback from Script 1 ---
         if (playerCamera != null)
@@ -97,7 +97,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
             anim.SetBool("walking", true);
             tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
             float move_speed = anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ? crouchSpeed : speed;
-            controller.Move(moveDir * move_speed * Time.deltaTime);
+            //controller.Move(moveDir * move_speed * Time.deltaTime);
+            tr.Translate(moveDir * move_speed * Time.deltaTime);
 
             // --- CRITICAL MERGE from Script 2: Move camera points with player ---
             
