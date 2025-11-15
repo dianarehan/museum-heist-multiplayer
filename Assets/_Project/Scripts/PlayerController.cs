@@ -11,7 +11,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
     // --- Variables with clearer names from Script 1 ---
     [SerializeField] private Transform firstPersonFollow;
     [SerializeField] private Transform thirdPersonFollow;
-    [SerializeField] private Camera cameraObj;
+    [SerializeField] private Camera playerCamera;
+    [SerializeField] private AudioListener audioListener;
+
+    private Camera cameraObj;
 
     private Animator anim;
     private Rigidbody rb;
@@ -20,6 +23,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     void Start()
     {
+
+        // If this is NOT our local player turn off its camera & input logic
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+        {
+            if (playerCamera != null) playerCamera.enabled = false;
+            if (audioListener != null) audioListener.enabled = false;
+            // No need for Update input on remote players
+            return;
+        }
+
+
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
         
         anim = GetComponent<Animator>();
@@ -28,7 +42,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
         controller = GetComponent<CharacterController>();
 
         // --- Fallback from Script 1 ---
-        if (cameraObj == null)
+        if (playerCamera != null)
+        {
+            cameraObj = playerCamera;
+        }
+        else
         {
             cameraObj = Camera.main;
         }
@@ -36,17 +54,27 @@ public class PlayerController : MonoBehaviourPunCallbacks
         // --- Scale-relative logic from Script 2 ---
         if (thirdPersonFollow != null)
         {
-            thirdPersonFollow.position = new Vector3(thirdPersonFollow.position.x, 6f * (tr.localScale.y / 1), thirdPersonFollow.position.z);
+            thirdPersonFollow.position = new Vector3(
+                thirdPersonFollow.position.x,
+                6f * (tr.localScale.y / 1),
+                thirdPersonFollow.position.z
+            );
         }
         if (firstPersonFollow != null)
         {
-            firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 10f * (tr.localScale.y / 1), firstPersonFollow.position.z);
+            firstPersonFollow.position = new Vector3(
+                firstPersonFollow.position.x,
+                10f * (tr.localScale.y / 1),
+                firstPersonFollow.position.z
+            );
         }
     }
 
     void Update()
     {
-        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) return;
+        if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
+
+        
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
@@ -72,14 +100,18 @@ public class PlayerController : MonoBehaviourPunCallbacks
             controller.Move(moveDir * move_speed * Time.deltaTime);
 
             // --- CRITICAL MERGE from Script 2: Move camera points with player ---
+            
             if (firstPersonFollow != null)
             {
-                firstPersonFollow.Translate(moveDir * move_speed * Time.deltaTime);
+                firstPersonFollow.position = transform.position + new Vector3(0, 10.0f, 0);
+                firstPersonFollow.rotation = cameraObj.transform.rotation;
+
             }
             if (thirdPersonFollow != null)
             {
                 thirdPersonFollow.Translate(moveDir * move_speed * Time.deltaTime);
             }
+            
         }
         else
         {
