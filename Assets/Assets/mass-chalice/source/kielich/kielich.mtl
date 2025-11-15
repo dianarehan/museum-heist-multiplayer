@@ -1,0 +1,12 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.267422042)
+
+newmtl MZM_D_S_60_Kielich_06_FIN
+kd 1 1 1
+ka 1 1 1
+ks 0 0 0
+ke 0 0 0
+d 1
+illum 1
+map_kd MZM_D_S_60_Kielich_06_FIN_u0_v0_diffuse.png
+
