@@ -1,16 +1,17 @@
 using UnityEngine;
+using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static string WinnerMessage = "Game Over";
+
+    [SerializeField] private TMP_Text gameOverText;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (gameOverText != null)
+            gameOverText.text = WinnerMessage;
+        else
+            Debug.LogError("GameOverManager: No TMP text assigned!");
     }
 }
