@@ -96,6 +96,9 @@ public class ThiefStealRaycast : MonoBehaviourPun
 
             // Make item disappear for everyone
             currentTarget.Steal();
+            Debug.Log("Stole item worth: " + value);
+            GameState.Instance.ThiefCollectedLoot(value);
+
 
             // Clear prompt
             if (stealPrompt != null) stealPrompt.SetActive(false);

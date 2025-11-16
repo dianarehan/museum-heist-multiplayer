@@ -46,6 +46,13 @@ MonoBehaviour:
   - RPC_SetPlayerVisuals
   - RPC_RequestDestroy
   - RPC_OnStolen
+  - RPC_UpdateThievesAlive
+  - RPC_GuardWins
+  - RPC_KnockoutThief
+  - RPC_ThievesWin
+  - RPC_UpdateLootCollected
+  - RPC_UpdateThievesKnockedOut
+  - RPC_ThiefCaughtRequest
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

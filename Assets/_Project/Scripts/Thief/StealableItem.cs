@@ -16,6 +16,8 @@ public class StealableItem : MonoBehaviourPun
         isStolen = true;
         // You can play VFX / sound here instead of just disabling
         gameObject.SetActive(false);
+  
+
     }
 
     public void Steal()

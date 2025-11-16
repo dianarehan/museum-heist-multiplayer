@@ -8,6 +8,7 @@ public class GameState : MonoBehaviourPunCallbacks
 
     [Header("Game State")]
     public int ThievesAlive;
+    public int ThievesKnockedOut = 0;
 
     public int TotalLootAmount = 3200;
     public int LootCollected = 0;
@@ -28,7 +29,7 @@ public class GameState : MonoBehaviourPunCallbacks
         // Count thieves in the room
         ThievesAlive = CountThievesInRoom();
 
-        // Optionally broadcast to all clients
+        // Broadcast to all clients
         photonView.RPC("RPC_UpdateThievesAlive", RpcTarget.All, ThievesAlive);
     }
 
@@ -46,13 +47,18 @@ public class GameState : MonoBehaviourPunCallbacks
         return count;
     }
 
-    // Called by thief when he dies
+    // Called when a thief is caught/knocked out
     public void ThiefDied()
     {
         if (!PhotonNetwork.IsMasterClient) return;
 
         ThievesAlive--;
+        ThievesKnockedOut++;
+        
         photonView.RPC("RPC_UpdateThievesAlive", RpcTarget.All, ThievesAlive);
+        photonView.RPC("RPC_UpdateThievesKnockedOut", RpcTarget.All, ThievesKnockedOut);
+
+        Debug.Log($"Thief knocked out! Remaining: {ThievesAlive}");
 
         if (ThievesAlive <= 0)
             GuardWins();
@@ -61,12 +67,24 @@ public class GameState : MonoBehaviourPunCallbacks
     // Called by thief when collecting loot
     public void ThiefCollectedLoot(int amount)
     {
-        if (!PhotonNetwork.IsMasterClient) return;
+        // if (!PhotonNetwork.IsMasterClient) return;
 
         LootCollected += amount;
+        
+        photonView.RPC("RPC_UpdateLootCollected", RpcTarget.All, LootCollected);
 
         if (LootCollected >= TotalLootAmount)
             ThievesWin();
+    }
+
+    // NEW: RPC method for non-master clients to request thief caught
+    [PunRPC]
+    void RPC_ThiefCaughtRequest()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            ThiefDied();
+        }
     }
 
     [PunRPC]
@@ -76,19 +94,43 @@ public class GameState : MonoBehaviourPunCallbacks
         Debug.Log("Thieves Alive updated: " + ThievesAlive);
     }
 
+    [PunRPC]
+    void RPC_UpdateThievesKnockedOut(int newValue)
+    {
+        ThievesKnockedOut = newValue;
+        Debug.Log("Thieves Knocked Out: " + ThievesKnockedOut);
+    }
+
+    [PunRPC]
+    void RPC_UpdateLootCollected(int newValue)
+    {
+        LootCollected = newValue;
+        Debug.Log("Loot Collected: " + LootCollected + "/" + TotalLootAmount);
+    }
+
     void GuardWins()
     {
-        Debug.Log("GUARD WINS!");
-        GameOverManager.WinnerMessage = "Guard Wins!";
-        PhotonNetwork.LoadLevel("Game Over");
-        
+        photonView.RPC("RPC_GuardWins", RpcTarget.All);
     }
 
     void ThievesWin()
     {
-        Debug.Log("THIEVES WIN!");
-        // Load end screen, show UI, etc.
-        GameOverManager.WinnerMessage = "Thieves Win!";
+        photonView.RPC("RPC_ThievesWin", RpcTarget.All);
+    }
+
+    [PunRPC]
+    void RPC_GuardWins()
+    {
+        Debug.Log("GUARD WINS! All thieves have been caught!");
+        PhotonNetwork.LoadLevel("Guard Win");
+        // Load end screen, lock input, show UI, etc.
+    }
+
+    [PunRPC]
+    void RPC_ThievesWin()
+    {
+        Debug.Log("THIEVES WIN! They collected enough loot!");
         PhotonNetwork.LoadLevel("Game Over");
+        // Load end screen, show UI, etc.
     }
 }
