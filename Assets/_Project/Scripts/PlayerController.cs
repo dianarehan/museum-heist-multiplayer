@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private Transform tr;
     //private CharacterController controller;
 
+    public GameObject head;
+
     void Start()
     {
 
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
+        SkinnedMeshRenderer headRender = head.GetComponent<SkinnedMeshRenderer>();
+        headRender.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
         //controller = GetComponent<CharacterController>();
 
         // --- Fallback from Script 1 ---

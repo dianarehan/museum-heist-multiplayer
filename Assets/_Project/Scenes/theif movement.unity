@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2700610344853029422, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3779346372530036600, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: m_LocalPosition.y
       value: 17.65
@@ -237,8 +241,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7445720480792977853, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8845567125352667071, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 748368343}
     - target: {fileID: 8980319603266402729, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -316,6 +324,11 @@ CapsuleCollider:
   m_Height: 7.3333335
   m_Direction: 1
   m_Center: {x: 0, y: 3.8333335, z: 0}
+--- !u!1 &748368343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7445720480792977853, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+  m_PrefabInstance: {fileID: 113117910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &990708859
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +625,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
