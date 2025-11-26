@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private Animator anim;
     private Rigidbody rb;
     private Transform tr;
-    private CharacterController controller;
+    //private CharacterController controller;
 
     void Start()
     {
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
 
         // --- Fallback from Script 1 ---
         if (playerCamera != null)
@@ -64,8 +64,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             firstPersonFollow.position = new Vector3(
                 firstPersonFollow.position.x,
-                firstPersonFollow.position.y,
-                //10f * (tr.localScale.y / 1),
+                //firstPersonFollow.position.y,
+                10f * (tr.localScale.y / 1),
                 firstPersonFollow.position.z
             );
         }
@@ -98,7 +98,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
             anim.SetBool("walking", true);
             tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
             float move_speed = anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ? crouchSpeed : speed;
-            controller.Move(moveDir * move_speed * Time.deltaTime);
+            //controller.Move(moveDir * move_speed * Time.deltaTime);
+            rb.MovePosition(rb.position + moveDir * move_speed * Time.deltaTime);
 
             // --- CRITICAL MERGE from Script 2: Move camera points with player ---
             /*
@@ -150,7 +151,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             }
             if (firstPersonFollow != null)
             {
-                firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 10f * (tr.localScale.y / 1), firstPersonFollow.position.z);
+                firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 8f * (tr.localScale.y / 1), firstPersonFollow.position.z);
             }
         }
     }
