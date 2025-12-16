@@ -46,6 +46,7 @@ public class DebugNetworkBootstrapper : MonoBehaviourPunCallbacks
     public enum PlayerRole { Guard, Thief }
     
     private bool hasInitialized = false;
+    private bool isOfflineModeStartup = false;
 
     void Awake()
     {
@@ -64,6 +65,22 @@ public class DebugNetworkBootstrapper : MonoBehaviourPunCallbacks
             Debug.Log("[DebugBootstrapper] Already in room, skipping debug setup.");
             gameObject.SetActive(false);
             return;
+        }
+
+        // IMPORTANT: Disable scene-placed players immediately to prevent their Start() from running
+        // before the network is ready. They will be re-enabled after connection.
+        DisableAllScenePlayers();
+    }
+
+    private void DisableAllScenePlayers()
+    {
+        if (sceneGuard != null) sceneGuard.SetActive(false);
+        if (sceneThieves != null)
+        {
+            foreach (var thief in sceneThieves)
+            {
+                if (thief != null) thief.SetActive(false);
+            }
         }
     }
 
@@ -88,9 +105,12 @@ public class DebugNetworkBootstrapper : MonoBehaviourPunCallbacks
     {
         Debug.Log("[DebugBootstrapper] Starting OFFLINE debug mode...");
         
+        isOfflineModeStartup = true;
         PhotonNetwork.OfflineMode = true;
         
-        PhotonNetwork.CreateRoom("DebugRoom_Offline");
+        // In offline mode, setting OfflineMode = true automatically triggers OnConnectedToMaster
+        // and then OnJoinedRoom when we create a room. We don't need to call CreateRoom here
+        // because OnConnectedToMaster will handle it.
     }
 
     private void StartOnlineDebugMode()
@@ -110,7 +130,12 @@ public class DebugNetworkBootstrapper : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("[DebugBootstrapper] Connected to Master Server");
-        CreateOrJoinDebugRoom();
+        
+        // Only create room once - this handles both online and offline mode
+        if (!PhotonNetwork.InRoom)
+        {
+            CreateOrJoinDebugRoom();
+        }
     }
 
     private void CreateOrJoinDebugRoom()
@@ -179,13 +204,17 @@ public class DebugNetworkBootstrapper : MonoBehaviourPunCallbacks
     {
         if (localRole == "Guard" && sceneGuard != null)
         {
+            // Re-enable and setup the guard as local player
+            sceneGuard.SetActive(true);
             SetupLocalPlayer(sceneGuard);
             
+            // Keep thieves disabled (they would be controlled by other players)
             foreach (var thief in sceneThieves)
             {
                 if (thief != null)
                 {
-                    DisableRemotePlayer(thief);
+                    // In debug single-player, just disable these
+                    thief.SetActive(false);
                 }
             }
         }
@@ -193,20 +222,24 @@ public class DebugNetworkBootstrapper : MonoBehaviourPunCallbacks
         {
             if (sceneThieves != null && sceneThieves.Length > 0 && sceneThieves[0] != null)
             {
+                // Re-enable and setup first thief as local player
+                sceneThieves[0].SetActive(true);
                 SetupLocalPlayer(sceneThieves[0]);
                 
+                // Keep other thieves disabled
                 for (int i = 1; i < sceneThieves.Length; i++)
                 {
                     if (sceneThieves[i] != null)
                     {
-                        DisableRemotePlayer(sceneThieves[i]);
+                        sceneThieves[i].SetActive(false);
                     }
                 }
             }
             
+            // Keep guard disabled
             if (sceneGuard != null)
             {
-                DisableRemotePlayer(sceneGuard);
+                sceneGuard.SetActive(false);
             }
         }
     }
