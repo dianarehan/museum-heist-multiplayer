@@ -1,0 +1,71 @@
+name: LFS Unlock on Merge
+
+# This action only triggers when a pull request is 'closed'
+on:
+  pull_request:
+    types: [closed]
+
+# This block grants the job 'write' permissions to your repo's contents
+# which is required to manage LFS locks.
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  unlock-lfs:
+    # This 'if' statement is CRITICAL.
+    # It ensures the job ONLY runs if the PR was 'merged'.
+    # If a PR is 'closed' without merging, the job will be skipped.
+    if: github.event.pull_request.merged == true
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Install dependencies (git-lfs, jq)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git-lfs jq
+
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+
+      - name: Setup Git LFS
+        run: git lfs install
+
+      - name: Get list of files from the PR
+        id: get_files
+        run: |
+          # Use the GitHub API to get the list of files from the PR
+          FILES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" | \
+          jq -r '.[] | .filename')
+          
+          # This 'echo' is a special syntax to pass the variable to later steps
+          echo "files_list<<EOF" >> $GITHUB_OUTPUT
+          echo "$FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Setup Git Credentials
+        run: |
+          # Configure git with the bot's user and the token
+          git config --global user.name "LFS Unlock Bot"
+          git config --global user.email "bot@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+      - name: Force-unlock files from the PR
+        run: |
+          echo "The following files were in the PR:"
+          echo "${{ steps.get_files.outputs.files_list }}"
+          
+          # Read the file list, line by line
+          echo "${{ steps.get_files.outputs.files_list }}" | while read -r file; do
+            
+            # Check if the file is tracked by LFS
+            if git lfs ls-files | grep -q "$file"; then
+              echo "Attempting to force-unlock: $file"
+              git lfs unlock "$file" --force
+            else
+              echo "Skipping (not an LFS file): $file"
+            fi
+            
+          done
