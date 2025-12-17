@@ -73,7 +73,13 @@ namespace Photon.Pun.Demo.PunBasics
 			// set the Animator Parameters
             animator.SetFloat( "Speed", h*h+v*v );
             animator.SetFloat( "Direction", h, directionDampTime, Time.deltaTime );
-	    }
+
+            // Pick Up
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                animator.SetTrigger("pickUp");
+            }
+        }
 
 		#endregion
 
