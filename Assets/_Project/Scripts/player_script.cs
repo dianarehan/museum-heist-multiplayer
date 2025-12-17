@@ -18,7 +18,7 @@ public class player_script : MonoBehaviour
     public Transform FPF;
     public Transform TPF;
 
-    public Camera cameraObj;
+    public UnityEngine.Camera cameraObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

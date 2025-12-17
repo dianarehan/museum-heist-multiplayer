@@ -12,10 +12,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
     // --- Variables with clearer names from Script 1 ---
     [SerializeField] private Transform firstPersonFollow;
     [SerializeField] private Transform thirdPersonFollow;
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] private UnityEngine.Camera playerCamera;
     [SerializeField] private AudioListener audioListener;
 
-    private Camera cameraObj;
+    private UnityEngine.Camera cameraObj;
 
     private Animator anim;
     private Rigidbody rb;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
         else
         {
-            cameraObj = Camera.main;
+            cameraObj = UnityEngine.Camera.main;
         }
 
         // --- Scale-relative logic from Script 2 ---
@@ -161,9 +161,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
 
         // Pick Up: for now!, Raycast to be added
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            anim.SetTrigger("pickUp");
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    anim.SetTrigger("pickUp");
+        //}
     }
 }
