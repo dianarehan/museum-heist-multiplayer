@@ -1,5 +1,6 @@
-using UnityEngine;
+using GLTFast.Schema;
 using Photon.Pun;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
@@ -157,6 +158,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 8f * (tr.localScale.y / 1), firstPersonFollow.position.z);
             }
+        }
+
+        // Pick Up: for now!, Raycast to be added
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("pickUp");
         }
     }
 }
