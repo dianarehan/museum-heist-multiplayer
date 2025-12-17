@@ -1,3 +1,4 @@
+using GLTFast.Schema;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
@@ -90,6 +91,12 @@ public class player_script : MonoBehaviour
         {
             TPF.position = new Vector3(TPF.position.x, 6f * (tr.localScale.y / 1), TPF.position.z);
             FPF.position = new Vector3(FPF.position.x, 10f * (tr.localScale.y / 1), FPF.position.z);
+        }
+
+        // Pick Up: Raycast to be added
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("pickUp");
         }
 
     }
