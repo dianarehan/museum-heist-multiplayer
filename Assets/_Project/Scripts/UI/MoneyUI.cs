@@ -29,12 +29,6 @@ public class MoneyUI : MonoBehaviour
                 return;
             }
         }
-        else
-        {
-            // No role set? safest: hide
-            gameObject.SetActive(false);
-            return;
-        }
 
         // If we reach here, we ARE a thief
         UpdateMoney(ThiefWallet.Local != null ? ThiefWallet.Local.GetMoney() : 0);
