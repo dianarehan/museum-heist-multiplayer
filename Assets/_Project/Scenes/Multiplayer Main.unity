@@ -1354,7 +1354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7522077176056593445, guid: 415888184b461174aad7e7062cfb1158, type: 3}
       propertyPath: m_Positions.Array.data[1].z
-      value: -136.10391
+      value: -107.403915
       objectReference: {fileID: 0}
     - target: {fileID: 8302708967346652583, guid: 415888184b461174aad7e7062cfb1158, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2114,6 +2114,10 @@ PrefabInstance:
     - target: {fileID: 4540028914135421435, guid: f2ec715f783d6a34d931781c5bf0a158, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.088
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360015007188560412, guid: f2ec715f783d6a34d931781c5bf0a158, type: 3}
+      propertyPath: sceneViewId
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6482517956262800584, guid: f2ec715f783d6a34d931781c5bf0a158, type: 3}
       propertyPath: m_Name
@@ -3226,33 +3230,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3941672932897892586, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 3338806980892485285, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: thiefCamera
+      value: 
+      objectReference: {fileID: 535965738}
     - target: {fileID: 6010242520678852662, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: sceneViewId
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6674704934307090808, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7278867315974013372, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: sceneViewId
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 7933840720234997156, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 7635802003000239531, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 9186890002551214560, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: m_Name
       value: NetworkedThief
-      objectReference: {fileID: 0}
-    - target: {fileID: 9186890002551214560, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3989,9 +3985,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1035055954066733973, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: sceneViewId
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3561060073679471136, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
       propertyPath: m_Name
       value: hallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799291316977806626, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: interactionRange
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979382274349485629, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: sceneViewId
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272196249238549372, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: sceneViewId
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887952217974373877, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: interactionRange
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486886473558877099, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: sceneViewId
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739000342859284660, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: interactionRange
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566460608223998293, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: sceneViewId
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557363310379644188, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: interactionRange
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 8899465982214197634, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
       propertyPath: m_LocalPosition.x
