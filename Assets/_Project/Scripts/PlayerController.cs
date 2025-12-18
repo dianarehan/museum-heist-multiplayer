@@ -125,10 +125,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
             anim.SetBool("walking", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && anim.GetBool("walking"))
-        {
-            anim.SetBool("running", !anim.GetBool("running"));
-        }
+        bool isRunning = Input.GetKey(KeyCode.LeftShift) && anim.GetBool("walking");
+        anim.SetBool("running", isRunning);
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
