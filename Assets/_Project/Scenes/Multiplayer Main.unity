@@ -3197,6 +3197,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2139710057}
     - target: {fileID: 3338806980892485285, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7778e14ef7567bc4488dac20f33c21c4, type: 3}
+    - target: {fileID: 3338806980892485285, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: stealPrompt
       value: 
       objectReference: {fileID: 1389191527}
@@ -3220,6 +3224,10 @@ PrefabInstance:
       propertyPath: pickupRange
       value: 38.6
       objectReference: {fileID: 0}
+    - target: {fileID: 6536641945794524891, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7778e14ef7567bc4488dac20f33c21c4, type: 3}
     - target: {fileID: 6575831313596967023, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: rolloffMode
       value: 1

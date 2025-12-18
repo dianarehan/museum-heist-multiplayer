@@ -233,7 +233,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 6658067305418349467}
   - {fileID: 4716738994052308199}
-  sceneViewId: 0
+  sceneViewId: 17
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &7933840720234997156
@@ -293,6 +293,8 @@ MonoBehaviour:
   displayDuration: 2
   stealMessage: Press E to Steal
   protectedMessage: You must break the glass first, Find Something to do that with.
+  pickupSound: {fileID: 8300000, guid: 7778e14ef7567bc4488dac20f33c21c4, type: 3}
+  anim: {fileID: 6326635332904050693}
 --- !u!82 &6575831313596967023
 AudioSource:
   m_ObjectHideFlags: 0
@@ -317,7 +319,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -350,7 +352,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.619
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1214,7 +1216,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4716738994052308199}
   - {fileID: 6658067305418349467}
-  sceneViewId: 0
+  sceneViewId: 8
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &371170589783112517
@@ -1375,16 +1377,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
-  pickupRange: 48.1
+  pickupRange: 38.6
   pickupRadius: 0.3
   pickupLayers:
     serializedVersion: 2
     m_Bits: 8
   handBat: {fileID: 1741296040091303656}
+  equipDelay: 0.5
   pickupKey: 101
   swingKey: 323
   swingCooldown: 0.5
   swingRange: 30
+  audioSource: {fileID: 6575831313596967023}
+  swingSound: {fileID: 8300000, guid: ac974c9947b919b469ad69704489fc83, type: 3}
+  pickupSound: {fileID: 8300000, guid: 7778e14ef7567bc4488dac20f33c21c4, type: 3}
 --- !u!4 &4121850930032867059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 234480625599603528, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}

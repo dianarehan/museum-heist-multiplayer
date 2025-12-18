@@ -29,6 +29,7 @@ public class PlayerEquipment : MonoBehaviourPun
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip swingSound;
+    [SerializeField] private AudioClip pickupSound;
     
     private Animator anim;
     private bool hasBat = false;
@@ -122,6 +123,12 @@ public class PlayerEquipment : MonoBehaviourPun
             anim.SetTrigger("pickUp");
         }
         
+        // Play pickup sound
+        if (show)
+        {
+            PlayPickupSound();
+        }
+        
         hasBat = show;
         
         if (show)
@@ -132,6 +139,33 @@ public class PlayerEquipment : MonoBehaviourPun
         else if (handBat != null)
         {
             handBat.SetActive(false);
+        }
+    }
+    
+    private void PlayPickupSound()
+    {
+        if (pickupSound == null)
+        {
+            Debug.LogWarning("Pickup sound not assigned!");
+            return;
+        }
+        Debug.Log("Playing pickup sound");
+        
+        // Use existing audioSource if available, otherwise create temp one
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(pickupSound, 1f);
+        }
+        else
+        {
+            // Create temp AudioSource on camera
+            GameObject tempAudio = new GameObject("TempPickupSound");
+            tempAudio.transform.position = playerCamera != null ? playerCamera.transform.position : transform.position;
+            AudioSource tempSource = tempAudio.AddComponent<AudioSource>();
+            tempSource.clip = pickupSound;
+            tempSource.volume = 1f;
+            tempSource.Play();
+            Destroy(tempAudio, pickupSound.length + 0.1f);
         }
     }
     

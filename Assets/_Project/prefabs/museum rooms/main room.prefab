@@ -3104,6 +3104,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8207643472448935713}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2784132148551178626}
   m_SourcePrefab: {fileID: 100100000, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
 --- !u!1 &3992929061588211425 stripped
 GameObject:
@@ -3159,6 +3162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 100
   isProtected: 1
+  hideDelay: 0.5
 --- !u!114 &8207643472448935713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3178,9 +3182,24 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &2784132148551178626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992929061588211425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!4 &4333143988513852507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
@@ -3658,7 +3677,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2602576045853421820, guid: d4bcb6cb4f9c45844977b85d725c3bde, type: 3}
       propertyPath: sceneViewId
-      value: 0
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2626705725750984590, guid: d4bcb6cb4f9c45844977b85d725c3bde, type: 3}
       propertyPath: m_LocalScale.x

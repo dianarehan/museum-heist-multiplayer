@@ -19,6 +19,9 @@ public class ThiefStealRaycast : MonoBehaviourPun
     [Header("Prompt Messages")]
     [SerializeField] private string stealMessage = "Press E to Steal";
     [SerializeField] private string protectedMessage = "Protected";
+    
+    [Header("Audio")]
+    [SerializeField] private AudioClip pickupSound;
 
     private StealableItem currentTarget;
     private TMP_Text promptText;
@@ -164,9 +167,20 @@ public class ThiefStealRaycast : MonoBehaviourPun
         
         if (anim != null)
         {
-            anim.ResetTrigger("pickUp");  // Reset first to allow retrigger
+            anim.ResetTrigger("pickUp");
             anim.SetTrigger("pickUp");
-            Debug.Log("Playing pickup animation");
+        }
+        
+        // Play pickup sound at camera position (closer to AudioListener)
+        if (pickupSound != null)
+        {
+            Debug.Log("Playing steal pickup sound");
+            Vector3 playPosition = thiefCamera != null ? thiefCamera.transform.position : transform.position;
+            AudioSource.PlayClipAtPoint(pickupSound, playPosition, 1f);
+        }
+        else
+        {
+            Debug.LogWarning("Steal pickup sound not assigned!");
         }
     }
 }
