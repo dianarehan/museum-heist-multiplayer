@@ -68,10 +68,12 @@ public class ThiefStealRaycast : MonoBehaviourPun
 
         if (Physics.Raycast(ray, out hit, stealRange, stealableLayers))
         {
-            currentTarget = hit.collider.GetComponent<StealableItem>();
+            StealableItem item = hit.collider.GetComponent<StealableItem>();
 
-            if (currentTarget != null)
+            // Only set as target if item exists and can be stolen (not protected)
+            if (item != null && item.CanSteal)
             {
+                currentTarget = item;
                 if (stealPrompt != null) stealPrompt.SetActive(true);
                 return;
             }

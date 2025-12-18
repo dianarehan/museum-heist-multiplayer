@@ -28,6 +28,10 @@ public class MeshDemolisherExample : MonoBehaviourPun
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shatterSound;
+    
+    [Header("Protected Items")]
+    [Tooltip("Items that become stealable when this glass is shattered")]
+    [SerializeField] private StealableItem[] protectedItems;
 
     private static MeshDemolisher meshDemolisher = new MeshDemolisher();
     private bool isShattered = false;
@@ -96,6 +100,9 @@ public class MeshDemolisherExample : MonoBehaviourPun
         // Play shatter sound immediately
         PlayShatterSound();
         
+        // Unlock any protected items
+        UnlockProtectedItems();
+        
         Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>DestroyImmediate(x.gameObject));
         List<Transform> breakPoints = Enumerable.Range(0,breakPointsParent.childCount).Select(x=>breakPointsParent.GetChild(x)).ToList();
 
@@ -124,6 +131,9 @@ public class MeshDemolisherExample : MonoBehaviourPun
         
         // Play shatter sound immediately
         PlayShatterSound();
+        
+        // Unlock any protected items
+        UnlockProtectedItems();
         
         Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>DestroyImmediate(x.gameObject));
         List<Transform> breakPoints = Enumerable.Range(0,breakPointsParent.childCount).Select(x=>breakPointsParent.GetChild(x)).ToList();
@@ -166,6 +176,19 @@ public class MeshDemolisherExample : MonoBehaviourPun
         else
         {
             AudioSource.PlayClipAtPoint(shatterSound, transform.position);
+        }
+    }
+    
+    private void UnlockProtectedItems()
+    {
+        if (protectedItems == null) return;
+        
+        foreach (var item in protectedItems)
+        {
+            if (item != null && item.IsProtected)
+            {
+                item.UnlockProtection();
+            }
         }
     }
     
