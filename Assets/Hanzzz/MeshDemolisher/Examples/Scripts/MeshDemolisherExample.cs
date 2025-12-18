@@ -2,11 +2,12 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Photon.Pun;
 
 namespace Hanzzz.MeshDemolisher
 {
 
-public class MeshDemolisherExample : MonoBehaviour
+public class MeshDemolisherExample : MonoBehaviourPun
 {
     [Header("Hint: right click on the script to call Demolish and Reset\nin the editor mode.")]
     [Space]
@@ -23,8 +24,13 @@ public class MeshDemolisherExample : MonoBehaviour
     [Header("Glass Physics")]
     [SerializeField] private float pieceMass = 0.1f;
     [SerializeField] private float destroyDelay = 5f;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip shatterSound;
 
     private static MeshDemolisher meshDemolisher = new MeshDemolisher();
+    private bool isShattered = false;
     
     private void Start()
     {
@@ -50,11 +56,12 @@ public class MeshDemolisherExample : MonoBehaviour
             return;
         }
 
-        if(targetGameObject.activeSelf)
+        if(targetGameObject.activeSelf && !isShattered)
         {
-            Demolish();
+            // Call RPC to demolish on all clients
+            photonView.RPC("RPC_Demolish", RpcTarget.All);
         }
-        else
+        else if (!targetGameObject.activeSelf)
         {
             Reset();
         }
@@ -74,16 +81,27 @@ public class MeshDemolisherExample : MonoBehaviour
         }
     }
 
+    [PunRPC]
+    public void RPC_Demolish()
+    {
+        if (isShattered) return;
+        Demolish();
+    }
+
     [ContextMenu("Demolish")]
     public void Demolish()
     {
+        isShattered = true;
+        
+        // Play shatter sound immediately
+        PlayShatterSound();
+        
         Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>DestroyImmediate(x.gameObject));
         List<Transform> breakPoints = Enumerable.Range(0,breakPointsParent.childCount).Select(x=>breakPointsParent.GetChild(x)).ToList();
 
         var watch = System.Diagnostics.Stopwatch.StartNew();
         List<GameObject> res = meshDemolisher.Demolish(targetGameObject, breakPoints, interiorMaterial);
         watch.Stop();
-        // logText?.text = $"Demolish time: {watch.ElapsedMilliseconds}ms.";
 
         res.ForEach(x=>x.transform.SetParent(resultParent, true));
         
@@ -102,13 +120,17 @@ public class MeshDemolisherExample : MonoBehaviour
     [ContextMenu("Demolish Async")]
     public async void DemolishAsync()
     {
+        isShattered = true;
+        
+        // Play shatter sound immediately
+        PlayShatterSound();
+        
         Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>DestroyImmediate(x.gameObject));
         List<Transform> breakPoints = Enumerable.Range(0,breakPointsParent.childCount).Select(x=>breakPointsParent.GetChild(x)).ToList();
 
         var watch = System.Diagnostics.Stopwatch.StartNew();
         List<GameObject> res = await meshDemolisher.DemolishAsync(targetGameObject, breakPoints, interiorMaterial);
         watch.Stop();
-        // logText?.text = $"Demolish time: {watch.ElapsedMilliseconds}ms.";
 
         res.ForEach(x=>x.transform.SetParent(resultParent, true));
         
@@ -130,6 +152,21 @@ public class MeshDemolisherExample : MonoBehaviour
         Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>DestroyImmediate(x.gameObject));
 
         targetGameObject.SetActive(true);
+        isShattered = false;
+    }
+    
+    private void PlayShatterSound()
+    {
+        if (shatterSound == null) return;
+        
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(shatterSound);
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(shatterSound, transform.position);
+        }
     }
     
     private void AddPhysicsToPiece(GameObject piece)
@@ -151,3 +188,4 @@ public class MeshDemolisherExample : MonoBehaviour
 }
 
 }
+
