@@ -6,6 +6,11 @@ public class DoorController : MonoBehaviourPun
     [Header("Interaction Settings")]
     [SerializeField] private float interactionRange = 3f;
     
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip openSound;
+    [SerializeField] private AudioClip closeSound;
+    
     private bool isOpen = false;
     private Animator anim;
     
@@ -15,6 +20,11 @@ public class DoorController : MonoBehaviourPun
         if(anim == null)
         {
             Debug.LogError("Animator not found on door controller");
+        }
+        
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
         }
     }
     
@@ -89,6 +99,8 @@ public class DoorController : MonoBehaviourPun
         anim.SetBool("closed", false);
         anim.SetBool("open", true);
         isOpen = true;
+        
+        PlaySound(openSound);
     }
 
     private void CloseDoor()
@@ -98,7 +110,24 @@ public class DoorController : MonoBehaviourPun
         anim.SetBool("open", false);
         anim.SetBool("closed", true);
         isOpen = false;
+        
+        PlaySound(closeSound);
+    }
+    
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip == null) return;
+        
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position);
+        }
     }
 }
+
 
 
