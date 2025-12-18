@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 7933840720234997156}
   - component: {fileID: 913853704148474811}
   - component: {fileID: 3338806980892485285}
+  - component: {fileID: 6575831313596967023}
   m_Layer: 7
   m_Name: NetworkedThief
   m_TagString: Thief
@@ -179,6 +180,103 @@ MonoBehaviour:
     m_Bits: 64
   wallet: {fileID: 913853704148474811}
   stealPrompt: {fileID: 0}
+--- !u!82 &6575831313596967023
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9186890002551214560}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &141668348589737768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -966,8 +1064,16 @@ MonoBehaviour:
   firstPersonFollow: {fileID: 5548581731736769851}
   thirdPersonFollow: {fileID: 9090106535419813683}
   playerCamera: {fileID: 0}
-  audioListener: {fileID: 0}
+  audioListener: {fileID: 527325520345423490}
+  footstepSource: {fileID: 6575831313596967023}
+  footstepClips:
+  - {fileID: 8300000, guid: bff018ec51bb70445bf9a12ee912c3e1, type: 3}
+  walkStepRate: 0.5
+  runStepRate: 0.3
+  walkVolume: 0.5
+  runVolume: 1
   head: {fileID: 7445720480792977853}
+  speedMultiplier: 1
 --- !u!114 &7278867315974013372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,9 +1217,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!136 &4671222931064047233
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1228,7 +1334,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.010436999, y: 0.020366816, z: 0.0106952395}
   m_Center: {x: -0.006585224, y: 0.012843901, z: 0.0020458808}
@@ -1318,7 +1424,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.010885325, y: 0.015819483, z: 0.011005087}
   m_Center: {x: 0.0068893675, y: 0.010583934, z: 0.0024237924}

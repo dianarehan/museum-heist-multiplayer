@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private AudioClip[] footstepClips;
     [SerializeField] private float walkStepRate = 0.5f;
     [SerializeField] private float runStepRate = 0.3f;
+    [SerializeField] [Range(0f, 1f)] private float walkVolume = 0.5f;
+    [SerializeField] [Range(0f, 1f)] private float runVolume = 1f;
 
     private Camera cameraObj;
 
@@ -110,13 +112,21 @@ public class PlayerController : MonoBehaviourPunCallbacks
             anim.SetBool("walking", true);
             tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
             float move_speed = (anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ? crouchSpeed : speed) * speedMultiplier;
-            rb.MovePosition(rb.position + moveDir * move_speed * Time.deltaTime);
+            
+            // Use velocity for physics-based movement (respects collisions)
+            Vector3 targetVelocity = moveDir * move_speed;
+            targetVelocity.y = rb.linearVelocity.y; // Preserve vertical velocity (gravity)
+            rb.linearVelocity = targetVelocity;
             
             PlayFootstep(anim.GetBool("running"));
         }
         else
         {
             anim.SetBool("walking", false);
+            
+            // Stop horizontal movement but keep vertical velocity (gravity)
+            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
+            
             if (footstepSource != null && footstepSource.isPlaying)
             {
                 footstepSource.Stop();
@@ -173,6 +183,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         float stepRate = isRunning ? runStepRate : walkStepRate;
         nextFootstepTime = Time.time + stepRate;
         
+        footstepSource.volume = isRunning ? runVolume : walkVolume;
         footstepSource.clip = footstepClips[Random.Range(0, footstepClips.Length)];
         footstepSource.Play();
     }
