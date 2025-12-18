@@ -103,6 +103,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
         camRight.y = 0;
         camForward.Normalize();
         camRight.Normalize();
+        
+        // FPS: Player body always faces camera direction
+        if (camForward.magnitude > 0.01f)
+        {
+            tr.rotation = Quaternion.LookRotation(camForward, Vector3.up);
+        }
 
         // Move relative to camera direction
         Vector3 moveDir = (camForward * v + camRight * h).normalized;
@@ -110,7 +116,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (move.magnitude >= 0.1f)
         {
             anim.SetBool("walking", true);
-            tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
             float move_speed = (anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ? crouchSpeed : speed) * speedMultiplier;
             
             // Use velocity for physics-based movement (respects collisions)
