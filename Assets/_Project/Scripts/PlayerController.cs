@@ -13,13 +13,19 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private Transform thirdPersonFollow;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private AudioListener audioListener;
+    
+    [Header("Footstep Audio")]
+    [SerializeField] private AudioSource footstepSource;
+    [SerializeField] private AudioClip[] footstepClips;
+    [SerializeField] private float walkStepRate = 0.5f;
+    [SerializeField] private float runStepRate = 0.3f;
 
     private Camera cameraObj;
 
     private Animator anim;
     private Rigidbody rb;
     private Transform tr;
-    //private CharacterController controller;
+    private float nextFootstepTime = 0f;
 
     public GameObject head;
 
@@ -104,27 +110,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
             anim.SetBool("walking", true);
             tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
             float move_speed = (anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ? crouchSpeed : speed) * speedMultiplier;
-            //controller.Move(moveDir * move_speed * Time.deltaTime);
             rb.MovePosition(rb.position + moveDir * move_speed * Time.deltaTime);
-
-            // --- CRITICAL MERGE from Script 2: Move camera points with player ---
-            /*
-            if (firstPersonFollow != null)
-            {
-                firstPersonFollow.position = transform.position + new Vector3(0, 10.0f, 0);
-                firstPersonFollow.rotation = cameraObj.transform.rotation;
-
-            }
             
-            if (thirdPersonFollow != null)
-            {
-                thirdPersonFollow.Translate(moveDir * move_speed * Time.deltaTime);
-            }*/
-
+            PlayFootstep(anim.GetBool("running"));
         }
         else
         {
             anim.SetBool("walking", false);
+            if (footstepSource != null && footstepSource.isPlaying)
+            {
+                footstepSource.Stop();
+            }
         }
 
         bool isRunning = Input.GetKey(KeyCode.LeftShift) && anim.GetBool("walking");
@@ -164,5 +160,20 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             anim.SetTrigger("pickUp");
         }
+    }
+    
+    private void PlayFootstep(bool isRunning)
+    {
+        if (footstepSource == null || footstepClips == null || footstepClips.Length == 0)
+            return;
+        
+        if (Time.time < nextFootstepTime)
+            return;
+        
+        float stepRate = isRunning ? runStepRate : walkStepRate;
+        nextFootstepTime = Time.time + stepRate;
+        
+        footstepSource.clip = footstepClips[Random.Range(0, footstepClips.Length)];
+        footstepSource.Play();
     }
 }
