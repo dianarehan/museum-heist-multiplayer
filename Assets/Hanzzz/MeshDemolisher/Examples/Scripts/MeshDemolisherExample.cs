@@ -16,12 +16,32 @@ public class MeshDemolisherExample : MonoBehaviour
 
     [SerializeField] private KeyCode demolishKey;
 
-    [SerializeField] [Range(0f,1f)] private float resultScale;
     [SerializeField] private Transform resultParent;
 
     [SerializeField] private TMP_Text logText;
+    
+    [Header("Glass Physics")]
+    [SerializeField] private float pieceMass = 0.1f;
+    [SerializeField] private float destroyDelay = 5f;
 
     private static MeshDemolisher meshDemolisher = new MeshDemolisher();
+    
+    private void Start()
+    {
+        // Hide break points (they're just markers, not visible)
+        // Skip the target object if it's in the list
+        if (breakPointsParent != null)
+        {
+            foreach (Transform child in breakPointsParent)
+            {
+                // Don't hide the target object
+                if (child.gameObject == targetGameObject) continue;
+                
+                Renderer rend = child.GetComponent<Renderer>();
+                if (rend != null) rend.enabled = false;
+            }
+        }
+    }
 
     private void Update()
     {
@@ -63,10 +83,18 @@ public class MeshDemolisherExample : MonoBehaviour
         var watch = System.Diagnostics.Stopwatch.StartNew();
         List<GameObject> res = meshDemolisher.Demolish(targetGameObject, breakPoints, interiorMaterial);
         watch.Stop();
-        logText?.text = $"Demolish time: {watch.ElapsedMilliseconds}ms.";
+        // logText?.text = $"Demolish time: {watch.ElapsedMilliseconds}ms.";
 
         res.ForEach(x=>x.transform.SetParent(resultParent, true));
-        Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>x.localScale=resultScale*Vector3.one);
+        
+        // Keep natural scale (don't resize)
+        res.ForEach(x=>x.transform.localScale = Vector3.one);
+        
+        // Add physics to each piece so they fall
+        foreach (var piece in res)
+        {
+            AddPhysicsToPiece(piece);
+        }
 
         targetGameObject.SetActive(false);
     }
@@ -80,10 +108,18 @@ public class MeshDemolisherExample : MonoBehaviour
         var watch = System.Diagnostics.Stopwatch.StartNew();
         List<GameObject> res = await meshDemolisher.DemolishAsync(targetGameObject, breakPoints, interiorMaterial);
         watch.Stop();
-        logText?.text = $"Demolish time: {watch.ElapsedMilliseconds}ms.";
+        // logText?.text = $"Demolish time: {watch.ElapsedMilliseconds}ms.";
 
         res.ForEach(x=>x.transform.SetParent(resultParent, true));
-        Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>x.localScale=resultScale*Vector3.one);
+        
+        // Keep natural scale (don't resize)
+        res.ForEach(x=>x.transform.localScale = Vector3.one);
+        
+        // Add physics to each piece so they fall
+        foreach (var piece in res)
+        {
+            AddPhysicsToPiece(piece);
+        }
 
         targetGameObject.SetActive(false);
     }
@@ -91,15 +127,26 @@ public class MeshDemolisherExample : MonoBehaviour
     [ContextMenu("Reset")]
     public void Reset()
     {
-        //Enumerable.Range(0,breakPointsParent.childCount).Select(i=>breakPointsParent.GetChild(i)).ToList().ForEach(x=>DestroyImmediate(x.gameObject));
         Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>DestroyImmediate(x.gameObject));
 
         targetGameObject.SetActive(true);
     }
-
-    public void OnValidate()
+    
+    private void AddPhysicsToPiece(GameObject piece)
     {
-        Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>x.localScale=resultScale*Vector3.one);
+        // Add MeshCollider for collision
+        MeshCollider meshCollider = piece.AddComponent<MeshCollider>();
+        meshCollider.convex = true;
+        
+        // Add Rigidbody - just let it fall naturally with gravity
+        Rigidbody rb = piece.AddComponent<Rigidbody>();
+        rb.mass = pieceMass;
+        
+        // Destroy piece after delay to clean up
+        if (destroyDelay > 0)
+        {
+            Destroy(piece, destroyDelay);
+        }
     }
 }
 
