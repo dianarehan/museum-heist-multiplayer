@@ -63,7 +63,7 @@ public class MeshDemolisherExample : MonoBehaviour
         var watch = System.Diagnostics.Stopwatch.StartNew();
         List<GameObject> res = meshDemolisher.Demolish(targetGameObject, breakPoints, interiorMaterial);
         watch.Stop();
-        logText.text = $"Demolish time: {watch.ElapsedMilliseconds}ms.";
+        logText?.text = $"Demolish time: {watch.ElapsedMilliseconds}ms.";
 
         res.ForEach(x=>x.transform.SetParent(resultParent, true));
         Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>x.localScale=resultScale*Vector3.one);
@@ -80,7 +80,7 @@ public class MeshDemolisherExample : MonoBehaviour
         var watch = System.Diagnostics.Stopwatch.StartNew();
         List<GameObject> res = await meshDemolisher.DemolishAsync(targetGameObject, breakPoints, interiorMaterial);
         watch.Stop();
-        logText.text = $"Demolish time: {watch.ElapsedMilliseconds}ms.";
+        logText?.text = $"Demolish time: {watch.ElapsedMilliseconds}ms.";
 
         res.ForEach(x=>x.transform.SetParent(resultParent, true));
         Enumerable.Range(0,resultParent.childCount).Select(i=>resultParent.GetChild(i)).ToList().ForEach(x=>x.localScale=resultScale*Vector3.one);
