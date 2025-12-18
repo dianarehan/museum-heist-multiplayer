@@ -169,12 +169,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 8f * (tr.localScale.y / 1), firstPersonFollow.position.z);
             }
         }
-
-        // Pick Up: for now!, Raycast to be added
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            anim.SetTrigger("pickUp");
-        }
     }
     
     private void PlayFootstep(bool isRunning)

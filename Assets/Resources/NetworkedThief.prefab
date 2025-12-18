@@ -42,13 +42,14 @@ GameObject:
   - component: {fileID: 607420188934715562}
   - component: {fileID: 4910723011034552861}
   - component: {fileID: 1183575857837900471}
+  - component: {fileID: 3252421009176138971}
   m_Layer: 0
   m_Name: Chinese_Sword_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &607420188934715562
 Transform:
   m_ObjectHideFlags: 0
@@ -119,6 +120,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3252421009176138971
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741296040091303656}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.014136768, y: 0.005136678, z: 0.19998938}
+  m_Center: {x: -0.000017575552, y: -0.000015622316, z: 0.018878257}
 --- !u!1 &3460108496872995241
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +233,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 6658067305418349467}
   - {fileID: 4716738994052308199}
-  sceneViewId: 8
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &7933840720234997156
@@ -262,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thiefCamera: {fileID: 0}
-  stealRange: 15
+  stealRange: 22.5
   stealableLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -927,6 +949,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4671222931064047233}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6536641945794524891}
     - targetCorrespondingSourceObject: {fileID: -2511240423080479738, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7881435675593090275}
@@ -1155,9 +1180,6 @@ MonoBehaviour:
   speed: 20
   runSpeed: 40
   crouchSpeed: 2
-  mouseSensitivity: 2
-  maxLookAngle: 80
-  cameraHolder: {fileID: 0}
   firstPersonFollow: {fileID: 5548581731736769851}
   thirdPersonFollow: {fileID: 9090106535419813683}
   playerCamera: {fileID: 0}
@@ -1192,7 +1214,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4716738994052308199}
   - {fileID: 6658067305418349467}
-  sceneViewId: 7
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &371170589783112517
@@ -1298,7 +1320,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3941672932897892586}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1340,6 +1362,29 @@ CapsuleCollider:
   m_Height: 7.3333335
   m_Direction: 1
   m_Center: {x: 0, y: 3.8333335, z: 0}
+--- !u!114 &6536641945794524891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941672932897892586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebd072b83d51c14b84d7650733b3166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  pickupRange: 48.1
+  pickupRadius: 0.3
+  pickupLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  handBat: {fileID: 1741296040091303656}
+  pickupKey: 101
+  swingKey: 323
+  swingCooldown: 0.5
+  swingRange: 30
 --- !u!4 &4121850930032867059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 234480625599603528, guid: 069b37f5ed4add84c9715d29f764e8c4, type: 3}

@@ -85,6 +85,25 @@ public class MeshDemolisherExample : MonoBehaviourPun
         }
     }
 
+    /// <summary>
+    /// Public method to break glass - called by PlayerEquipment when hitting with bat
+    /// </summary>
+    public void BreakGlass()
+    {
+        if (isShattered) return;
+        
+        // Check if networking is available and PhotonView is valid
+        if (photonView != null && photonView.ViewID != 0 && PhotonNetwork.IsConnected)
+        {
+            photonView.RPC(nameof(RPC_Demolish), RpcTarget.All);
+        }
+        else
+        {
+            // Fallback: just demolish locally
+            Demolish();
+        }
+    }
+
     [PunRPC]
     public void RPC_Demolish()
     {

@@ -57,6 +57,9 @@ MonoBehaviour:
   - RPC_ActivatePlate
   - RPC_Demolish
   - RPC_UnlockProtection
+  - RPC_OnPickedUp
+  - RPC_ShowHandBat
+  - RPC_Swing
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
