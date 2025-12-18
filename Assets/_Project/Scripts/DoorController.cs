@@ -45,7 +45,7 @@ public class DoorController : MonoBehaviourPun
         // Find the local player by checking PhotonView ownership
         foreach (var player in FindObjectsOfType<PhotonView>())
         {
-            if (player.IsMine && player.CompareTag("Thief"))
+            if (player.IsMine && (player.CompareTag("Thief") || player.CompareTag("Guard")))
             {
                 return player.gameObject;
             }
