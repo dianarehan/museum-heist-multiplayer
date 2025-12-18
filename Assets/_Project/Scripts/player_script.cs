@@ -92,5 +92,11 @@ public class player_script : MonoBehaviour
             FPF.position = new Vector3(FPF.position.x, 10f * (tr.localScale.y / 1), FPF.position.z);
         }
 
+        // Pick Up: Raycast to be added
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("pickUp");
+        }
+
     }
 }
