@@ -494,7 +494,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &449130686
 MeshCollider:
@@ -1110,6 +1110,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a599db5727423864ca852a1e21e54a86, type: 2}
+    - target: {fileID: 6405325111994275344, guid: f6c9427d02ff0ea41b2fc9575d74fe9c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6622790276646322799, guid: f6c9427d02ff0ea41b2fc9575d74fe9c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -1127,6 +1131,10 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7375039043461651354, guid: f6c9427d02ff0ea41b2fc9575d74fe9c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108127492114062950, guid: f6c9427d02ff0ea41b2fc9575d74fe9c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
