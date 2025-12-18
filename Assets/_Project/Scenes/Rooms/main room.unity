@@ -506,13 +506,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 29.650002
       objectReference: {fileID: 0}
+    - target: {fileID: 6946157346630372500, guid: 98ed2537e05e78f4abaa2f432f0c2045, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 78.3812
+      objectReference: {fileID: 0}
     - target: {fileID: 8475395572849515403, guid: 98ed2537e05e78f4abaa2f432f0c2045, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.051762
       objectReference: {fileID: 0}
     - target: {fileID: 8475395572849515403, guid: 98ed2537e05e78f4abaa2f432f0c2045, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37.4
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8591143547878222311, guid: 98ed2537e05e78f4abaa2f432f0c2045, type: 3}
       propertyPath: m_Name
@@ -544,7 +548,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &1833714603
 MeshCollider:
