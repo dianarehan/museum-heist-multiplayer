@@ -38,7 +38,7 @@
 
 		Pass
 		{
-			ZTest Always
+			ZTest LEqual
 			
 			CGPROGRAM
 			#pragma shader_feature _SCAN_ON
