@@ -1,4 +1,3 @@
-using GLTFast.Schema;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
