@@ -24,6 +24,10 @@ public class PlayerEquipment : MonoBehaviourPun
     [SerializeField] private float swingCooldown = 0.5f;
     [SerializeField] private float swingRange = 2f;
     
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip swingSound;
+    
     private Animator anim;
     private bool hasBat = false;
     private float lastSwingTime = 0f;
@@ -133,12 +137,28 @@ public class PlayerEquipment : MonoBehaviourPun
                 anim.SetTrigger("Hit");
             }
             
+            // Play swing sound
+            PlaySwingSound();
+            
             // Sync swing to all players
             photonView.RPC(nameof(RPC_Swing), RpcTarget.All);
             
             // Check for breakable glass in front
             CheckForBreakables();
         }
+    }
+    
+    private void PlaySwingSound()
+    {
+        if (swingSound == null)
+        {
+            Debug.LogWarning("Swing sound clip not assigned!");
+            return;
+        }
+        
+        // Use PlayClipAtPoint to avoid conflicts with other audio sources (like footsteps)
+        AudioSource.PlayClipAtPoint(swingSound, transform.position);
+        Debug.Log("Swing sound played");
     }
     
     [PunRPC]
