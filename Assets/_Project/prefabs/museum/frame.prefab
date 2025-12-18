@@ -64,10 +64,6 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8348727703835636329, guid: fb60d1e27e7aee44aaea764de48da0ef, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: dcd201a611c63384ba20405bef3e87f2, type: 2}
     - target: {fileID: -4856889742830073135, guid: fb60d1e27e7aee44aaea764de48da0ef, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -112,10 +108,6 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -1172183006904614021, guid: fb60d1e27e7aee44aaea764de48da0ef, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: dcd201a611c63384ba20405bef3e87f2, type: 2}
     - target: {fileID: 139613193148092516, guid: fb60d1e27e7aee44aaea764de48da0ef, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5403724
@@ -144,18 +136,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 202416632387968600, guid: fb60d1e27e7aee44aaea764de48da0ef, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: dcd201a611c63384ba20405bef3e87f2, type: 2}
     - target: {fileID: 919132149155446097, guid: fb60d1e27e7aee44aaea764de48da0ef, type: 3}
       propertyPath: m_Name
       value: frame
       objectReference: {fileID: 0}
-    - target: {fileID: 1501726717869709730, guid: fb60d1e27e7aee44aaea764de48da0ef, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: dcd201a611c63384ba20405bef3e87f2, type: 2}
     - target: {fileID: 4526482772585883301, guid: fb60d1e27e7aee44aaea764de48da0ef, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5

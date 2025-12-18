@@ -1,6 +1,5 @@
 using Photon.Pun;
 using UnityEngine;
-using TMPro;
 
 public class ThiefStealRaycast : MonoBehaviourPun
 {
@@ -13,16 +12,9 @@ public class ThiefStealRaycast : MonoBehaviourPun
     [SerializeField] private ThiefWallet wallet;
 
     [Header("UI / Feedback")]
-    [SerializeField] private GameObject stealPrompt;
-    [SerializeField] private float displayDuration = 2f;
-    
-    [Header("Prompt Messages")]
-    [SerializeField] private string stealMessage = "Press E to Steal";
-    [SerializeField] private string protectedMessage = "Protected";
+    [SerializeField] private GameObject stealPrompt;  // e.g. "Press E to steal"
 
     private StealableItem currentTarget;
-    private TMP_Text promptText;
-    private float hideTimer = 0f;
 
     private void Start()
     {
@@ -43,17 +35,14 @@ public class ThiefStealRaycast : MonoBehaviourPun
         {
             thiefCamera = Camera.main;
         }
-        
-        // Auto-find TMP_Text in the prompt object
-        if (stealPrompt != null)
-        {
-            promptText = stealPrompt.GetComponentInChildren<TMP_Text>();
-        }
     }
 
     private void Update()
     {
+
         if (!photonView.IsMine) return;
+        
+
         
         Debug.DrawRay(
             thiefCamera.transform.position,
@@ -68,16 +57,6 @@ public class ThiefStealRaycast : MonoBehaviourPun
 
         UpdateTarget();
         HandleInput();
-        
-        // Auto-hide timer
-        if (hideTimer > 0)
-        {
-            hideTimer -= Time.deltaTime;
-            if (hideTimer <= 0 && stealPrompt != null)
-            {
-                stealPrompt.SetActive(false);
-            }
-        }
     }
 
     private void UpdateTarget()
@@ -89,41 +68,16 @@ public class ThiefStealRaycast : MonoBehaviourPun
 
         if (Physics.Raycast(ray, out hit, stealRange, stealableLayers))
         {
-            StealableItem item = hit.collider.GetComponent<StealableItem>();
+            currentTarget = hit.collider.GetComponent<StealableItem>();
 
-            if (item != null)
+            if (currentTarget != null)
             {
-                ShowPrompt();
-                
-                if (item.CanSteal)
-                {
-                    currentTarget = item;
-                    SetPromptText($"{stealMessage} (${item.Value})");
-                }
-                else if (item.IsProtected)
-                {
-                    SetPromptText(protectedMessage);
-                }
+                if (stealPrompt != null) stealPrompt.SetActive(true);
                 return;
             }
         }
-    }
-    
-    private void ShowPrompt()
-    {
-        if (stealPrompt != null)
-        {
-            stealPrompt.SetActive(true);
-            hideTimer = displayDuration;
-        }
-    }
-    
-    private void SetPromptText(string text)
-    {
-        if (promptText != null)
-        {
-            promptText.text = text;
-        }
+
+        if (stealPrompt != null) stealPrompt.SetActive(false);
     }
 
     private void HandleInput()
@@ -134,19 +88,21 @@ public class ThiefStealRaycast : MonoBehaviourPun
         {
             int value = currentTarget.Value;
 
+            // Update local wallet
             if (wallet != null)
             {
                 wallet.AddMoney(value);
             }
 
+            // Make item disappear for everyone
             currentTarget.Steal();
             Debug.Log("Stole item worth: " + value);
             GameState.Instance.ThiefCollectedLoot(value);
 
+
+            // Clear prompt
             if (stealPrompt != null) stealPrompt.SetActive(false);
             currentTarget = null;
-            hideTimer = 0f;
         }
     }
 }
-

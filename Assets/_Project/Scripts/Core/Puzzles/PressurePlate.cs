@@ -1,7 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 
-public class PressurePlate : MonoBehaviourPun
+public class PressurePlate : MonoBehaviour
 {
     [SerializeField] private LaserGrid mainLaserGrid;
     [SerializeField] private Material activeMaterial;
@@ -17,24 +17,7 @@ public class PressurePlate : MonoBehaviourPun
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Thief"))
-        {
-            photonView.RPC("RPC_ActivatePlate", RpcTarget.All, true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Thief"))
-        {
-            photonView.RPC("RPC_ActivatePlate", RpcTarget.All, false);
-        }
-    }
-
-    [PunRPC]
-    private void RPC_ActivatePlate(bool isActivated)
-    {
-        if (isActivated)
+        if (other.CompareTag("Player"))
         {
             plateRenderer.material = activeMaterial;
             
@@ -43,7 +26,11 @@ public class PressurePlate : MonoBehaviourPun
                 mainLaserGrid.PlateActivated(true, this);
             }
         }
-        else
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
             plateRenderer.material = defaultMaterial;
             

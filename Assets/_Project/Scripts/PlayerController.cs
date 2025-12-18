@@ -1,5 +1,5 @@
-using Photon.Pun;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
@@ -13,25 +13,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private Transform thirdPersonFollow;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private AudioListener audioListener;
-    
-    [Header("Footstep Audio")]
-    [SerializeField] private AudioSource footstepSource;
-    [SerializeField] private AudioClip[] footstepClips;
-    [SerializeField] private float walkStepRate = 0.5f;
-    [SerializeField] private float runStepRate = 0.3f;
-    [SerializeField] [Range(0f, 1f)] private float walkVolume = 0.5f;
-    [SerializeField] [Range(0f, 1f)] private float runVolume = 1f;
 
     private Camera cameraObj;
 
     private Animator anim;
     private Rigidbody rb;
     private Transform tr;
-    private float nextFootstepTime = 0f;
-
-    public GameObject head;
-
-    [HideInInspector] public float speedMultiplier = 1f;
+    private CharacterController controller;
 
     void Start()
     {
@@ -51,9 +39,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
-        SkinnedMeshRenderer headRender = head.GetComponent<SkinnedMeshRenderer>();
-        headRender.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
-        //controller = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
 
         // --- Fallback from Script 1 ---
         if (playerCamera != null)
@@ -78,8 +64,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             firstPersonFollow.position = new Vector3(
                 firstPersonFollow.position.x,
-                //firstPersonFollow.position.y,
-                10f * (tr.localScale.y / 1),
+                firstPersonFollow.position.y,
+                //10f * (tr.localScale.y / 1),
                 firstPersonFollow.position.z
             );
         }
@@ -111,30 +97,33 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             anim.SetBool("walking", true);
             tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
-            float move_speed = (anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ? crouchSpeed : speed) * speedMultiplier;
+            float move_speed = anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ? crouchSpeed : speed;
+            controller.Move(moveDir * move_speed * Time.deltaTime);
+
+            // --- CRITICAL MERGE from Script 2: Move camera points with player ---
+            /*
+            if (firstPersonFollow != null)
+            {
+                firstPersonFollow.position = transform.position + new Vector3(0, 10.0f, 0);
+                firstPersonFollow.rotation = cameraObj.transform.rotation;
+
+            }
             
-            // Use velocity for physics-based movement (respects collisions)
-            Vector3 targetVelocity = moveDir * move_speed;
-            targetVelocity.y = rb.linearVelocity.y; // Preserve vertical velocity (gravity)
-            rb.linearVelocity = targetVelocity;
-            
-            PlayFootstep(anim.GetBool("running"));
+            if (thirdPersonFollow != null)
+            {
+                thirdPersonFollow.Translate(moveDir * move_speed * Time.deltaTime);
+            }*/
+
         }
         else
         {
             anim.SetBool("walking", false);
-            
-            // Stop horizontal movement but keep vertical velocity (gravity)
-            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
-            
-            if (footstepSource != null && footstepSource.isPlaying)
-            {
-                footstepSource.Stop();
-            }
         }
 
-        bool isRunning = Input.GetKey(KeyCode.LeftShift) && anim.GetBool("walking");
-        anim.SetBool("running", isRunning);
+        if (Input.GetKeyDown(KeyCode.LeftShift) && anim.GetBool("walking"))
+        {
+            anim.SetBool("running", !anim.GetBool("running"));
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -161,30 +150,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
             }
             if (firstPersonFollow != null)
             {
-                firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 8f * (tr.localScale.y / 1), firstPersonFollow.position.z);
+                firstPersonFollow.position = new Vector3(firstPersonFollow.position.x, 10f * (tr.localScale.y / 1), firstPersonFollow.position.z);
             }
         }
-
-        // Pick Up: for now!, Raycast to be added
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            anim.SetTrigger("pickUp");
-        }
-    }
-    
-    private void PlayFootstep(bool isRunning)
-    {
-        if (footstepSource == null || footstepClips == null || footstepClips.Length == 0)
-            return;
-        
-        if (Time.time < nextFootstepTime)
-            return;
-        
-        float stepRate = isRunning ? runStepRate : walkStepRate;
-        nextFootstepTime = Time.time + stepRate;
-        
-        footstepSource.volume = isRunning ? runVolume : walkVolume;
-        footstepSource.clip = footstepClips[Random.Range(0, footstepClips.Length)];
-        footstepSource.Play();
     }
 }

@@ -41,11 +41,5 @@ public class GuardAnimatorController : MonoBehaviourPunCallbacks
         {
             animator.SetTrigger("Pickup");
         }
-
-        // 6. Use inhaler
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            animator.SetTrigger("useInhaler");
-        }
     }
 }
