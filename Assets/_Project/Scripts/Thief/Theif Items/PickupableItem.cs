@@ -1,5 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
+using System.Collections;
 
 /// <summary>
 /// Attach to a pickupable item in the scene (like a bat on the floor).
@@ -8,7 +9,8 @@ using UnityEngine;
 public class PickupableItem : MonoBehaviourPun
 {
     [Header("Item Settings")]
-    [SerializeField] private string itemId = "bat"; // Identifier for what type of item this is
+    [SerializeField] private string itemId = "bat";
+    [SerializeField] private float hideDelay = 0.5f; // Delay before hiding to allow animation
     
     private bool isPickedUp = false;
     
@@ -20,12 +22,15 @@ public class PickupableItem : MonoBehaviourPun
     {
         if (isPickedUp) return;
         isPickedUp = true;
+        StartCoroutine(HideAfterDelay());
+    }
+    
+    private IEnumerator HideAfterDelay()
+    {
+        yield return new WaitForSeconds(hideDelay);
         gameObject.SetActive(false);
     }
     
-    /// <summary>
-    /// Call this when player picks up the item
-    /// </summary>
     public void Pickup()
     {
         if (isPickedUp) return;

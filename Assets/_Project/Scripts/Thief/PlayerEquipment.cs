@@ -1,5 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
+using System.Collections;
 
 /// <summary>
 /// Manages player equipment - pickup items, show equipped items, and use them.
@@ -14,7 +15,8 @@ public class PlayerEquipment : MonoBehaviourPun
     [SerializeField] private LayerMask pickupLayers;
     
     [Header("Equipped Items")]
-    [SerializeField] private GameObject handBat; // The bat model already in player's hand (starts inactive)
+    [SerializeField] private GameObject handBat;
+    [SerializeField] private float equipDelay = 0.5f; // Delay before showing hand bat (matches animation)
     
     [Header("Input")]
     [SerializeField] private KeyCode pickupKey = KeyCode.E;
@@ -94,7 +96,6 @@ public class PlayerEquipment : MonoBehaviourPun
                 {
                     item.Pickup();
                     EquipBat();
-                    anim.SetTrigger("Pickup");
                 }
             }
         }
@@ -115,11 +116,32 @@ public class PlayerEquipment : MonoBehaviourPun
     [PunRPC]
     private void RPC_ShowHandBat(bool show)
     {
+        // Play pickup animation first
+        if (show && anim != null)
+        {
+            anim.SetTrigger("pickUp");
+        }
+        
+        hasBat = show;
+        
+        if (show)
+        {
+            // Delay showing hand bat until after animation
+            StartCoroutine(ShowHandBatDelayed());
+        }
+        else if (handBat != null)
+        {
+            handBat.SetActive(false);
+        }
+    }
+    
+    private IEnumerator ShowHandBatDelayed()
+    {
+        yield return new WaitForSeconds(equipDelay);
         if (handBat != null)
         {
-            handBat.SetActive(show);
+            handBat.SetActive(true);
         }
-        hasBat = show;
     }
     
     private void HandleSwing()

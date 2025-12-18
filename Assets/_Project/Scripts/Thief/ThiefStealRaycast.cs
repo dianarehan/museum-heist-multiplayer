@@ -23,6 +23,7 @@ public class ThiefStealRaycast : MonoBehaviourPun
     private StealableItem currentTarget;
     private TMP_Text promptText;
     private float hideTimer = 0f;
+    [SerializeField] private Animator anim;
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class ThiefStealRaycast : MonoBehaviourPun
             if (stealPrompt != null) stealPrompt.SetActive(false);
             return;
         }
+        
 
         if (thiefCamera == null)
         {
@@ -142,11 +144,31 @@ public class ThiefStealRaycast : MonoBehaviourPun
             currentTarget.Steal();
             Debug.Log("Stole item worth: " + value);
             GameState.Instance.ThiefCollectedLoot(value);
+            
+            // Play pickup animation on all clients
+            photonView.RPC(nameof(RPC_PlayPickupAnimation), RpcTarget.All);
 
             if (stealPrompt != null) stealPrompt.SetActive(false);
             currentTarget = null;
             hideTimer = 0f;
         }
     }
+    
+    [PunRPC]
+    private void RPC_PlayPickupAnimation()
+    {
+        if (anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
+        
+        if (anim != null)
+        {
+            anim.ResetTrigger("pickUp");  // Reset first to allow retrigger
+            anim.SetTrigger("pickUp");
+            Debug.Log("Playing pickup animation");
+        }
+    }
 }
+
 

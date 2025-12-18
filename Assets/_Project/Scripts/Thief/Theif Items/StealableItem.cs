@@ -1,5 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
+using System.Collections;
 
 public class StealableItem : MonoBehaviourPun
 {
@@ -8,19 +9,15 @@ public class StealableItem : MonoBehaviourPun
     [Header("Protection")]
     [Tooltip("If true, item cannot be stolen until protection is removed (e.g., glass is shattered)")]
     [SerializeField] private bool isProtected = false;
+    
+    [Header("Animation")]
+    [SerializeField] private float hideDelay = 0.5f; // Delay before hiding to allow animation
 
     private bool isStolen = false;
 
     public int Value => value;
     
-    /// <summary>
-    /// Returns true if the item can be stolen (not protected and not already stolen)
-    /// </summary>
     public bool CanSteal => !isProtected && !isStolen;
-    
-    /// <summary>
-    /// Returns true if this item is currently protected
-    /// </summary>
     public bool IsProtected => isProtected;
 
     [PunRPC]
@@ -28,6 +25,12 @@ public class StealableItem : MonoBehaviourPun
     {
         if (isStolen) return;
         isStolen = true;
+        StartCoroutine(HideAfterDelay());
+    }
+    
+    private IEnumerator HideAfterDelay()
+    {
+        yield return new WaitForSeconds(hideDelay);
         gameObject.SetActive(false);
     }
     
@@ -51,9 +54,6 @@ public class StealableItem : MonoBehaviourPun
         }
     }
     
-    /// <summary>
-    /// Call this when the protection is removed (e.g., glass shattered)
-    /// </summary>
     public void UnlockProtection()
     {
         if (photonView != null)

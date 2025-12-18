@@ -60,6 +60,7 @@ MonoBehaviour:
   - RPC_OnPickedUp
   - RPC_ShowHandBat
   - RPC_Swing
+  - RPC_PlayPickupAnimation
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
