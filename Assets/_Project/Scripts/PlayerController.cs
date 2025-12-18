@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public GameObject head;
 
+    [HideInInspector] public float speedMultiplier = 1f;
+
     void Start()
     {
 
@@ -101,7 +103,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             anim.SetBool("walking", true);
             tr.rotation = Quaternion.LookRotation(moveDir, Vector3.up);
-            float move_speed = anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ? crouchSpeed : speed;
+            float move_speed = (anim.GetBool("running") ? runSpeed : anim.GetBool("crouching") ? crouchSpeed : speed) * speedMultiplier;
             //controller.Move(moveDir * move_speed * Time.deltaTime);
             rb.MovePosition(rb.position + moveDir * move_speed * Time.deltaTime);
 

@@ -54,6 +54,7 @@ MonoBehaviour:
   - RPC_UpdateThievesKnockedOut
   - RPC_ThiefCaughtRequest
   - RPC_ToggleDoor
+  - RPC_ActivatePlate
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
