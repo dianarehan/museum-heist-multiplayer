@@ -112,8 +112,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -313.8, y: 7.56, z: -126.80392}
-  - {x: -244.29999, y: 22.5, z: -119.60392}
+  - {x: -265.4609, y: 7.56, z: -114.60391}
+  - {x: -195.9609, y: 22.5, z: -107.403915}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -202,6 +202,8 @@ MonoBehaviour:
   fadeOutDuration: 2
   slowdownMultiplier: 0.1
   chromaticAberrationIntensity: 155.9
+  laserHitSound: {fileID: 8300000, guid: 2e9a207c08b67f448a866ac1ff085ab5, type: 3}
+  audioSource: {fileID: 8728247571713223650}
   postProcessVolume: {fileID: 0}
 --- !u!65 &6549152483614376258
 BoxCollider:
@@ -577,8 +579,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -317, y: 8.29, z: -145.06392}
-  - {x: -241.49998, y: -1.5, z: -153.26392}
+  - {x: -268.66092, y: 8.29, z: -132.86392}
+  - {x: -193.1609, y: -1.5, z: -141.06392}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3

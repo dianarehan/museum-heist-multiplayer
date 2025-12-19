@@ -875,53 +875,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1862580744580873163, guid: 415888184b461174aad7e7062cfb1158, type: 3}
-      propertyPath: m_Positions.Array.data[0].x
-      value: -268.66092
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862580744580873163, guid: 415888184b461174aad7e7062cfb1158, type: 3}
-      propertyPath: m_Positions.Array.data[0].z
-      value: -132.86392
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862580744580873163, guid: 415888184b461174aad7e7062cfb1158, type: 3}
-      propertyPath: m_Positions.Array.data[1].x
-      value: -193.1609
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862580744580873163, guid: 415888184b461174aad7e7062cfb1158, type: 3}
-      propertyPath: m_Positions.Array.data[1].z
-      value: -141.06392
-      objectReference: {fileID: 0}
     - target: {fileID: 2509485177125018988, guid: 415888184b461174aad7e7062cfb1158, type: 3}
       propertyPath: m_Name
       value: Laser Puzzle (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3529268106245352333, guid: 415888184b461174aad7e7062cfb1158, type: 3}
       propertyPath: sceneViewId
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4282571044996976453, guid: 415888184b461174aad7e7062cfb1158, type: 3}
       propertyPath: sceneViewId
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 7522077176056593445, guid: 415888184b461174aad7e7062cfb1158, type: 3}
-      propertyPath: m_Positions.Array.data[0].x
-      value: -265.4609
-      objectReference: {fileID: 0}
-    - target: {fileID: 7522077176056593445, guid: 415888184b461174aad7e7062cfb1158, type: 3}
-      propertyPath: m_Positions.Array.data[0].z
-      value: -114.60391
-      objectReference: {fileID: 0}
-    - target: {fileID: 7522077176056593445, guid: 415888184b461174aad7e7062cfb1158, type: 3}
-      propertyPath: m_Positions.Array.data[1].x
-      value: -195.9609
-      objectReference: {fileID: 0}
-    - target: {fileID: 7522077176056593445, guid: 415888184b461174aad7e7062cfb1158, type: 3}
-      propertyPath: m_Positions.Array.data[1].z
-      value: -107.403915
-      objectReference: {fileID: 0}
     - target: {fileID: 7607796608575035037, guid: 415888184b461174aad7e7062cfb1158, type: 3}
       propertyPath: sceneViewId
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3135,6 +3103,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1862580744580873163, guid: 415888184b461174aad7e7062cfb1158, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: -317
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862580744580873163, guid: 415888184b461174aad7e7062cfb1158, type: 3}
+      propertyPath: m_Positions.Array.data[0].z
+      value: -145.06392
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862580744580873163, guid: 415888184b461174aad7e7062cfb1158, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: -241.49998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862580744580873163, guid: 415888184b461174aad7e7062cfb1158, type: 3}
+      propertyPath: m_Positions.Array.data[1].z
+      value: -153.26392
+      objectReference: {fileID: 0}
     - target: {fileID: 2509485177125018988, guid: 415888184b461174aad7e7062cfb1158, type: 3}
       propertyPath: m_Name
       value: Laser Puzzle (2)
@@ -3146,6 +3130,22 @@ PrefabInstance:
     - target: {fileID: 4282571044996976453, guid: 415888184b461174aad7e7062cfb1158, type: 3}
       propertyPath: sceneViewId
       value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522077176056593445, guid: 415888184b461174aad7e7062cfb1158, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: -313.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522077176056593445, guid: 415888184b461174aad7e7062cfb1158, type: 3}
+      propertyPath: m_Positions.Array.data[0].z
+      value: -126.80392
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522077176056593445, guid: 415888184b461174aad7e7062cfb1158, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: -244.29999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522077176056593445, guid: 415888184b461174aad7e7062cfb1158, type: 3}
+      propertyPath: m_Positions.Array.data[1].z
+      value: -119.60392
       objectReference: {fileID: 0}
     - target: {fileID: 7607796608575035037, guid: 415888184b461174aad7e7062cfb1158, type: 3}
       propertyPath: sceneViewId

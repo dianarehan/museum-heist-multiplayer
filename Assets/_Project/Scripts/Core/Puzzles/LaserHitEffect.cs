@@ -10,6 +10,10 @@ public class LaserHitEffect : MonoBehaviour
     [SerializeField] private float slowdownMultiplier = 0.5f;
     [SerializeField] private float chromaticAberrationIntensity = 1f;
     
+    [Header("Audio")]
+    [SerializeField] private AudioClip laserHitSound;
+    [SerializeField] private AudioSource audioSource;
+    
     [Header("References")]
     [SerializeField] private Volume postProcessVolume;
     
@@ -34,6 +38,11 @@ public class LaserHitEffect : MonoBehaviour
                 originalChromaticIntensity = chromaticAberration.intensity.value;
             }
         }
+        
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
     
     private void OnTriggerEnter(Collider other)
@@ -55,6 +64,10 @@ public class LaserHitEffect : MonoBehaviour
         
         affectedPlayer = player;
         playerIsInside = true;
+        
+        // Play laser hit sound
+        PlayHitSound();
+        
         ApplyFullEffect();
     }
     
@@ -92,6 +105,20 @@ public class LaserHitEffect : MonoBehaviour
         if (chromaticAberration != null)
         {
             chromaticAberration.intensity.value = chromaticAberrationIntensity;
+        }
+    }
+    
+    private void PlayHitSound()
+    {
+        if (laserHitSound == null) return;
+        
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(laserHitSound);
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(laserHitSound, transform.position);
         }
     }
     
