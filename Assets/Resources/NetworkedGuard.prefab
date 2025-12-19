@@ -776,6 +776,7 @@ GameObject:
   - component: {fileID: 8367183108316082876}
   - component: {fileID: 5960280580102675514}
   - component: {fileID: 8868309170002357255}
+  - component: {fileID: 1330480628901051412}
   m_Layer: 0
   m_Name: NetworkedGuard
   m_TagString: Guard
@@ -1055,6 +1056,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: isWalkingBack
+  - Type: 9
+    SynchronizeType: 0
+    Name: useInhaler
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
@@ -1299,6 +1303,24 @@ MonoBehaviour:
   pulseRange: 0.15
   saturationReduction: -40
   postProcessVolume: {fileID: 0}
+--- !u!114 &1330480628901051412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530347482223586906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d242c3388e26b24882f0948c8553b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 30
+  interactableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  promptPrefab: {fileID: 4195389081003521245, guid: 30a769c00778c394e96ebc66b04dac60, type: 3}
+  promptOffset: {x: 0, y: 1.5, z: 0}
 --- !u!1 &8590006068141508949
 GameObject:
   m_ObjectHideFlags: 0
