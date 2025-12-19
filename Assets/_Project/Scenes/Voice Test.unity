@@ -2018,10 +2018,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkedGuard
       objectReference: {fileID: 0}
-    - target: {fileID: 8565674777043984127, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
-      propertyPath: taseDuration
-      value: 0.6
-      objectReference: {fileID: 0}
+    - target: {fileID: 8868309170002357255, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
+      propertyPath: postProcessVolume
+      value: 
+      objectReference: {fileID: 817496653}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
