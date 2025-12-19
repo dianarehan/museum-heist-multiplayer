@@ -936,6 +936,13 @@ MonoBehaviour:
   walkLeftParam: isWalkingLeft
   walkRightParam: isWalkingRight
   walkDirDeadzone: 0.15
+  footstepSource: {fileID: 5090592198239588171}
+  footstepClips:
+  - {fileID: 8300000, guid: bff018ec51bb70445bf9a12ee912c3e1, type: 3}
+  walkStepRate: 0.5
+  runStepRate: 0.3
+  walkVolume: 0.5
+  runVolume: 1
 --- !u!65 &1454950559506279775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -979,7 +986,7 @@ MonoBehaviour:
   - {fileID: 3417346363681171015}
   - {fileID: -2437513146420548690}
   - {fileID: 1469275211347345556}
-  sceneViewId: 0
+  sceneViewId: 14
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &9003294068891598647
@@ -1156,7 +1163,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1168,7 +1175,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1201,7 +1208,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
