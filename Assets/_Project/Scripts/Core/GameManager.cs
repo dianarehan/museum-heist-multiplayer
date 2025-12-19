@@ -13,10 +13,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        DebugNetworkBootstrapper debugBootstrapper = FindObjectOfType<DebugNetworkBootstrapper>();
-        if (debugBootstrapper != null && debugBootstrapper.enabled)
+        // Only skip spawning if debug bootstrapper exists AND is enabled AND active
+        DebugNetworkBootstrapper debugBootstrapper = FindObjectOfType<DebugNetworkBootstrapper>(true);
+        if (debugBootstrapper != null && debugBootstrapper.enabled && debugBootstrapper.gameObject.activeInHierarchy)
         {
-            Debug.Log("[GameManager] Debug bootstrapper detected, skipping standard spawn.");
+            Debug.Log("[GameManager] Debug bootstrapper active, skipping standard spawn.");
             return;
         }
 
