@@ -4,7 +4,12 @@ using Photon.Pun;
 public class DoorController : MonoBehaviourPun
 {
     [Header("Interaction Settings")]
-    [SerializeField] private float interactionRange = 32f;
+    [SerializeField] private float interactionRange = 3f;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip openSound;
+    [SerializeField] private AudioClip closeSound;
     
     private bool isOpen = false;
     private Animator anim;
@@ -16,33 +21,54 @@ public class DoorController : MonoBehaviourPun
         {
             Debug.LogError("Animator not found on door controller");
         }
+        
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
-
-    private void OnMouseDown()
+    
+    void Update()
     {
-        // Find the local player
+        // Check for E key press
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TryInteract();
+        }
+    }
+    
+    private void TryInteract()
+    {
+        // Find local player
         GameObject localPlayer = GetLocalPlayer();
-        if (localPlayer == null)
-        {
-            Debug.LogWarning("Local player not found");
-            return;
-        }
+        if (localPlayer == null) return;
         
-        // Check if player is within interaction range
+        // Check distance
         float distance = Vector3.Distance(localPlayer.transform.position, transform.position);
-        if (distance > interactionRange)
-        {
-            Debug.Log($"Too far from door. Distance: {distance:F1}, Required: {interactionRange}");
-            return;
-        }
+        if (distance > interactionRange) return;
         
-        // Call RPC to toggle door state on all clients
-        photonView.RPC("RPC_ToggleDoor", RpcTarget.All);
+        // Check if player is looking at this door (raycast from player's camera)
+        Camera playerCam = localPlayer.GetComponentInChildren<Camera>();
+        if (playerCam == null) playerCam = Camera.main;
+        if (playerCam == null) return;
+        
+        Ray ray = new Ray(playerCam.transform.position, playerCam.transform.forward);
+        RaycastHit hit;
+        
+        if (Physics.Raycast(ray, out hit, interactionRange))
+        {
+            // Check if raycast hit this door or any of its children/parents
+            if (hit.transform == transform || 
+                hit.transform.IsChildOf(transform) || 
+                transform.IsChildOf(hit.transform))
+            {
+                photonView.RPC("RPC_ToggleDoor", RpcTarget.All);
+            }
+        }
     }
     
     private GameObject GetLocalPlayer()
     {
-        // Find the local player by checking PhotonView ownership
         foreach (var player in FindObjectsOfType<PhotonView>())
         {
             if (player.IsMine && (player.CompareTag("Thief") || player.CompareTag("Guard")))
@@ -73,6 +99,8 @@ public class DoorController : MonoBehaviourPun
         anim.SetBool("closed", false);
         anim.SetBool("open", true);
         isOpen = true;
+        
+        PlaySound(openSound);
     }
 
     private void CloseDoor()
@@ -82,5 +110,24 @@ public class DoorController : MonoBehaviourPun
         anim.SetBool("open", false);
         anim.SetBool("closed", true);
         isOpen = false;
+        
+        PlaySound(closeSound);
+    }
+    
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip == null) return;
+        
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position);
+        }
     }
 }
+
+
+

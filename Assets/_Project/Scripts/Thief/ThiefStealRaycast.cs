@@ -19,10 +19,14 @@ public class ThiefStealRaycast : MonoBehaviourPun
     [Header("Prompt Messages")]
     [SerializeField] private string stealMessage = "Press E to Steal";
     [SerializeField] private string protectedMessage = "Protected";
+    
+    [Header("Audio")]
+    [SerializeField] private AudioClip pickupSound;
 
     private StealableItem currentTarget;
     private TMP_Text promptText;
     private float hideTimer = 0f;
+    [SerializeField] private Animator anim;
 
     private void Start()
     {
@@ -38,6 +42,7 @@ public class ThiefStealRaycast : MonoBehaviourPun
             if (stealPrompt != null) stealPrompt.SetActive(false);
             return;
         }
+        
 
         if (thiefCamera == null)
         {
@@ -142,11 +147,42 @@ public class ThiefStealRaycast : MonoBehaviourPun
             currentTarget.Steal();
             Debug.Log("Stole item worth: " + value);
             GameState.Instance.ThiefCollectedLoot(value);
+            
+            // Play pickup animation on all clients
+            photonView.RPC(nameof(RPC_PlayPickupAnimation), RpcTarget.All);
 
             if (stealPrompt != null) stealPrompt.SetActive(false);
             currentTarget = null;
             hideTimer = 0f;
         }
     }
+    
+    [PunRPC]
+    private void RPC_PlayPickupAnimation()
+    {
+        if (anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
+        
+        if (anim != null)
+        {
+            anim.ResetTrigger("pickUp");
+            anim.SetTrigger("pickUp");
+        }
+        
+        // Play pickup sound at camera position (closer to AudioListener)
+        if (pickupSound != null)
+        {
+            Debug.Log("Playing steal pickup sound");
+            Vector3 playPosition = thiefCamera != null ? thiefCamera.transform.position : transform.position;
+            AudioSource.PlayClipAtPoint(pickupSound, playPosition, 1f);
+        }
+        else
+        {
+            Debug.LogWarning("Steal pickup sound not assigned!");
+        }
+    }
 }
+
 
