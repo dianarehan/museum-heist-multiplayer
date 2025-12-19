@@ -3082,7 +3082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
       propertyPath: m_Name
-      value: Untitled
+      value: DinasourHead
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
       propertyPath: m_Layer
@@ -3104,9 +3104,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8207643472448935713}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2784132148551178626}
   m_SourcePrefab: {fileID: 100100000, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
 --- !u!1 &3992929061588211425 stripped
 GameObject:
@@ -3185,21 +3182,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2784132148551178626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3992929061588211425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!4 &4333143988513852507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
