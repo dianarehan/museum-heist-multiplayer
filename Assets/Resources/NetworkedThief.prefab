@@ -356,10 +356,10 @@ GameObject:
   - component: {fileID: 913853704148474811}
   - component: {fileID: 3338806980892485285}
   - component: {fileID: 6575831313596967023}
-  - component: {fileID: 7615988894398739273}
   - component: {fileID: 6443263031581480736}
   - component: {fileID: 4426436293482978820}
   - component: {fileID: 8417372441371021528}
+  - component: {fileID: 8028029103100157168}
   m_Layer: 7
   m_Name: NetworkedThief
   m_TagString: Thief
@@ -568,22 +568,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7615988894398739273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9186890002551214560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4787dfa3c552c9247a7f12d660e30ba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 200
-  minDistance: 30
-  disableEarpieceLogic: 1
-  speaker: {fileID: 4426436293482978820}
 --- !u!114 &6443263031581480736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +641,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8028029103100157168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9186890002551214560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9180fbad399754594b3f414061c111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voiceGroup: 1
 --- !u!1001 &141668348589737768
 PrefabInstance:
   m_ObjectHideFlags: 0

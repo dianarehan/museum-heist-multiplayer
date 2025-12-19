@@ -770,7 +770,6 @@ GameObject:
   - component: {fileID: -2437513146420548690}
   - component: {fileID: 326387005414151782}
   - component: {fileID: 8565674777043984127}
-  - component: {fileID: 1367204864549749754}
   - component: {fileID: 3867136771178052681}
   - component: {fileID: 6883313091854965648}
   - component: {fileID: 5090592198239588171}
@@ -1084,22 +1083,6 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &1367204864549749754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8530347482223586906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4787dfa3c552c9247a7f12d660e30ba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 30
-  minDistance: 2
-  disableEarpieceLogic: 0
-  speaker: {fileID: 0}
 --- !u!114 &3867136771178052681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,7 +1100,7 @@ MonoBehaviour:
   headpieceIndicator: {fileID: 6476400843317876106}
   activateSound: {fileID: 8300000, guid: eaea20420b7c71e408c38f7156a00a0f, type: 3}
   deactivateSound: {fileID: 8300000, guid: eaea20420b7c71e408c38f7156a00a0f, type: 3}
-  voiceRecorder: {fileID: 6883313091854965648}
+  thiefVoiceGroup: 1
 --- !u!114 &6883313091854965648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,7 +1130,7 @@ MonoBehaviour:
   microphoneType: 0
   audioClip: {fileID: 0}
   loopAudioClip: 1
-  recordingEnabled: 1
+  recordingEnabled: 0
   audioSessionParameters:
     Category: 4
     Mode: 1
@@ -1160,7 +1143,7 @@ MonoBehaviour:
   stopRecordingWhenPaused: 0
   useOnAudioFilterRead: 0
   useMicrophoneTypeFallback: 1
-  recordWhenJoined: 1
+  recordWhenJoined: 0
 --- !u!82 &5090592198239588171
 AudioSource:
   m_ObjectHideFlags: 0

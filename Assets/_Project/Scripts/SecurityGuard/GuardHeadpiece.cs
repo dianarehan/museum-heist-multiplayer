@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Voice.Unity;
+using Photon.Voice.PUN;
 using UnityEngine;
 
 public class GuardHeadpiece : MonoBehaviourPun
@@ -17,8 +18,8 @@ public class GuardHeadpiece : MonoBehaviourPun
     [SerializeField] private AudioClip activateSound;
     [SerializeField] private AudioClip deactivateSound;
     
-    [Header("Voice Control")]
-    [SerializeField] private Recorder voiceRecorder; // Photon Voice Recorder
+    [Header("Interest Group (Thieves transmit on this group)")]
+    [SerializeField] private byte thiefVoiceGroup = 1;
     
     private Rigidbody rb;
     private CharacterController cc;
@@ -39,16 +40,10 @@ public class GuardHeadpiece : MonoBehaviourPun
         cc = GetComponent<CharacterController>();
         lastPosition = transform.position;
         
-        // Find Recorder if not assigned
-        if (voiceRecorder == null)
+        if (PunVoiceClient.Instance != null)
         {
-            voiceRecorder = GetComponent<Recorder>();
-        }
-        
-        // Start with mic muted
-        if (voiceRecorder != null)
-        {
-            voiceRecorder.TransmitEnabled = false;
+            PunVoiceClient.Instance.Client.OpChangeGroups(new byte[] { thiefVoiceGroup }, null);
+            Debug.Log("[GuardHeadpiece] Removed from thief voice group - cannot hear thieves");
         }
         
         if (headpieceIndicator != null)
@@ -75,14 +70,7 @@ public class GuardHeadpiece : MonoBehaviourPun
             OnStopListening();
         }
         
-        // Debug: show current transmit state
-        if (voiceRecorder != null && Time.frameCount % 60 == 0) // Every ~1 second
-        {
-            Debug.Log($"[GuardHeadpiece] TransmitEnabled: {voiceRecorder.TransmitEnabled}, IsListening: {IsListening}");
-        }
-        
         wasListening = IsListening;
-        
         lastPosition = transform.position;
     }
     
@@ -103,19 +91,17 @@ public class GuardHeadpiece : MonoBehaviourPun
             speed = Vector3.Distance(transform.position, lastPosition) / Time.deltaTime;
         }
         
-        bool stationary = speed < movementThreshold;
-        // Debug.Log($"Speed: {speed:F2}, Threshold: {movementThreshold}, Stationary: {stationary}");
-        return stationary;
+        return speed < movementThreshold;
     }
     
     private void OnStartListening()
     {
-        Debug.Log("Guard started listening with headpiece");
+        Debug.Log("[GuardHeadpiece] Started listening - subscribing to thief voice group");
         
-        // Enable microphone
-        if (voiceRecorder != null)
+        // Subscribe to thief voice group
+        if (PunVoiceClient.Instance != null)
         {
-            voiceRecorder.TransmitEnabled = true;
+            PunVoiceClient.Instance.Client.OpChangeGroups(null, new byte[] { thiefVoiceGroup });
         }
         
         if (headpieceIndicator != null)
@@ -131,12 +117,12 @@ public class GuardHeadpiece : MonoBehaviourPun
     
     private void OnStopListening()
     {
-        Debug.Log("Guard stopped listening");
+        Debug.Log("[GuardHeadpiece] Stopped listening - unsubscribing from thief voice group");
         
-        // Disable microphone
-        if (voiceRecorder != null)
+        // Unsubscribe from thief voice group
+        if (PunVoiceClient.Instance != null)
         {
-            voiceRecorder.TransmitEnabled = false;
+            PunVoiceClient.Instance.Client.OpChangeGroups(new byte[] { thiefVoiceGroup }, null);
         }
         
         if (headpieceIndicator != null)
