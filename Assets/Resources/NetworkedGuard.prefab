@@ -1297,6 +1297,7 @@ MonoBehaviour:
   distortionIntensity: -0.4
   pulseSpeed: 2
   pulseRange: 0.15
+  saturationReduction: -40
   postProcessVolume: {fileID: 0}
 --- !u!1 &8590006068141508949
 GameObject:
