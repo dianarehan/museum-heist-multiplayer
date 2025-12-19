@@ -1,23 +1,37 @@
 using UnityEngine;
 using Photon.Pun;
 
-public class DoorController : MonoBehaviourPun
+public class DoorController : MonoBehaviourPun, IInteractable
 {
     [Header("Interaction Settings")]
-    [SerializeField] private float interactionRange = 3f;
+    [SerializeField] private string interactionPrompt = "Open Door";
+    [SerializeField] private Transform promptPosition;
     
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip openSound;
     [SerializeField] private AudioClip closeSound;
     
+    [Header("Outline")]
+    [SerializeField] private Outline outline;
+    
     private bool isOpen = false;
     private Animator anim;
+    
+    void Awake()
+    {
+        outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineMode = Outline.Mode.OutlineVisible;
+            outline.enabled = false;
+        }
+    }
     
     void Start()
     {
         anim = GetComponent<Animator>();
-        if(anim == null)
+        if (anim == null)
         {
             Debug.LogError("Animator not found on door controller");
         }
@@ -26,57 +40,50 @@ public class DoorController : MonoBehaviourPun
         {
             audioSource = GetComponent<AudioSource>();
         }
-    }
-    
-    void Update()
-    {
-        // Check for E key press
-        if (Input.GetKeyDown(KeyCode.E))
+        
+        if (promptPosition == null)
         {
-            TryInteract();
+            promptPosition = transform;
+        }
+        
+        // Ensure outline is disabled on start
+        if (outline != null)
+        {
+            outline.enabled = false;
         }
     }
     
-    private void TryInteract()
+    // IInteractable Implementation
+    public bool CanInteract(string playerTag)
     {
-        // Find local player
-        GameObject localPlayer = GetLocalPlayer();
-        if (localPlayer == null) return;
-        
-        // Check distance
-        float distance = Vector3.Distance(localPlayer.transform.position, transform.position);
-        if (distance > interactionRange) return;
-        
-        // Check if player is looking at this door (raycast from player's camera)
-        Camera playerCam = localPlayer.GetComponentInChildren<Camera>();
-        if (playerCam == null) playerCam = Camera.main;
-        if (playerCam == null) return;
-        
-        Ray ray = new Ray(playerCam.transform.position, playerCam.transform.forward);
-        RaycastHit hit;
-        
-        if (Physics.Raycast(ray, out hit, interactionRange))
-        {
-            // Check if raycast hit this door or any of its children/parents
-            if (hit.transform == transform || 
-                hit.transform.IsChildOf(transform) || 
-                transform.IsChildOf(hit.transform))
-            {
-                photonView.RPC("RPC_ToggleDoor", RpcTarget.All);
-            }
-        }
+        // Both Guard and Thief can use doors
+        return playerTag == "Guard" || playerTag == "Thief";
     }
     
-    private GameObject GetLocalPlayer()
+    public void Interact()
     {
-        foreach (var player in FindObjectsOfType<PhotonView>())
-        {
-            if (player.IsMine && (player.CompareTag("Thief") || player.CompareTag("Guard")))
-            {
-                return player.gameObject;
-            }
-        }
-        return null;
+        photonView.RPC("RPC_ToggleDoor", RpcTarget.All);
+    }
+    
+    public string GetInteractionPrompt()
+    {
+        return isOpen ? "Close Door" : "Open Door";
+    }
+    
+    public Transform GetPromptPosition()
+    {
+        return promptPosition;
+    }
+    
+    // Highlight methods for outline
+    public void ShowHighlight()
+    {
+        if (outline != null) outline.enabled = true;
+    }
+    
+    public void HideHighlight()
+    {
+        if (outline != null) outline.enabled = false;
     }
 
     [PunRPC]
@@ -128,6 +135,3 @@ public class DoorController : MonoBehaviourPun
         }
     }
 }
-
-
-

@@ -112,8 +112,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -265.4609, y: 7.56, z: -114.60391}
-  - {x: -195.9609, y: 22.5, z: -107.403915}
+  - {x: -313.8, y: 7.56, z: -126.80392}
+  - {x: -244.29999, y: 22.5, z: -119.60392}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -579,8 +579,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -268.66092, y: 8.29, z: -132.86392}
-  - {x: -193.1609, y: -1.5, z: -141.06392}
+  - {x: -317, y: 8.29, z: -145.06392}
+  - {x: -241.49998, y: -1.5, z: -153.26392}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
