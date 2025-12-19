@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 3adb98efd90490540bcae06087e89443, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2ba6617cff4cf974baa0a9cf52a59f43, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: cde817109d535e9448a8180c04950101, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -751,13 +751,53 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1962052610442620767, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 163.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962052610442620767, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3159354762692095770, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 218.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3159354762692095770, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.75
+      objectReference: {fileID: 0}
     - target: {fileID: 4682665312988553916, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
       propertyPath: m_Name
       value: chinese room lights
       objectReference: {fileID: 0}
+    - target: {fileID: 4780928197850471588, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 148.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780928197850471588, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 60.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596096079702337871, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 267.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596096079702337871, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039824243921895297, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 47.34999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039824243921895297, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8220631184960302347, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -183.73521
+      value: -402.4352
       objectReference: {fileID: 0}
     - target: {fileID: 8220631184960302347, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -765,7 +805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220631184960302347, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -104.2933
+      value: -144.2933
       objectReference: {fileID: 0}
     - target: {fileID: 8220631184960302347, guid: 081d226a43f16914f95a790090e4ffea, type: 3}
       propertyPath: m_LocalRotation.w
