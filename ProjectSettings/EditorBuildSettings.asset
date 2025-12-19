@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Project/Scenes/Multiplayer Test.unity
     guid: 2c9b7019601417a4685e4a70f15b4a32
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Scenes/Voice Test.unity
     guid: 49e514db003163d4cb419f422d7038d3
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Project/Scenes/Multiplayer Main.unity
     guid: 524371dc990a0714fb60321c709f3a5f
   m_configObjects:

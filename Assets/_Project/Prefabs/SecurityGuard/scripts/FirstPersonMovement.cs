@@ -145,6 +145,7 @@ namespace prefabs.SecurityGuard.scripts
             ApplyGravity();
             UpdateAnimator();
             HandleFootsteps();
+            
         }
 
         private void HandleInput()
@@ -373,7 +374,7 @@ namespace prefabs.SecurityGuard.scripts
                     if (planar.x > 0f) goRight = true;
                     else if (planar.x < 0f) goLeft = true;
                 }
-                Debug.Log("" + goFront + goBack + goLeft + goRight);
+                
                 SetOneHotWalkBools(goFront, goBack, goLeft, goRight);
             }
         }
