@@ -3104,6 +3104,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8207643472448935713}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6562778829994680938}
   m_SourcePrefab: {fileID: 100100000, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
 --- !u!1 &3992929061588211425 stripped
 GameObject:
@@ -3182,6 +3185,20 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &6562778829994680938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992929061588211425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b893074611f8e6542a0f16dba0e32849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Triceratops
+  icon: {fileID: 21300000, guid: 81f9e64668d61c847ab1279a4b22c66e, type: 3}
 --- !u!4 &4333143988513852507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}
