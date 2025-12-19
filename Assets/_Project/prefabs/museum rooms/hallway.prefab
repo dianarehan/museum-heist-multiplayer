@@ -77,6 +77,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2677579284094359475}
     m_Modifications:
+    - target: {fileID: 343095632848103807, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3426364173282465123, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.000015258789
@@ -121,6 +125,14 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4485841577303768368, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415550879388819798, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5675034607068003295, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: interactionRange
       value: 32
@@ -128,6 +140,18 @@ PrefabInstance:
     - target: {fileID: 5768294481502129141, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: m_Name
       value: door with filler wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768294481502129141, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337363583083292686, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795451629185448239, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -209,6 +233,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2677579284094359475}
     m_Modifications:
+    - target: {fileID: 343095632848103807, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3426364173282465123, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -253,6 +281,14 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4485841577303768368, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415550879388819798, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5675034607068003295, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: openSound
       value: 
@@ -268,6 +304,18 @@ PrefabInstance:
     - target: {fileID: 5768294481502129141, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: m_Name
       value: door with filler wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768294481502129141, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337363583083292686, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795451629185448239, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -287,6 +335,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2677579284094359475}
     m_Modifications:
+    - target: {fileID: 343095632848103807, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3426364173282465123, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -131.60002
@@ -327,9 +379,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3529452013601236165, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3917384660131870038, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: sceneViewId
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485841577303768368, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388519707289058302, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388519707289058302, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StitchLightmapSeams
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415550879388819798, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5675034607068003295, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: audioSource
@@ -342,6 +414,22 @@ PrefabInstance:
     - target: {fileID: 5768294481502129141, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: m_Name
       value: door with filler wall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768294481502129141, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337363583083292686, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070523226561446799, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795451629185448239, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2938903938482963003, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
@@ -467,6 +555,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8899465982214197634}
     m_Modifications:
+    - target: {fileID: 568729781998032645, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 972780445587246170, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -507,17 +599,93 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1321977870290033905, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387735567088568449, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 3086026047488315544, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3086026047488315544, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3478681149053562369, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175830945862200728, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175830945862200728, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353430018951238046, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 4755621543165215461, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
       propertyPath: m_Name
       value: hallway walls
       objectReference: {fileID: 0}
+    - target: {fileID: 4755621543165215461, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755621543165215461, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916633560300883145, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916633560300883145, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5588454909539503952, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809035146035155789, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809035146035155789, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874795403718854461, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874795403718854461, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569469894798265172, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803521922640983636, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202420963773139538, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202420963773139538, guid: 7fb142089a8bd294fbce549c26f04458, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -537,6 +705,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2677579284094359475}
     m_Modifications:
+    - target: {fileID: 343095632848103807, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3426364173282465123, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -131.60002
@@ -581,6 +753,14 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4485841577303768368, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415550879388819798, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5675034607068003295, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: audioSource
       value: 
@@ -592,6 +772,18 @@ PrefabInstance:
     - target: {fileID: 5768294481502129141, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: m_Name
       value: door with filler wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768294481502129141, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337363583083292686, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795451629185448239, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2938903938482963003, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
