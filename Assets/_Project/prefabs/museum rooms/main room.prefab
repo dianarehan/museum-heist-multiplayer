@@ -3198,7 +3198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Triceratops
-  icon: {fileID: 21300000, guid: 81f9e64668d61c847ab1279a4b22c66e, type: 3}
+  icon: {fileID: 21300000, guid: 9f5466e93e870c946a21ceefc5984b12, type: 3}
 --- !u!4 &4333143988513852507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7954f6f0f753b5d41a5f23ebee0c79d7, type: 3}

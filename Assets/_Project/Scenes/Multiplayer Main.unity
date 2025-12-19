@@ -171,14 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8207643472448935713, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
-      propertyPath: sceneViewId
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 8875805727596197757, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
-      propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14392,7 +14384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Vase
-  icon: {fileID: 21300000, guid: 6a075ddaea081284d83963819593319c, type: 3}
+  icon: {fileID: 21300000, guid: dbd5ba1c42c12a04b91332d0243896df, type: 3}
 --- !u!1 &8575209721733893544
 GameObject:
   m_ObjectHideFlags: 0
@@ -14785,7 +14777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Teapot
-  icon: {fileID: 21300000, guid: bd293dc32f4aaf94e8274f2fac2cdf89, type: 3}
+  icon: {fileID: 21300000, guid: b30fd60270a66ce44ae9c7897785b0d5, type: 3}
 --- !u!1 &8987255768714509761
 GameObject:
   m_ObjectHideFlags: 0
@@ -14899,5 +14891,6 @@ SceneRoots:
   - {fileID: 1175581789}
   - {fileID: 1434370000}
   - {fileID: 738765151}
-  - {fileID: 1354352589}
   - {fileID: 2096121605}
+  - {fileID: 6331121120514093766}
+  - {fileID: 1043971661475866936}
