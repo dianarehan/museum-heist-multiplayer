@@ -67,14 +67,23 @@ public class GameState : MonoBehaviourPunCallbacks
     // Called by thief when collecting loot
     public void ThiefCollectedLoot(int amount)
     {
-        // if (!PhotonNetwork.IsMasterClient) return;
-
         LootCollected += amount;
         
         photonView.RPC("RPC_UpdateLootCollected", RpcTarget.All, LootCollected);
 
-        if (LootCollected >= TotalLootAmount)
-            ThievesWin();
+        // Check win condition based on objective checklist
+        if (ObjectiveManager.Instance != null)
+        {
+            int acquired = ObjectiveManager.Instance.GetAcquiredCount();
+            int total = ObjectiveManager.Instance.GetTotalCount();
+            
+            Debug.Log($"Objectives: {acquired}/{total}");
+            
+            if (acquired >= total && total > 0)
+            {
+                ThievesWin();
+            }
+        }
     }
 
     // NEW: RPC method for non-master clients to request thief caught
