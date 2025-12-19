@@ -1262,6 +1262,12 @@ MonoBehaviour:
   walkLeftParam: isWalkingLeft
   walkRightParam: isWalkingRight
   walkDirDeadzone: 0.15
+  footstepSource: {fileID: 0}
+  footstepClips: []
+  walkStepRate: 0.5
+  runStepRate: 0.3
+  walkVolume: 0.5
+  runVolume: 1
 --- !u!65 &1957637850
 BoxCollider:
   m_ObjectHideFlags: 0
