@@ -32,7 +32,7 @@ Transform:
   - {fileID: 6193833451914150814}
   - {fileID: 3379994952259825160}
   - {fileID: 1697009817104014240}
-  - {fileID: 1601946677725114336}
+  - {fileID: 4158975350452026044}
   m_Father: {fileID: 8899465982214197634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3561060073679471136
@@ -119,7 +119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3917384660131870038, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: sceneViewId
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5675034607068003295, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: interactionRange
@@ -251,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3917384660131870038, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: sceneViewId
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5675034607068003295, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: openSound
@@ -274,7 +274,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
---- !u!4 &1601946677725114336 stripped
+--- !u!4 &4158975350452026044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3426364173282465123, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
   m_PrefabInstance: {fileID: 1601946677725114335}
@@ -329,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3917384660131870038, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: sceneViewId
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5675034607068003295, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: audioSource
@@ -579,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3917384660131870038, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: sceneViewId
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5675034607068003295, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: audioSource
