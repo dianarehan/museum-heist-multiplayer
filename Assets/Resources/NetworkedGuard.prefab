@@ -781,7 +781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7059902075128452695
 Transform:
   m_ObjectHideFlags: 0
@@ -986,7 +986,7 @@ MonoBehaviour:
   - {fileID: 3417346363681171015}
   - {fileID: -2437513146420548690}
   - {fileID: 1469275211347345556}
-  sceneViewId: 0
+  sceneViewId: 21
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &9003294068891598647
@@ -1090,6 +1090,9 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 128
+  taseSound: {fileID: 8300000, guid: df420287ecef07049ae4bc01cb974368, type: 3}
+  taseVolume: 1
+  taseDuration: 0.6
 --- !u!114 &3867136771178052681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1172,10 +1175,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 20
+  MaxDistance: 300
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
