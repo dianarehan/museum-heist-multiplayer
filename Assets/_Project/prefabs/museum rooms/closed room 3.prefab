@@ -375,7 +375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4870452731284433728, guid: ed0138ec9b322594196670aa0129c53a, type: 3}
       propertyPath: sceneViewId
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7205137686764455182, guid: ed0138ec9b322594196670aa0129c53a, type: 3}
       propertyPath: m_Name
@@ -987,7 +987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6848916573392553392, guid: 25b4c6049be7f0b40af4bf157894a048, type: 3}
       propertyPath: sceneViewId
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7084245142631408717, guid: 25b4c6049be7f0b40af4bf157894a048, type: 3}
       propertyPath: m_Name
