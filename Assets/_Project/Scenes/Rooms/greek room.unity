@@ -836,6 +836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: greek room lit
       objectReference: {fileID: 0}
+    - target: {fileID: 3659821532819559912, guid: a4e5b7114fa7dc649815b9c345f71e49, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7899810765135082337, guid: a4e5b7114fa7dc649815b9c345f71e49, type: 3}
       propertyPath: m_LocalPosition.x
       value: -343.72144
