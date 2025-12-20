@@ -2,7 +2,7 @@ using Photon.Pun;
 using UnityEngine;
 using System.Collections;
 
-public class StealableItem : MonoBehaviourPun
+public class StealableItem : MonoBehaviourPun, IInteractable
 {
     [SerializeField] private int value = 100;
     
@@ -12,8 +12,12 @@ public class StealableItem : MonoBehaviourPun
     
     [Header("Animation")]
     [SerializeField] private float hideDelay = 0.5f;
+    
+    [Header("Interaction")]
+    [SerializeField] private Transform promptPosition;
 
     private bool isStolen = false;
+    [SerializeField] private Outline outline;
 
     public int Value => value;
     
@@ -49,6 +53,63 @@ public class StealableItem : MonoBehaviourPun
     
     public bool IsProtected => isProtected;
     public bool IsStolen => isStolen;
+    
+    void Awake()
+    {
+        if (outline != null)
+        {
+            outline.OutlineMode = Outline.Mode.OutlineVisible;
+            outline.enabled = false;
+        }
+        
+        if (promptPosition == null)
+        {
+            promptPosition = transform;
+        }
+    }
+    
+    void Start()
+    {
+        // Ensure outline is disabled after OnEnable runs
+        if (outline != null)
+        {
+            outline.enabled = false;
+        }
+    }
+    
+    // IInteractable Implementation
+    public bool CanInteract(string playerTag)
+    {
+        // Only Thief can steal, and only if stealable
+        return playerTag == "Thief" && CanSteal;
+    }
+    
+    public void Interact()
+    {
+        Steal();
+    }
+    
+    public string GetInteractionPrompt()
+    {
+        if (isProtected) return "Protected";
+        if (isStolen) return "Already Stolen";
+        return $"Steal (${value})";
+    }
+    
+    public Transform GetPromptPosition()
+    {
+        return promptPosition;
+    }
+    
+    public void ShowHighlight()
+    {
+        if (outline != null) outline.enabled = true;
+    }
+    
+    public void HideHighlight()
+    {
+        if (outline != null) outline.enabled = false;
+    }
 
     [PunRPC]
     private void RPC_OnStolen()

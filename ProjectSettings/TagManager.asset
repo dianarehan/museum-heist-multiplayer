@@ -10,6 +10,7 @@ TagManager:
   - LootTheft
   - Thief
   - Guard
+  - StairsBarrier
   layers:
   - Default
   - TransparentFX

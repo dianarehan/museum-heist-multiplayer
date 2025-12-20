@@ -162,7 +162,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -775,13 +775,15 @@ GameObject:
   - component: {fileID: 5090592198239588171}
   - component: {fileID: 8367183108316082876}
   - component: {fileID: 5960280580102675514}
+  - component: {fileID: 8868309170002357255}
+  - component: {fileID: 1330480628901051412}
   m_Layer: 0
   m_Name: NetworkedGuard
   m_TagString: Guard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7059902075128452695
 Transform:
   m_ObjectHideFlags: 0
@@ -936,6 +938,13 @@ MonoBehaviour:
   walkLeftParam: isWalkingLeft
   walkRightParam: isWalkingRight
   walkDirDeadzone: 0.15
+  footstepSource: {fileID: 5090592198239588171}
+  footstepClips:
+  - {fileID: 8300000, guid: bff018ec51bb70445bf9a12ee912c3e1, type: 3}
+  walkStepRate: 0.5
+  runStepRate: 0.3
+  walkVolume: 0.5
+  runVolume: 1
 --- !u!65 &1454950559506279775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1047,6 +1056,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: isWalkingBack
+  - Type: 9
+    SynchronizeType: 0
+    Name: useInhaler
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
@@ -1083,6 +1095,9 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 128
+  taseSound: {fileID: 8300000, guid: df420287ecef07049ae4bc01cb974368, type: 3}
+  taseVolume: 1
+  taseDuration: 0.6
 --- !u!114 &3867136771178052681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,7 +1171,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1165,8 +1180,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 20
+  MaxDistance: 300
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1201,7 +1216,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1271,6 +1286,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8868309170002357255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530347482223586906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5bf6e4eaf5ca57469fdf41fd085f3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distortionIntensity: -0.4
+  pulseSpeed: 2
+  pulseRange: 0.15
+  saturationReduction: -40
+  postProcessVolume: {fileID: 0}
+--- !u!114 &1330480628901051412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530347482223586906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d242c3388e26b24882f0948c8553b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 30
+  interactableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  promptPrefab: {fileID: 4195389081003521245, guid: 30a769c00778c394e96ebc66b04dac60, type: 3}
+  promptOffset: {x: 0, y: 1.5, z: 0}
 --- !u!1 &8590006068141508949
 GameObject:
   m_ObjectHideFlags: 0
