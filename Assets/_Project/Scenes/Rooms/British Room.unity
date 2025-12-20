@@ -518,9 +518,33 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 2466930550830918090, guid: cabb5d152f859524cb98a52e09530ffb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c396bc33e09ebe40afe2acc925ab0ba, type: 2}
     - target: {fileID: 2592020735070982531, guid: cabb5d152f859524cb98a52e09530ffb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616084432405609457, guid: cabb5d152f859524cb98a52e09530ffb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616084432405609457, guid: cabb5d152f859524cb98a52e09530ffb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616084432405609457, guid: cabb5d152f859524cb98a52e09530ffb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616084432405609457, guid: cabb5d152f859524cb98a52e09530ffb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616084432405609457, guid: cabb5d152f859524cb98a52e09530ffb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2735254906909863141, guid: cabb5d152f859524cb98a52e09530ffb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -674,6 +698,22 @@ PrefabInstance:
     - target: {fileID: 300479884534735550, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
       propertyPath: m_Name
       value: british room lights
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416101339970958512, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 41.450012
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416101339970958512, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.600003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278728679770386599, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
+      propertyPath: m_AreaSize.x
+      value: 12.318756
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278728679770386599, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
+      propertyPath: m_AreaSize.y
+      value: 122.25135
       objectReference: {fileID: 0}
     - target: {fileID: 8752856962626490470, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
       propertyPath: m_LocalPosition.x
