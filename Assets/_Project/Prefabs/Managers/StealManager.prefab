@@ -49,6 +49,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2451517080494164
 MonoBehaviour:
   m_ObjectHideFlags: 0

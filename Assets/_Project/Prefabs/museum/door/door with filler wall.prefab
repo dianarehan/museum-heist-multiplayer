@@ -306,7 +306,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -1444460858095362738, guid: 0726a6577bdec16449beb3676c100026, type: 3}
-  - {fileID: 5696427862694437129, guid: 0726a6577bdec16449beb3676c100026, type: 3}
+  - {fileID: 2100000, guid: bbc8aa4fdb5bea542b0835a969ec7c96, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 5575728622366274553}
   - component: {fileID: 3917384660131870038}
   - component: {fileID: 2938903938482963003}
+  - component: {fileID: 7149348197942688129}
   m_Layer: 0
   m_Name: hinge
   m_TagString: Untagged
@@ -400,10 +401,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac1e138f27a2ab4da3b7f8dde044f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 34
+  interactionPrompt: Open Door
+  promptPosition: {fileID: 0}
   audioSource: {fileID: 2938903938482963003}
   openSound: {fileID: 8300000, guid: 6a6c6f3e179a99443a31f89365ff9025, type: 3}
   closeSound: {fileID: 8300000, guid: bb8b9c1e6ca081943847993a9ef4231c, type: 3}
+  outline: {fileID: 7149348197942688129}
 --- !u!65 &2320418538518701771
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -561,6 +564,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7149348197942688129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795451629185448239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &379958783913807275
 PrefabInstance:
   m_ObjectHideFlags: 0

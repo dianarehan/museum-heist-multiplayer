@@ -175,6 +175,8 @@ public class PlayerEquipment : MonoBehaviourPun
         if (handBat != null)
         {
             handBat.SetActive(true);
+            // In ShowHandBatDelayed()
+Debug.Log($"[PlayerEquipment] Setting handBat active: {handBat != null}");
         }
     }
     
