@@ -23,10 +23,19 @@ namespace _Project.Scripts.Player
 
         [SerializeField] private GameObject pistolVisual; // mesh in hand
 
-        [SerializeField] private float interactionRange = 2f;
+        [SerializeField] private float interactionRange = 10f;
         [SerializeField] private LayerMask chargerLayer;
 
         public float RechargeTime => rechargeTime;
+
+
+        [Header("Inhaler Interaction")]
+        [SerializeField] private float interactRange = 10f;
+        [SerializeField] private LayerMask inhalerLayer;
+        
+
+        private GuardTirednessEffect tirednessEffect;
+
 
 
 
@@ -48,6 +57,11 @@ namespace _Project.Scripts.Player
 
             currentCharges = maxCharges;
             pistolVisual.SetActive(true);
+
+            tirednessEffect = GetComponent<GuardTirednessEffect>();
+
+            
+
 
 
             if (playerCamera == null)
@@ -72,8 +86,34 @@ namespace _Project.Scripts.Player
             if (Input.GetKeyDown(KeyCode.E))
             {
                 TryPlacePistolOnCharger();
+                CheckInhalerInteraction();
             }
         }
+
+        private void CheckInhalerInteraction()
+        {
+            if (!tirednessEffect || !tirednessEffect.IsTired())
+                return;
+
+            Ray ray = playerCamera.ScreenPointToRay(
+                new Vector3(Screen.width / 2, Screen.height / 2)
+            );
+
+            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, inhalerLayer))
+            {
+                Debug.Log("Inhaler in range");
+
+                
+               InhalerInteractable inhaler = hit.collider.GetComponent<InhalerInteractable>();
+
+               if (inhaler != null)
+               {
+                    inhaler.Use(tirednessEffect);
+               }
+                
+            }
+        }
+
 
         private void TryPlacePistolOnCharger()
         {
