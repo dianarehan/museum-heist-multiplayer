@@ -63,6 +63,7 @@ MonoBehaviour:
   - RPC_PlayPickupAnimation
   - RPC_MarkAcquired
   - RPC_CarryThief
+  - RPC_Respawn
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

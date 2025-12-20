@@ -136,6 +136,13 @@ namespace _Project.Scripts.Player
             
             Debug.Log($"Thief {gameObject.name} has been knocked out!");
             
+            // Drop any equipped items (bat respawns at original location)
+            var equipment = GetComponent<PlayerEquipment>();
+            if (equipment != null)
+            {
+                equipment.DropBat();
+            }
+            
             // Disable player controls FIRST
             DisablePlayerControls();
             
