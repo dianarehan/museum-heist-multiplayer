@@ -1211,6 +1211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pharaoh room lights
       objectReference: {fileID: 0}
+    - target: {fileID: 2155361341138877757, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2944993090756307913, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
       propertyPath: m_LocalPosition.x
       value: -334.1701
@@ -1250,6 +1254,50 @@ PrefabInstance:
     - target: {fileID: 2944993090756307913, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783090408964005371, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_AreaSize.x
+      value: 23.87525
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783090408964005371, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_AreaSize.y
+      value: 137.95918
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863204875911400513, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769470744263224658, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_AreaSize.y
+      value: 26.126019
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155851135420037682, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155851135420037682, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155851135420037682, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155851135420037682, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155851135420037682, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155851135420037682, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155851135420037682, guid: 4ace1874d4733d14988bcfbb412de194, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
