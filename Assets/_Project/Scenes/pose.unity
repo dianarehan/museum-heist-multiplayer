@@ -236,34 +236,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 77820443954375573, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 421872407791356217, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2055575356536422747, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329299191678972223, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6403865696575341592, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6843351412951825672, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642911624574418575, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 419438413233709496, guid: 68391f298a4fb404880cda230f389eb8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16
@@ -331,6 +303,34 @@ PrefabInstance:
     - target: {fileID: 8307570186625676054, guid: 68391f298a4fb404880cda230f389eb8, type: 3}
       propertyPath: sceneViewId
       value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 77820443954375573, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 421872407791356217, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055575356536422747, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329299191678972223, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6403865696575341592, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6843351412951825672, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642911624574418575, guid: 7e4e1cb3dfc24ca42acb44ab000c07c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1580,7 +1580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1af9b61659532b745a0238bedb847ea4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7106,6 +7106,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2792341634242644762, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 005b0f61c49ee24499a93f2ae65fa8b9, type: 2}
     - target: {fileID: 2917113345485198063, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -7166,6 +7170,10 @@ PrefabInstance:
       propertyPath: outlineWidth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6700401989035742241, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 005b0f61c49ee24499a93f2ae65fa8b9, type: 2}
     - target: {fileID: 6709418762160459401, guid: d78d0ecdc7021c5489c34e81a88fb6b2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -7466,7 +7474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2066914952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7479,8 +7487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf905dd1651b99b4cab04930b63a8773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebugMode: 1
-  useOfflineMode: 1
+  enableDebugMode: 0
+  useOfflineMode: 0
   debugRole: 1
   debugPlayerName: DebugPlayer
   sceneGuard: {fileID: 8530347482223586906, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
@@ -7574,7 +7582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c65648346ba8b040a6ca888b1157406, type: 2}
+  - {fileID: 2100000, guid: 37ae0d4f05eeea34b9b8fd705947dc04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
