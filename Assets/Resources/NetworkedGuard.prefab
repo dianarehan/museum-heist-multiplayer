@@ -1098,6 +1098,18 @@ MonoBehaviour:
   taseSound: {fileID: 8300000, guid: df420287ecef07049ae4bc01cb974368, type: 3}
   taseVolume: 1
   taseDuration: 0.6
+  maxCharges: 6
+  currentCharges: 0
+  rechargeTime: 5
+  pistolVisual: {fileID: 6707672910651508849}
+  interactionRange: 10
+  chargerLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  interactRange: 10
+  inhalerLayer:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!114 &3867136771178052681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1479,6 +1491,11 @@ PrefabInstance:
 --- !u!4 &6223306549953336011 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0701f5b1378a38d47bed597a8bcd07e7, type: 3}
+  m_PrefabInstance: {fileID: 5897209900159333664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6707672910651508849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0701f5b1378a38d47bed597a8bcd07e7, type: 3}
   m_PrefabInstance: {fileID: 5897209900159333664}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5903282904413438830
