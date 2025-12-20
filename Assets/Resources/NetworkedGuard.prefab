@@ -1106,6 +1106,10 @@ MonoBehaviour:
   chargerLayer:
     serializedVersion: 2
     m_Bits: 4096
+  interactRange: 10
+  inhalerLayer:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!114 &3867136771178052681
 MonoBehaviour:
   m_ObjectHideFlags: 0
