@@ -5,6 +5,12 @@ using Photon.Pun;
 
 public class LaserHitEffect : MonoBehaviour
 {
+    [Header("Laser Detection (Linecast)")]
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform pointB;
+    [SerializeField] private LayerMask detectionLayers = -1;
+    [SerializeField] private float triggerCooldown = 1f;
+    
     [Header("Effect Settings")]
     [SerializeField] private float fadeOutDuration = 2f;
     [SerializeField] private float slowdownMultiplier = 0.5f;
@@ -20,8 +26,8 @@ public class LaserHitEffect : MonoBehaviour
     private ChromaticAberration chromaticAberration;
     private float originalChromaticIntensity = 0f;
     private PlayerController affectedPlayer;
-    private bool playerIsInside = false;
     private Coroutine fadeCoroutine;
+    private float lastTriggerTime = -999f;
     
     void Start()
     {
@@ -45,15 +51,39 @@ public class LaserHitEffect : MonoBehaviour
         }
     }
     
-    private void OnTriggerEnter(Collider other)
+    void Update()
     {
-        if (!other.CompareTag("Thief")) return;
+        if (pointA == null || pointB == null) return;
+        if (Time.time - lastTriggerTime < triggerCooldown) return;
         
-        PhotonView pv = other.GetComponent<PhotonView>();
-        if (pv == null || !pv.IsMine) return;
+        CheckLaserCrossing();
+    }
+    
+    private void CheckLaserCrossing()
+    {
+        RaycastHit hit;
+        Vector3 direction = pointB.position - pointA.position;
+        float distance = direction.magnitude;
         
-        PlayerController player = other.GetComponent<PlayerController>();
-        if (player == null) return;
+        if (Physics.Raycast(pointA.position, direction.normalized, out hit, distance, detectionLayers))
+        {
+            if (hit.collider.CompareTag("Thief"))
+            {
+                PhotonView pv = hit.collider.GetComponent<PhotonView>();
+                if (pv == null || !pv.IsMine) return;
+                
+                PlayerController player = hit.collider.GetComponent<PlayerController>();
+                if (player == null) return;
+                
+                lastTriggerTime = Time.time;
+                TriggerEffect(player);
+            }
+        }
+    }
+    
+    private void TriggerEffect(PlayerController player)
+    {
+        Debug.Log("[LaserHitEffect] Thief crossed the laser!");
         
         // Stop any fade out in progress
         if (fadeCoroutine != null)
@@ -63,35 +93,14 @@ public class LaserHitEffect : MonoBehaviour
         }
         
         affectedPlayer = player;
-        playerIsInside = true;
         
         // Play laser hit sound
         PlayHitSound();
         
+        // Apply effect
         ApplyFullEffect();
-    }
-    
-    private void OnTriggerStay(Collider other)
-    {
-        // Keep effect active while player is inside
-        if (playerIsInside && affectedPlayer != null && other.CompareTag("Thief"))
-        {
-            PhotonView pv = other.GetComponent<PhotonView>();
-            if (pv != null && pv.IsMine)
-            {
-                ApplyFullEffect();
-            }
-        }
-    }
-    
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.CompareTag("Thief")) return;
         
-        PhotonView pv = other.GetComponent<PhotonView>();
-        if (pv == null || !pv.IsMine) return;
-        
-        playerIsInside = false;
+        // Start fade out
         fadeCoroutine = StartCoroutine(FadeOutEffect());
     }
     
@@ -128,12 +137,6 @@ public class LaserHitEffect : MonoBehaviour
         
         while (elapsed < fadeOutDuration)
         {
-            // Stop fading if player re-entered
-            if (playerIsInside)
-            {
-                yield break;
-            }
-            
             elapsed += Time.deltaTime;
             float t = elapsed / fadeOutDuration;
             
@@ -164,3 +167,4 @@ public class LaserHitEffect : MonoBehaviour
         fadeCoroutine = null;
     }
 }
+

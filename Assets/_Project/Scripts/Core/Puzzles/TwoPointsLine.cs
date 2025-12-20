@@ -20,3 +20,4 @@ public class TwoPointsLine : MonoBehaviour
         lineRenderer.SetPosition(1, pointB.position);
     }
 }
+
