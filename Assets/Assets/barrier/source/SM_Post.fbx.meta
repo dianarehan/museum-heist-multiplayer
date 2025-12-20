@@ -3,7 +3,22 @@ guid: 3311c9aa3d6ba0741a3d9e4d74230c98
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Post_01
+    second: {fileID: 2100000, guid: 0aecd929c4cf1124faf03c8e1eb3f3da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Post_02
+    second: {fileID: 2100000, guid: 9615d821536d56746b73ce415a297b3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Strip
+    second: {fileID: 2100000, guid: 039c08fb2ac461f44b8926bc84cf0714, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
