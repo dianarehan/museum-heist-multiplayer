@@ -486,6 +486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuardOffice
       objectReference: {fileID: 0}
+    - target: {fileID: 3287805174413829105, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8276552803372330249, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
       propertyPath: sceneViewId
       value: 1
