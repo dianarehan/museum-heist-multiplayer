@@ -18,7 +18,13 @@ public class GuardTirednessEffect : MonoBehaviourPun
     
     [Header("Color Adjustments")]
     [SerializeField] private float saturationReduction = -40f;
-    
+
+    [Header("Panting Audio")]
+    [SerializeField] private AudioClip pantingLoop;
+    [SerializeField] private float pantingVolume = 0.3f;
+
+    private AudioSource pantingSource;
+
     [Header("References")]
     [SerializeField] private Volume postProcessVolume;
     
@@ -50,6 +56,12 @@ public class GuardTirednessEffect : MonoBehaviourPun
             if (lensDistortion != null) originalDistortion = lensDistortion.intensity.value;
             if (colorAdjustments != null) originalSaturation = colorAdjustments.saturation.value;
         }
+        pantingSource = gameObject.AddComponent<AudioSource>();
+        pantingSource.clip = pantingLoop;
+        pantingSource.loop = true;
+        pantingSource.playOnAwake = false;
+        pantingSource.volume = pantingVolume;
+        pantingSource.spatialBlend = 0f; 
     }
     
     void Update()
@@ -79,6 +91,11 @@ public class GuardTirednessEffect : MonoBehaviourPun
         {
             colorAdjustments.saturation.overrideState = true;
             colorAdjustments.saturation.value = saturationReduction;
+        }
+
+        if (pantingSource != null && pantingLoop != null && !pantingSource.isPlaying)
+        {
+            pantingSource.Play();
         }
     }
     
@@ -113,7 +130,13 @@ public class GuardTirednessEffect : MonoBehaviourPun
         
         if (lensDistortion != null) lensDistortion.intensity.value = originalDistortion;
         if (colorAdjustments != null) colorAdjustments.saturation.value = originalSaturation;
-        
+
+        if (pantingSource != null && pantingSource.isPlaying)
+        {
+            pantingSource.Stop();
+        }
+
+
         isTired = false;
     }
     
