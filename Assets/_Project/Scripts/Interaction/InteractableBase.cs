@@ -1,3 +1,4 @@
+using _Project.Scripts.Interaction;
 using UnityEngine;
 using TMPro;
 
@@ -6,7 +7,7 @@ using TMPro;
 /// Inherit from this or implement IInteractable directly.
 /// </summary>
 [RequireComponent(typeof(Outline))]
-public abstract class InteractableBase : MonoBehaviour, IInteractable
+public abstract class InteractableBase : MonoBehaviour, IInteractableEnhanced
 {
     [Header("Interaction Settings")]
     [SerializeField] protected string interactionPrompt = "Interact";
@@ -45,7 +46,7 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
         return false;
     }
     
-    public abstract void Interact();
+    public abstract void Interact(GameObject interactingPlayer);
     
     public virtual string GetInteractionPrompt()
     {

@@ -11,10 +11,10 @@ public interface IInteractable
     /// <returns>True if interaction is allowed</returns>
     bool CanInteract(string playerTag);
     
-    /// <summary>
-    /// Perform the interaction.
-    /// </summary>
-    void Interact();
+    // /// <summary>
+    // /// Perform the interaction.
+    // /// </summary>
+    // void Interact();
     
     /// <summary>
     /// Get the prompt message to display (e.g., "Open Door", "Pick Up", "Steal")

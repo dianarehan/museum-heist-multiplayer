@@ -181,14 +181,14 @@ namespace _Project.Scripts.Player
                 
                 if (PhotonNetwork.IsMasterClient)
                 {
-                    GameState.Instance.ThiefDied();
+                   // GameState.Instance.ThiefDied();
                 }
                 else
                 {
                     PhotonView gameStateView = GameState.Instance.GetComponent<PhotonView>();
                     if (gameStateView != null)
                     {
-                        gameStateView.RPC("RPC_ThiefCaughtRequest", RpcTarget.MasterClient);
+                        //gameStateView.RPC("RPC_ThiefCaughtRequest", RpcTarget.MasterClient);
                     }
                 }
             }

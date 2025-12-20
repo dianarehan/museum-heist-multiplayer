@@ -1,7 +1,8 @@
+using _Project.Scripts.Interaction;
 using UnityEngine;
 using Photon.Pun;
 
-public class DoorController : MonoBehaviourPun, IInteractable
+public class DoorController : MonoBehaviourPun, IInteractableEnhanced
 {
     [Header("Interaction Settings")]
     [SerializeField] private string interactionPrompt = "Open Door";
@@ -60,7 +61,7 @@ public class DoorController : MonoBehaviourPun, IInteractable
         return playerTag == "Guard" || playerTag == "Thief";
     }
     
-    public void Interact()
+    public void Interact(GameObject interactingPlayer)
     {
         photonView.RPC("RPC_ToggleDoor", RpcTarget.All);
     }

@@ -27,6 +27,7 @@ namespace _Project.Scripts.Player
             
             // Get your movement script - replace with your actual script name
             // Example: playerMovementScript = GetComponent<FirstPersonController>();
+            playerMovementScript = GetComponent<PlayerController>();
             
             // Setup ragdoll
             SetupRagdoll();
@@ -138,19 +139,37 @@ namespace _Project.Scripts.Player
             // Disable player controls FIRST
             DisablePlayerControls();
             
-            // Then enable ragdoll physics
-            EnableRagdoll();
+            // // Then enable ragdoll physics
+            // EnableRagdoll();
+            //
+            // // Optional: Add a small force to make them fall
+            // if (ragdollRigidbodies.Length > 0)
+            // {
+            //     // Find the spine or chest rigidbody for applying force
+            //     Rigidbody spine = ragdollRigidbodies[0];
+            //     if (spine != null)
+            //     {
+            //         spine.AddForce(Vector3.back * 100f, ForceMode.Impulse); // Adjust force as needed
+            //     }
+            // }
+            animator.SetBool("KnockedOut", true);
             
-            // Optional: Add a small force to make them fall
-            if (ragdollRigidbodies.Length > 0)
+            EnableInteractable();
+        }
+
+        private void EnableInteractable()
+        {
+            // Get or add the KnockedOut component (interactable)
+            KnockedOut knockedOutComponent = GetComponent<KnockedOut>();
+    
+            if (knockedOutComponent == null)
             {
-                // Find the spine or chest rigidbody for applying force
-                Rigidbody spine = ragdollRigidbodies[0];
-                if (spine != null)
-                {
-                    spine.AddForce(Vector3.back * 100f, ForceMode.Impulse); // Adjust force as needed
-                }
+                knockedOutComponent = gameObject.AddComponent<KnockedOut>();
+                Debug.Log("Added KnockedOut interactable component");
             }
+    
+            // Enable the component
+            knockedOutComponent.enabled = true;
         }
 
         private void DisablePlayerControls()

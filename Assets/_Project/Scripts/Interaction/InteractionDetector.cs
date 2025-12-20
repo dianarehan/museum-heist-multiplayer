@@ -1,3 +1,4 @@
+using _Project.Scripts.Interaction;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
@@ -17,7 +18,7 @@ public class InteractionDetector : MonoBehaviourPun
     [SerializeField] private Vector3 promptOffset = new Vector3(0f, 1.5f, 0f);
     
     private Camera playerCamera;
-    private IInteractable currentTarget;
+    private IInteractableEnhanced currentTarget;
     private GameObject currentTargetObject;
     private Outline currentOutline;
     private GameObject promptInstance;
@@ -60,17 +61,17 @@ public class InteractionDetector : MonoBehaviourPun
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         RaycastHit hit;
         
-        IInteractable newTarget = null;
+        IInteractableEnhanced newTarget = null;
         GameObject newTargetObject = null;
         Outline newOutline = null;
         
         if (Physics.Raycast(ray, out hit, interactionRange, interactableLayers))
         {
             // Try to get IInteractable from hit object or parents
-            newTarget = hit.collider.GetComponent<IInteractable>();
+            newTarget = hit.collider.GetComponent<IInteractableEnhanced>();
             if (newTarget == null)
             {
-                newTarget = hit.collider.GetComponentInParent<IInteractable>();
+                newTarget = hit.collider.GetComponentInParent<IInteractableEnhanced>();
             }
             
             // Get the GameObject and Outline for highlighting
@@ -153,7 +154,7 @@ public class InteractionDetector : MonoBehaviourPun
         
         if (Input.GetKeyDown(KeyCode.E))
         {
-            currentTarget.Interact();
+            currentTarget.Interact(gameObject);
         }
     }
     

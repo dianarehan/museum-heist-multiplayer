@@ -1,12 +1,13 @@
 using Photon.Pun;
 using UnityEngine;
 using System.Collections;
+using _Project.Scripts.Interaction;
 
 /// <summary>
 /// Attach to a pickupable item in the scene (like a bat on the floor).
 /// When thief presses E while looking at it, it disappears and equips the player.
 /// </summary>
-public class PickupableItem : MonoBehaviourPun, IInteractable
+public class PickupableItem : MonoBehaviourPun, IInteractableEnhanced
 {
     [Header("Item Settings")]
     [SerializeField] private string itemId = "sword";
@@ -51,7 +52,7 @@ public class PickupableItem : MonoBehaviourPun, IInteractable
         return playerTag == "Thief" && !isPickedUp;
     }
     
-    public void Interact()
+    public void Interact(GameObject interactingPlayer)
     {
         Pickup();
         

@@ -1,8 +1,9 @@
 using Photon.Pun;
 using UnityEngine;
 using System.Collections;
+using _Project.Scripts.Interaction;
 
-public class StealableItem : MonoBehaviourPun, IInteractable
+public class StealableItem : MonoBehaviourPun, IInteractableEnhanced
 {
     [SerializeField] private int value = 100;
     
@@ -84,7 +85,7 @@ public class StealableItem : MonoBehaviourPun, IInteractable
         return playerTag == "Thief" && CanSteal;
     }
     
-    public void Interact()
+    public void Interact(GameObject interactingPlayer)
     {
         Steal();
     }
