@@ -56,6 +56,9 @@ public class LaserHitEffect : MonoBehaviour
         if (pointA == null || pointB == null) return;
         if (Time.time - lastTriggerTime < triggerCooldown) return;
         
+        // Don't detect if currently fading out
+        if (fadeCoroutine != null) return;
+        
         CheckLaserCrossing();
     }
     
