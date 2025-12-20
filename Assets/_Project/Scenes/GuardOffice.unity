@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.47843137, g: 0.47843137, b: 0.47843137, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -93,8 +93,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 4b524524f68b4bf4abdf5e68ac06d9ca, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: b1b79ab93aba1294ca59a85dc0dbe447, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &137522220
 Light:
   m_ObjectHideFlags: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1001 &2364341333361140127
+--- !u!1001 &4575710725213935520
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -385,63 +385,121 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1988913266359357682, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
-      propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080814656930081876, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
-      propertyPath: m_Name
-      value: GuardOffice
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301117460730618426, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+    - target: {fileID: 2114233541754220393, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -46.2
+      value: -9.76569
       objectReference: {fileID: 0}
-    - target: {fileID: 4301117460730618426, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+    - target: {fileID: 2114233541754220393, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.77926
+      value: 0.00001
       objectReference: {fileID: 0}
-    - target: {fileID: 4301117460730618426, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+    - target: {fileID: 2114233541754220393, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.13807
+      value: 17.12567
       objectReference: {fileID: 0}
-    - target: {fileID: 4301117460730618426, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+    - target: {fileID: 2114233541754220393, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4301117460730618426, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+    - target: {fileID: 2114233541754220393, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4301117460730618426, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+    - target: {fileID: 2114233541754220393, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4301117460730618426, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+    - target: {fileID: 2114233541754220393, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4301117460730618426, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+    - target: {fileID: 2114233541754220393, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4301117460730618426, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+    - target: {fileID: 2114233541754220393, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4301117460730618426, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+    - target: {fileID: 2114233541754220393, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389971950228749720, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
+      propertyPath: m_Name
+      value: office lights
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c801c0026c17835439a0b8330e4aaca6, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 86b41a7fd9a2cf942bb9728deb1ddfb6, type: 3}
+--- !u!1001 &7592161831664728212
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 246037572055822911, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -46.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 246037572055822911, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 31.77926
+      objectReference: {fileID: 0}
+    - target: {fileID: 246037572055822911, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.13807
+      objectReference: {fileID: 0}
+    - target: {fileID: 246037572055822911, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 246037572055822911, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246037572055822911, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246037572055822911, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246037572055822911, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246037572055822911, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246037572055822911, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 766638152718618052, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: m_Name
+      value: GuardOffice
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276552803372330249, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2c9a7e8cbed65e44ab10cfe7f5999321, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 925204828}
   - {fileID: 137522221}
-  - {fileID: 2364341333361140127}
+  - {fileID: 7592161831664728212}
+  - {fileID: 4575710725213935520}
