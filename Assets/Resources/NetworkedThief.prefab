@@ -163,7 +163,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2791725172038833037}
-  sceneViewId: 0
+  sceneViewId: 12
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &2791725172038833037
@@ -587,7 +587,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 6658067305418349467}
   - {fileID: 4716738994052308199}
-  sceneViewId: 0
+  sceneViewId: 35
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &7933840720234997156
@@ -1807,7 +1807,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4716738994052308199}
   - {fileID: 6658067305418349467}
-  sceneViewId: 0
+  sceneViewId: 14
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &371170589783112517
@@ -2502,6 +2502,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4405681280390327995, guid: b408a9055386df745b1cad80cb910e6c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2914636674971870106}
+    - targetCorrespondingSourceObject: {fileID: 6907719439764748690, guid: b408a9055386df745b1cad80cb910e6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 428407956855700536}
   m_SourcePrefab: {fileID: 100100000, guid: b408a9055386df745b1cad80cb910e6c, type: 3}
 --- !u!224 &2770825877858132618 stripped
 RectTransform:
@@ -2513,6 +2516,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6907719439764748690, guid: b408a9055386df745b1cad80cb910e6c, type: 3}
   m_PrefabInstance: {fileID: 8093942631464540635}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &428407956855700536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426768501105844297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfc19120f8fc98479dc5680e12b1b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationText: {fileID: 8635888667318878583}
+  displayDuration: 3
 --- !u!1 &5582047054778431328 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4405681280390327995, guid: b408a9055386df745b1cad80cb910e6c, type: 3}
@@ -2541,3 +2558,14 @@ MonoBehaviour:
     listening gear. If you see him stop moving, he's likely trying to listen in on
     us. If a door is locked or a laser is in the way, smash the glass or cut the
     power. Let's get in and get out."
+--- !u!114 &8635888667318878583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 543707454035761324, guid: b408a9055386df745b1cad80cb910e6c, type: 3}
+  m_PrefabInstance: {fileID: 8093942631464540635}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426768501105844297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
