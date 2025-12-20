@@ -799,9 +799,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1769705962987723028, guid: 3f3fff276286a704da433131bc96d32c, type: 3}
+      propertyPath: sceneViewId
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810120657110048752, guid: 3f3fff276286a704da433131bc96d32c, type: 3}
+      propertyPath: sceneViewId
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4604301825558177477, guid: 3f3fff276286a704da433131bc96d32c, type: 3}
       propertyPath: m_Name
       value: chinese room lit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292685570679668868, guid: 3f3fff276286a704da433131bc96d32c, type: 3}
+      propertyPath: sceneViewId
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
