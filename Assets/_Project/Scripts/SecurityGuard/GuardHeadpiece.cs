@@ -2,6 +2,7 @@ using Photon.Pun;
 using Photon.Voice.Unity;
 using Photon.Voice.PUN;
 using UnityEngine;
+using prefabs.SecurityGuard.scripts;
 
 public class GuardHeadpiece : MonoBehaviourPun
 {
@@ -23,6 +24,8 @@ public class GuardHeadpiece : MonoBehaviourPun
     
     private Rigidbody rb;
     private CharacterController cc;
+    private AudioSource audioSource;
+    private FirstPersonMovement movement;
     private Vector3 lastPosition;
     private bool wasListening = false;
     
@@ -38,6 +41,8 @@ public class GuardHeadpiece : MonoBehaviourPun
         
         rb = GetComponent<Rigidbody>();
         cc = GetComponent<CharacterController>();
+        audioSource = GetComponent<AudioSource>();
+        movement = GetComponent<FirstPersonMovement>();
         lastPosition = transform.position;
         
         if (PunVoiceClient.Instance != null)
@@ -76,21 +81,14 @@ public class GuardHeadpiece : MonoBehaviourPun
     
     private bool IsStationary()
     {
-        float speed = 0f;
-        
-        if (rb != null)
+        // Use FirstPersonMovement if available
+        if (movement != null)
         {
-            speed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
-        }
-        else if (cc != null)
-        {
-            speed = cc.velocity.magnitude;
-        }
-        else
-        {
-            speed = Vector3.Distance(transform.position, lastPosition) / Time.deltaTime;
+            return !movement.IsMoving();
         }
         
+        // Fallback: check position delta
+        float speed = Vector3.Distance(transform.position, lastPosition) / Time.deltaTime;
         return speed < movementThreshold;
     }
     
@@ -111,7 +109,19 @@ public class GuardHeadpiece : MonoBehaviourPun
         
         if (activateSound != null)
         {
-            AudioSource.PlayClipAtPoint(activateSound, transform.position);
+            PlaySound(activateSound);
+        }
+    }
+    
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(clip, 1f);
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position, 1f);
         }
     }
     
@@ -132,7 +142,7 @@ public class GuardHeadpiece : MonoBehaviourPun
         
         if (deactivateSound != null)
         {
-            AudioSource.PlayClipAtPoint(deactivateSound, transform.position);
+            PlaySound(deactivateSound);
         }
     }
     
@@ -146,7 +156,7 @@ public class GuardHeadpiece : MonoBehaviourPun
             
             GUIStyle style = new GUIStyle();
             style.richText = true;
-            style.fontSize = 16;
+            style.fontSize = 30;
             
             GUI.Label(new Rect(10, 50, 300, 30), "Headpiece: " + status, style);
         }

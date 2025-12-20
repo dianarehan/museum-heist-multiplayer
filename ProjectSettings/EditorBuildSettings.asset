@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Voice Test.unity
     guid: 49e514db003163d4cb419f422d7038d3
+  - enabled: 1
+    path: Assets/_Project/Scenes/Guard Win.unity
+    guid: 46ce5984bf48d4a45bf8306a62fb075b
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game Over.unity
+    guid: 0604774de3a439043a7fab88f8d9d5b8
   - enabled: 0
     path: Assets/_Project/Scenes/Multiplayer Main.unity
     guid: 524371dc990a0714fb60321c709f3a5f

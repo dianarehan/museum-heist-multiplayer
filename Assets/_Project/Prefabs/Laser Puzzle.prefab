@@ -112,8 +112,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -265.4609, y: 7.56, z: -114.60391}
-  - {x: -195.9609, y: 22.5, z: -107.403915}
+  - {x: -313.8, y: 7.56, z: -126.80392}
+  - {x: -244.29999, y: 22.5, z: -119.60392}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -202,6 +202,8 @@ MonoBehaviour:
   fadeOutDuration: 2
   slowdownMultiplier: 0.1
   chromaticAberrationIntensity: 155.9
+  laserHitSound: {fileID: 8300000, guid: 2e9a207c08b67f448a866ac1ff085ab5, type: 3}
+  audioSource: {fileID: 8728247571713223650}
   postProcessVolume: {fileID: 0}
 --- !u!65 &6549152483614376258
 BoxCollider:
@@ -303,6 +305,7 @@ GameObject:
   - component: {fileID: 7130207428616512926}
   - component: {fileID: 3529268106245352333}
   - component: {fileID: 3746004517790670263}
+  - component: {fileID: 8728247571713223650}
   m_Layer: 0
   m_Name: LaserBeams
   m_TagString: Untagged
@@ -366,7 +369,106 @@ MonoBehaviour:
   laserLinesObject:
   - {fileID: 2889091827698737803}
   - {fileID: 7108835754509198702}
-  disableDuration: 1
+  disableDuration: 2
+  successSound: {fileID: 8300000, guid: 37abc79b4ad90e748bc8cff9e7b17d7f, type: 3}
+  audioSource: {fileID: 8728247571713223650}
+--- !u!82 &8728247571713223650
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859327823033196200}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 41.5
+  MaxDistance: 460.88
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4939563910240454541
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,8 +579,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -268.66092, y: 8.29, z: -132.86392}
-  - {x: -193.1609, y: -1.5, z: -141.06392}
+  - {x: -317, y: 8.29, z: -145.06392}
+  - {x: -241.49998, y: -1.5, z: -153.26392}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3

@@ -60,6 +60,14 @@ namespace prefabs.SecurityGuard.scripts
         // Small inputs are ignored to prevent flicker
         [SerializeField] private float walkDirDeadzone = 0.15f;
 
+        [Header("Footstep Audio")]
+        [SerializeField] private AudioSource footstepSource;
+        [SerializeField] private AudioClip[] footstepClips;
+        [SerializeField] private float walkStepRate = 0.5f;
+        [SerializeField] private float runStepRate = 0.3f;
+        [SerializeField] [Range(0f, 1f)] private float walkVolume = 0.5f;
+        [SerializeField] [Range(0f, 1f)] private float runVolume = 1f;
+
 
 
 
@@ -78,6 +86,9 @@ namespace prefabs.SecurityGuard.scripts
         private bool jumpInput;
         private bool sprintInput;
         private bool crouchInput;
+        
+        // Footstep timing
+        private float nextFootstepTime = 0f;
 
         private void Start()
         {
@@ -133,6 +144,8 @@ namespace prefabs.SecurityGuard.scripts
             HandleJump();
             ApplyGravity();
             UpdateAnimator();
+            HandleFootsteps();
+            
         }
 
         private void HandleInput()
@@ -361,7 +374,7 @@ namespace prefabs.SecurityGuard.scripts
                     if (planar.x > 0f) goRight = true;
                     else if (planar.x < 0f) goLeft = true;
                 }
-                Debug.Log("" + goFront + goBack + goLeft + goRight);
+                
                 SetOneHotWalkBools(goFront, goBack, goLeft, goRight);
             }
         }
@@ -379,6 +392,40 @@ namespace prefabs.SecurityGuard.scripts
                     return true;
             }
             return false;
+        }
+        
+        private void HandleFootsteps()
+        {
+            // Only play footsteps when grounded AND actively pressing movement keys
+            bool hasInput = moveInput.magnitude > 0.1f;
+            
+            if (!isGrounded || !hasInput)
+            {
+                // Stop footstep audio if playing
+                if (footstepSource != null && footstepSource.isPlaying)
+                {
+                    footstepSource.Stop();
+                }
+                return;
+            }
+            
+            PlayFootstep(isSprinting);
+        }
+        
+        private void PlayFootstep(bool isRunning)
+        {
+            if (footstepSource == null || footstepClips == null || footstepClips.Length == 0)
+                return;
+            
+            if (Time.time < nextFootstepTime)
+                return;
+            
+            float stepRate = isRunning ? runStepRate : walkStepRate;
+            nextFootstepTime = Time.time + stepRate;
+            
+            footstepSource.volume = isRunning ? runVolume : walkVolume;
+            footstepSource.clip = footstepClips[UnityEngine.Random.Range(0, footstepClips.Length)];
+            footstepSource.Play();
         }
 
         #region Public Methods

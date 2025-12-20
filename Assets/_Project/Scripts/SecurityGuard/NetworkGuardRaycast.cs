@@ -1,22 +1,36 @@
 ﻿using UnityEngine;
 using Photon.Pun;
+using System.Collections;
 
 namespace _Project.Scripts.Player
 {
-    public class NetworkGuardRaycast : MonoBehaviourPunCallbacks // Changed to MonoBehaviourPunCallbacks
+    public class NetworkGuardRaycast : MonoBehaviourPunCallbacks
     {
         [Header("Raycast Settings")]
         [SerializeField] private float raycastRange = 10f;
-        [SerializeField] private LayerMask targetLayers; // Optional: set specific layers
+        [SerializeField] private LayerMask targetLayers;
+        
+        [Header("Tase Audio")]
+        [SerializeField] private AudioClip taseSound;
+        [SerializeField] [Range(0f, 1f)] private float taseVolume = 1f;
+        [SerializeField] private float taseDuration = 1f;
+        private AudioSource taseAudioSource;
         
         private Camera playerCamera;
         private PhotonView photonView;
 
         private void Start()
         {
-            // Get the camera (assuming it's a child of the Guard)
             playerCamera = GetComponentInChildren<Camera>();
             photonView = GetComponent<PhotonView>();
+            
+            // Create dedicated AudioSource for tase sound
+            taseAudioSource = gameObject.AddComponent<AudioSource>();
+            taseAudioSource.playOnAwake = false;
+            taseAudioSource.spatialBlend = 1f; // 3D sound - distance affects volume
+            taseAudioSource.rolloffMode = AudioRolloffMode.Linear;
+            taseAudioSource.minDistance = 20f;
+            taseAudioSource.maxDistance = 100f;
             
             if (playerCamera == null)
             {
@@ -26,11 +40,9 @@ namespace _Project.Scripts.Player
 
         private void Update()
         {
-            // Only allow the local player to raycast
             if (photonView != null && !photonView.IsMine)
                 return;
             
-            // Check for left mouse button click
             if (Input.GetMouseButtonDown(0))
             {
                 PerformRaycast();
@@ -41,16 +53,15 @@ namespace _Project.Scripts.Player
         {
             if (playerCamera == null)
                 return;
+            StartCoroutine(PlayTaseSound());
 
             Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             RaycastHit hit;
 
-            // Perform the raycast
             if (Physics.Raycast(ray, out hit, raycastRange))
             {
                 Debug.Log($"Hit object: {hit.collider.gameObject.name}");
-                
-                // Check if the hit object has the "Thief" tag
+
                 if (hit.collider.CompareTag("Thief"))
                 {
                     Debug.Log("THIEF DETECTED! Action triggered!");
@@ -67,21 +78,17 @@ namespace _Project.Scripts.Player
         {
             Debug.Log($"Caught thief: {thief.name}");
             
-            // Get the thief's PhotonView
             PhotonView thiefPhotonView = thief.GetComponent<PhotonView>();
             if (thiefPhotonView != null)
             {
-                // Call the knockout function on the thief's network object
                 thiefPhotonView.RPC("RPC_KnockoutThief", RpcTarget.AllBuffered);
                 
-                // Notify game state to update
                 if (PhotonNetwork.IsMasterClient)
                 {
                     GameState.Instance.ThiefDied();
                 }
                 else
                 {
-                    // Request master client to update via GameState's PhotonView
                     PhotonView gameStateView = GameState.Instance.GetComponent<PhotonView>();
                     if (gameStateView != null)
                     {
@@ -91,5 +98,19 @@ namespace _Project.Scripts.Player
             }
         }
         
+        private IEnumerator PlayTaseSound()
+        {
+            if (taseSound == null || taseAudioSource == null) yield break;
+            
+            taseAudioSource.clip = taseSound;
+            taseAudioSource.volume = taseVolume;
+            taseAudioSource.loop = true;
+            taseAudioSource.Play();
+            
+            yield return new WaitForSeconds(taseDuration);
+            
+            taseAudioSource.Stop();
+            taseAudioSource.loop = false;
+        }
     }
 }
