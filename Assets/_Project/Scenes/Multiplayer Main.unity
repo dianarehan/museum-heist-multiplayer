@@ -2108,7 +2108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &535965735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5424,6 +5424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkedGuard
       objectReference: {fileID: 0}
+    - target: {fileID: 8530347482223586906, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8868309170002357255, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
       propertyPath: postProcessVolume
       value: 
@@ -5431,34 +5435,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8530347482223586906, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1175581792}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
 --- !u!1 &1175581790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8530347482223586906, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
   m_PrefabInstance: {fileID: 1175581789}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1175581791 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3743904777068448532, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
-  m_PrefabInstance: {fileID: 1175581789}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1175581792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175581790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3894d69d63cb4028853f0c88fb192b6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carryPosition: {fileID: 1175581791}
 --- !u!4 &1200006443 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2454421275946918016, guid: a985d0da30b7d594d9825dd12290b5f8, type: 3}
@@ -7097,34 +7080,6 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 6161854750134050165, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 218.36116
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161854750134050165, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.183113
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161854750134050165, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 84.17658
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161854750134050165, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9928722
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161854750134050165, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.1191842
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161854750134050165, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.000000012449993
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161854750134050165, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.0000000014944951
-      objectReference: {fileID: 0}
     - target: {fileID: 7278867315974013372, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: sceneViewId
       value: 14
@@ -7136,6 +7091,10 @@ PrefabInstance:
     - target: {fileID: 9186890002551214560, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: m_Name
       value: NetworkedThief
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186890002551214560, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9615,11 +9574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf905dd1651b99b4cab04930b63a8773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebugMode: 0
-  useOfflineMode: 0
+  enableDebugMode: 1
+  useOfflineMode: 1
   debugRole: 1
   debugPlayerName: DebugPlayer
-  sceneGuard: {fileID: 8530347482223586906, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
+  sceneGuard: {fileID: 1175581790}
   sceneThieves:
   - {fileID: 639893851}
   spawnPrefabsInstead: 0
