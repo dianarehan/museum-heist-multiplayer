@@ -123,8 +123,8 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 43.6416, y: 17.835743}
-  m_BounceIntensity: 2
+  m_AreaSize: {x: 43, y: 18}
+  m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -244,8 +244,8 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 43.6416, y: 17.835743}
-  m_BounceIntensity: 2
+  m_AreaSize: {x: 43, y: 18}
+  m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -307,7 +307,7 @@ Transform:
   m_GameObject: {fileID: 3817357258400174172}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -74.4, y: 41.450012, z: 15.600003}
+  m_LocalPosition: {x: -74.4, y: 40, z: 15.600003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -445,7 +445,7 @@ Light:
   serializedVersion: 11
   m_Type: 4
   m_Color: {r: 0.9764706, g: 0.9490196, b: 0.79607844, a: 1}
-  m_Intensity: 5
+  m_Intensity: 10
   m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -486,8 +486,8 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 10.1355915, y: 1}
-  m_BounceIntensity: 2
+  m_AreaSize: {x: 10, y: 1}
+  m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -549,7 +549,7 @@ Transform:
   m_GameObject: {fileID: 6924473644628598511}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -117.9, y: 17, z: 29.65}
+  m_LocalPosition: {x: -117.9, y: 15.700001, z: 29.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -566,7 +566,7 @@ Light:
   serializedVersion: 11
   m_Type: 4
   m_Color: {r: 0.9764706, g: 0.9490196, b: 0.79607844, a: 1}
-  m_Intensity: 5
+  m_Intensity: 10
   m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -607,8 +607,8 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 10.13925, y: 1}
-  m_BounceIntensity: 2
+  m_AreaSize: {x: 10, y: 1}
+  m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -687,7 +687,7 @@ Light:
   serializedVersion: 11
   m_Type: 4
   m_Color: {r: 0.9764706, g: 0.9490196, b: 0.79607844, a: 1}
-  m_Intensity: 5
+  m_Intensity: 10
   m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -728,8 +728,8 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 9.8894825, y: 1}
-  m_BounceIntensity: 2
+  m_AreaSize: {x: 10, y: 1}
+  m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -808,7 +808,7 @@ Light:
   serializedVersion: 11
   m_Type: 4
   m_Color: {r: 0.9764706, g: 0.9490196, b: 0.79607844, a: 1}
-  m_Intensity: 5
+  m_Intensity: 10
   m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -849,8 +849,8 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 11.623854, y: 1}
-  m_BounceIntensity: 2
+  m_AreaSize: {x: 10, y: 1}
+  m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
