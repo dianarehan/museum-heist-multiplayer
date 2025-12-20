@@ -15,7 +15,21 @@ namespace _Project.Scripts.Player
         [SerializeField] [Range(0f, 1f)] private float taseVolume = 1f;
         [SerializeField] private float taseDuration = 1f;
         private AudioSource taseAudioSource;
-        
+
+        [Header("Pistol Charge")]
+        [SerializeField] private int maxCharges = 6;
+        [SerializeField] private int currentCharges;
+        [SerializeField] private float rechargeTime = 5f;
+
+        [SerializeField] private GameObject pistolVisual; // mesh in hand
+
+        [SerializeField] private float interactionRange = 2f;
+        [SerializeField] private LayerMask chargerLayer;
+
+        public float RechargeTime => rechargeTime;
+
+
+
         private Camera playerCamera;
         private PhotonView photonView;
 
@@ -31,7 +45,11 @@ namespace _Project.Scripts.Player
             taseAudioSource.rolloffMode = AudioRolloffMode.Linear;
             taseAudioSource.minDistance = 20f;
             taseAudioSource.maxDistance = 100f;
-            
+
+            currentCharges = maxCharges;
+            pistolVisual.SetActive(true);
+
+
             if (playerCamera == null)
             {
                 Debug.LogError("Camera not found on Guard!");
@@ -42,12 +60,50 @@ namespace _Project.Scripts.Player
         {
             if (photonView != null && !photonView.IsMine)
                 return;
-            
-            if (Input.GetMouseButtonDown(0))
+
+            if (Input.GetMouseButtonDown(0) && currentCharges > 0)
             {
                 PerformRaycast();
+                currentCharges--;
+                Debug.Log($"Charges left: {currentCharges}");
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                TryPlacePistolOnCharger();
             }
         }
+
+        private void TryPlacePistolOnCharger()
+        {
+            if (currentCharges == maxCharges) return;
+
+            Ray ray = playerCamera.ScreenPointToRay(
+                new Vector3(Screen.width / 2, Screen.height / 2, 0));
+
+            if (Physics.Raycast(ray, out RaycastHit hit, interactionRange, chargerLayer))
+            {
+                var charger = hit.collider.GetComponent<PistolChargingStation>();
+                if (charger != null)
+                {
+                    charger.StartCharging(this);
+                }
+            }
+        }
+
+        public void OnPistolPlacedOnCharger()
+        {
+            pistolVisual.SetActive(false);
+        }
+
+        public void OnPistolFullyCharged()
+        {
+            currentCharges = maxCharges;
+            pistolVisual.SetActive(true);
+        }
+
+
 
         private void PerformRaycast()
         {
