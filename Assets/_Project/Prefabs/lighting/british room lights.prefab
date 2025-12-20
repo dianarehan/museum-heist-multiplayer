@@ -365,7 +365,7 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 12.318756, y: 80.8244}
+  m_AreaSize: {x: 12.318756, y: 63.10669}
   m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0

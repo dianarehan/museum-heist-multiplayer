@@ -4131,65 +4131,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: british room lights
       objectReference: {fileID: 0}
-    - target: {fileID: 2416101339970958512, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.700005
-      objectReference: {fileID: 0}
-    - target: {fileID: 2416101339970958512, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 65.60002
-      objectReference: {fileID: 0}
-    - target: {fileID: 2930239570949192617, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 45.650017
-      objectReference: {fileID: 0}
-    - target: {fileID: 2930239570949192617, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 80.55002
-      objectReference: {fileID: 0}
-    - target: {fileID: 3552881029060042518, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 29.600018
-      objectReference: {fileID: 0}
-    - target: {fileID: 3552881029060042518, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 143.70001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5373348344895296659, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 43.20002
-      objectReference: {fileID: 0}
-    - target: {fileID: 5373348344895296659, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 106.40002
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968609327327768363, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -41.599983
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968609327327768363, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 79.65002
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737908034103761758, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -26.699982
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737908034103761758, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 143.70001
-      objectReference: {fileID: 0}
     - target: {fileID: 7278728679770386599, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
       propertyPath: m_AreaSize.y
-      value: 80.8244
-      objectReference: {fileID: 0}
-    - target: {fileID: 8268466507403764837, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -42.099983
-      objectReference: {fileID: 0}
-    - target: {fileID: 8268466507403764837, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 108.000015
+      value: 63.10669
       objectReference: {fileID: 0}
     - target: {fileID: 8752856962626490470, guid: 51c5cdb4a6bdc0146adae009de3f4b44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9724,7 +9668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6377465601193292374, guid: cabb5d152f859524cb98a52e09530ffb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 102.94391
+      value: -41.6
       objectReference: {fileID: 0}
     - target: {fileID: 7736821463259587758, guid: cabb5d152f859524cb98a52e09530ffb, type: 3}
       propertyPath: m_LocalPosition.x
