@@ -2295,7 +2295,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 29
+  sceneViewId: 40
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!65 &718128279
@@ -6189,7 +6189,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c65648346ba8b040a6ca888b1157406, type: 2}
+  - {fileID: 2100000, guid: 37ae0d4f05eeea34b9b8fd705947dc04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6589,7 +6589,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2602576045853421820, guid: d4bcb6cb4f9c45844977b85d725c3bde, type: 3}
       propertyPath: sceneViewId
-      value: 26
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 2626705725750984590, guid: d4bcb6cb4f9c45844977b85d725c3bde, type: 3}
       propertyPath: m_LocalScale.x
@@ -6877,7 +6877,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c65648346ba8b040a6ca888b1157406, type: 2}
+  - {fileID: 2100000, guid: 37ae0d4f05eeea34b9b8fd705947dc04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7765,6 +7765,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e8aba393bff8d3f449ebc1892cd06c10, type: 2}
+    - target: {fileID: 1024816240873063242, guid: 34d7a20ee8f33d544bb256149024d37f, type: 3}
+      propertyPath: sceneViewId
+      value: 39
+      objectReference: {fileID: 0}
     - target: {fileID: 1044372563078569699, guid: 34d7a20ee8f33d544bb256149024d37f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -7793,6 +7797,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2575050555470559227, guid: 34d7a20ee8f33d544bb256149024d37f, type: 3}
+      propertyPath: outline
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3094563913422330016, guid: 34d7a20ee8f33d544bb256149024d37f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -7804,6 +7812,10 @@ PrefabInstance:
     - target: {fileID: 3159379041544832397, guid: 34d7a20ee8f33d544bb256149024d37f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741374589644255329, guid: 34d7a20ee8f33d544bb256149024d37f, type: 3}
+      propertyPath: sceneViewId
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 4518867342048566322, guid: 34d7a20ee8f33d544bb256149024d37f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

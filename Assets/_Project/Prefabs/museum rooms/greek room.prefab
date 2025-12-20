@@ -120,7 +120,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2602576045853421820, guid: d4bcb6cb4f9c45844977b85d725c3bde, type: 3}
       propertyPath: sceneViewId
-      value: 26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2626705725750984590, guid: d4bcb6cb4f9c45844977b85d725c3bde, type: 3}
       propertyPath: m_LocalScale.x
@@ -708,7 +708,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 29
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!65 &2273772903965073559
@@ -2424,7 +2424,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e8aba393bff8d3f449ebc1892cd06c10, type: 2}
     - target: {fileID: 3917384660131870038, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: sceneViewId
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5388519707289058302, guid: 9571416b65358ff4bb4c3b09fdd01be5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
