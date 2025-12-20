@@ -1106,16 +1106,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Museum Heist
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: be87782e558446842be45c8289a383d6, type: 2}
-  m_sharedMaterial: {fileID: -3985139807881209692, guid: be87782e558446842be45c8289a383d6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0cce1d9b194cec74cbf287fa0401a14e, type: 2}
+  m_sharedMaterial: {fileID: -4397662989065811207, guid: 0cce1d9b194cec74cbf287fa0401a14e, type: 2}
   m_fontSharedMaterials:
   - {fileID: -3985139807881209692, guid: be87782e558446842be45c8289a383d6, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290834431
+  m_fontColor: {r: 1, g: 0.93820757, b: 0.7528302, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
