@@ -1111,11 +1111,11 @@ MonoBehaviour:
   interactionRange: 10
   chargerLayer:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 8192
   interactRange: 10
   inhalerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
 --- !u!114 &3867136771178052681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1320,6 +1320,8 @@ MonoBehaviour:
   pulseSpeed: 2
   pulseRange: 0.15
   saturationReduction: -40
+  pantingLoop: {fileID: 8300000, guid: aff1f3f946eb7bc4b98fad22e2c23baf, type: 3}
+  pantingVolume: 0.3
   postProcessVolume: {fileID: 0}
 --- !u!114 &1330480628901051412
 MonoBehaviour:

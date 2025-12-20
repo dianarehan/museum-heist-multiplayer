@@ -60,7 +60,7 @@ namespace _Project.Scripts.Player
 
             tirednessEffect = GetComponent<GuardTirednessEffect>();
 
-            
+            tirednessEffect.TriggerTiredness();
 
 
 

@@ -6,6 +6,18 @@ public class InhalerInteractable : MonoBehaviourPun
     [SerializeField] private float useCooldown = 10f;
     private bool used = false;
 
+    [SerializeField] private AudioClip inhaleSound;
+    private AudioSource audioSource;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
+        
+    }
+
     public void Use(GuardTirednessEffect tiredness)
     {
         if (used) return;
@@ -15,6 +27,12 @@ public class InhalerInteractable : MonoBehaviourPun
 
         Debug.Log("Inhaler used – tiredness stopped");
 
+        if (audioSource != null && inhaleSound != null)
+        {
+            audioSource.PlayOneShot(inhaleSound);
+            Debug.Log("Inhaler sound played");
+
+        }
         // Optional: hide inhaler
         gameObject.SetActive(false);
 
@@ -27,4 +45,7 @@ public class InhalerInteractable : MonoBehaviourPun
         used = false;
         gameObject.SetActive(true);
     }
+
+    
+
 }
