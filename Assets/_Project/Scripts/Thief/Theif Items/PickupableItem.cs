@@ -54,6 +54,20 @@ public class PickupableItem : MonoBehaviourPun, IInteractable
     public void Interact()
     {
         Pickup();
+        
+        // Find the local player's equipment and equip the item
+        if (itemId == "bat" || itemId == "sword" || itemId == "s,word")
+        {
+            // Find local player's PlayerEquipment
+            foreach (var equipment in FindObjectsOfType<PlayerEquipment>())
+            {
+                if (equipment.photonView.IsMine)
+                {
+                    equipment.EquipItem(itemId);
+                    break;
+                }
+            }
+        }
     }
     
     public string GetInteractionPrompt()

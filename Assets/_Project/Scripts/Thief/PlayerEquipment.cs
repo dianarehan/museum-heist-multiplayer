@@ -106,6 +106,18 @@ public class PlayerEquipment : MonoBehaviourPun
         }
     }
     
+    /// <summary>
+    /// Called by PickupableItem when item is picked up via IInteractable
+    /// </summary>
+    public void EquipItem(string itemId)
+    {
+        Debug.Log($"[PlayerEquipment] EquipItem called with: {itemId}");
+        if (itemId == "bat" || itemId == "sword" || itemId == "s,word")
+        {
+            EquipBat();
+        }
+    }
+    
     private void EquipBat()
     {
         hasBat = true;
@@ -114,9 +126,20 @@ public class PlayerEquipment : MonoBehaviourPun
         photonView.RPC(nameof(RPC_ShowHandBat), RpcTarget.All, true);
     }
     
+    private Coroutine showBatCoroutine;
+    
     [PunRPC]
     private void RPC_ShowHandBat(bool show)
     {
+        Debug.Log($"[PlayerEquipment] RPC_ShowHandBat called: show={show}, handBat={handBat != null}");
+        
+        // Cancel any existing coroutine
+        if (showBatCoroutine != null)
+        {
+            StopCoroutine(showBatCoroutine);
+            showBatCoroutine = null;
+        }
+        
         // Play pickup animation first
         if (show && anim != null)
         {
@@ -134,7 +157,7 @@ public class PlayerEquipment : MonoBehaviourPun
         if (show)
         {
             // Delay showing hand bat until after animation
-            StartCoroutine(ShowHandBatDelayed());
+            showBatCoroutine = StartCoroutine(ShowHandBatDelayed());
         }
         else if (handBat != null)
         {

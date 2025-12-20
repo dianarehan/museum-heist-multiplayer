@@ -200,8 +200,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4811712245415423587}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.47100195, y: 0.32853687, z: 0.1945927, w: 0.79520714}
-  m_LocalPosition: {x: 0, y: 19.249998, z: -0.23999977}
+  m_LocalRotation: {x: 0.1191842, y: 0.000000012449993, z: -0.0000000014944951, w: 0.9928722}
+  m_LocalPosition: {x: 121.061165, y: 10.183112, z: 14.27658}
   m_LocalScale: {x: 1, y: 0.8411861, z: 0.9889216}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -367,7 +367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &198581314342388286
 Transform:
   m_ObjectHideFlags: 0
@@ -460,13 +460,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8868d60b7d63fb04386cc94f0e9a328a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thiefCamera: {fileID: 7236199577961959157}
+  thiefCamera: {fileID: 0}
   stealRange: 22.5
   stealableLayers:
     serializedVersion: 2
     m_Bits: 64
   wallet: {fileID: 913853704148474811}
-  stealPrompt: {fileID: 3426768501105844297}
+  stealPrompt: {fileID: 0}
   displayDuration: 2
   stealMessage: Press E to Steal
   protectedMessage: You must break the glass first, Find Something to do that with.
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   crouchSpeed: 2
   firstPersonFollow: {fileID: 5548581731736769851}
   thirdPersonFollow: {fileID: 9090106535419813683}
-  playerCamera: {fileID: 7236199577961959157}
+  playerCamera: {fileID: 0}
   audioListener: {fileID: 527325520345423490}
   footstepSource: {fileID: 6575831313596967023}
   footstepClips:
@@ -2183,10 +2183,5 @@ PrefabInstance:
 --- !u!224 &2770825877858132618 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6206108188226632529, guid: b408a9055386df745b1cad80cb910e6c, type: 3}
-  m_PrefabInstance: {fileID: 8093942631464540635}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3426768501105844297 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6907719439764748690, guid: b408a9055386df745b1cad80cb910e6c, type: 3}
   m_PrefabInstance: {fileID: 8093942631464540635}
   m_PrefabAsset: {fileID: 0}

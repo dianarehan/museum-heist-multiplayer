@@ -31,6 +31,7 @@ namespace _Project.Scripts.Player
             // Setup ragdoll
             SetupRagdoll();
             DisableRagdoll();
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void SetupRagdoll()
