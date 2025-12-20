@@ -10,6 +10,7 @@ TagManager:
   - LootTheft
   - Thief
   - Guard
+  - StairsBarrier
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - theif_2_head
   - theif_3_head
   - thief_4_head
-  - charger
-  - inhaler
+  - walls
+  - 
   - 
   - 
   - 
@@ -55,4 +56,4 @@ TagManager:
   - Light Layer 4
   - Light Layer 5
   - Light Layer 6
-  - Light Layer 7
+  - walls

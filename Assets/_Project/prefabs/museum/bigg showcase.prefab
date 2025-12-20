@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: bigg showcase
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c1ee0656cf74282469baeb7c6ffac1fc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162728349024430751, guid: c1ee0656cf74282469baeb7c6ffac1fc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5100834475502607446, guid: c1ee0656cf74282469baeb7c6ffac1fc, type: 3}
