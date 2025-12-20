@@ -1,6 +1,7 @@
 using Photon.Pun;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Attach to a pickupable item in the scene (like a bat on the floor).
@@ -18,6 +19,9 @@ public class PickupableItem : MonoBehaviourPun, IInteractable
     private bool isPickedUp = false;
     [SerializeField] private Outline outline;
     
+    // Static registry to find items by ID
+    private static Dictionary<string, PickupableItem> itemRegistry = new Dictionary<string, PickupableItem>();
+    
     public string ItemId => itemId;
     public bool IsPickedUp => isPickedUp;
     
@@ -33,6 +37,21 @@ public class PickupableItem : MonoBehaviourPun, IInteractable
         {
             promptPosition = transform;
         }
+        
+        // Register this item
+        if (!string.IsNullOrEmpty(itemId))
+        {
+            itemRegistry[itemId] = this;
+        }
+    }
+    
+    void OnDestroy()
+    {
+        // Unregister on destroy
+        if (!string.IsNullOrEmpty(itemId) && itemRegistry.ContainsKey(itemId) && itemRegistry[itemId] == this)
+        {
+            itemRegistry.Remove(itemId);
+        }
     }
     
     void Start()
@@ -42,6 +61,18 @@ public class PickupableItem : MonoBehaviourPun, IInteractable
         {
             outline.enabled = false;
         }
+    }
+    
+    /// <summary>
+    /// Find a pickupable item by its ID
+    /// </summary>
+    public static PickupableItem GetByItemId(string id)
+    {
+        if (itemRegistry.TryGetValue(id, out PickupableItem item))
+        {
+            return item;
+        }
+        return null;
     }
     
     // IInteractable Implementation
@@ -117,4 +148,32 @@ public class PickupableItem : MonoBehaviourPun, IInteractable
             RPC_OnPickedUp();
         }
     }
+    
+    /// <summary>
+    /// Called when the thief holding this item is caught.
+    /// Respawns the item at its original location.
+    /// </summary>
+    public void Respawn()
+    {
+        if (photonView != null)
+        {
+            photonView.RPC(nameof(RPC_Respawn), RpcTarget.AllBuffered);
+        }
+        else
+        {
+            RPC_Respawn();
+        }
+    }
+    
+    [PunRPC]
+    private void RPC_Respawn()
+    {
+        isPickedUp = false;
+        gameObject.SetActive(true);
+        Debug.Log($"[PickupableItem] {itemId} has respawned!");
+        
+        // Notify all players
+        NotificationHUD.Show($"The {itemId} has returned!");
+    }
 }
+

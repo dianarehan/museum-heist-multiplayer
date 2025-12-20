@@ -121,9 +121,35 @@ public class PlayerEquipment : MonoBehaviourPun
     private void EquipBat()
     {
         hasBat = true;
+        equippedItemId = "sword"; // or "bat" - track what was equipped
         
         // Show the hand bat for all players
         photonView.RPC(nameof(RPC_ShowHandBat), RpcTarget.All, true);
+    }
+    
+    private string equippedItemId = "";
+    
+    /// <summary>
+    /// Drop the bat when thief is caught. Respawns the floor item.
+    /// </summary>
+    public void DropBat()
+    {
+        if (!hasBat) return;
+        
+        Debug.Log("[PlayerEquipment] Dropping bat!");
+        
+        // Hide hand bat
+        photonView.RPC(nameof(RPC_ShowHandBat), RpcTarget.All, false);
+        
+        // Respawn floor item
+        var floorItem = PickupableItem.GetByItemId(equippedItemId);
+        if (floorItem != null)
+        {
+            floorItem.Respawn();
+        }
+        
+        hasBat = false;
+        equippedItemId = "";
     }
     
     private Coroutine showBatCoroutine;
