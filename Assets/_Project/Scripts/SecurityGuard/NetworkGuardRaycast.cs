@@ -59,8 +59,8 @@ namespace _Project.Scripts.Player
             pistolVisual.SetActive(true);
 
             tirednessEffect = GetComponent<GuardTirednessEffect>();
-
-            tirednessEffect.TriggerTiredness();
+            
+            // Note: tiredness now starts after a delay, not immediately
 
 
 
@@ -154,7 +154,7 @@ namespace _Project.Scripts.Player
             Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, raycastRange))
+            if (Physics.Raycast(ray, out hit, raycastRange, targetLayers))
             {
                 Debug.Log($"Hit object: {hit.collider.gameObject.name}");
 
@@ -181,14 +181,14 @@ namespace _Project.Scripts.Player
                 
                 if (PhotonNetwork.IsMasterClient)
                 {
-                   // GameState.Instance.ThiefDied();
+                    GameState.Instance.ThiefDied();
                 }
                 else
                 {
                     PhotonView gameStateView = GameState.Instance.GetComponent<PhotonView>();
                     if (gameStateView != null)
                     {
-                        //gameStateView.RPC("RPC_ThiefCaughtRequest", RpcTarget.MasterClient);
+                        gameStateView.RPC("RPC_ThiefCaughtRequest", RpcTarget.MasterClient);
                     }
                 }
             }
