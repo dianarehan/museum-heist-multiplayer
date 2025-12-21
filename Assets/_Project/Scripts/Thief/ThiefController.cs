@@ -172,6 +172,16 @@ namespace _Project.Scripts.Player
             if (knockedOutComponent == null)
             {
                 knockedOutComponent = gameObject.AddComponent<KnockedOut>();
+                GameObject detainLocationObj = GameObject.Find("DetainLocation");
+                if (detainLocationObj != null)
+                {
+                    knockedOutComponent.carryPosition = detainLocationObj.transform;
+                    Debug.Log("Added KnockedOut interactable component and assigned DetainLocation");
+                }
+                else
+                {
+                    Debug.LogError("DetainLocation GameObject not found in scene!");
+                }
                 Debug.Log("Added KnockedOut interactable component");
             }
     

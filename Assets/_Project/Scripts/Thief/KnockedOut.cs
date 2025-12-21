@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Interaction;
+using _Project.Scripts.Player;
 using UnityEngine;
 using Photon.Pun;
 
@@ -6,7 +7,7 @@ public class KnockedOut : MonoBehaviourPun, IInteractableEnhanced
 {
     private bool isCarried = false;
     [SerializeField] private Transform promptPosition;
-    [SerializeField] private Transform carryPosition; // Position on guard where thief will be attached
+    [SerializeField] public Transform carryPosition; // Position on guard where thief will be attached
     
     private GameObject currentGuard; // Reference to the guard carrying this thief
     private Animator thiefAnimator;
@@ -31,7 +32,7 @@ public class KnockedOut : MonoBehaviourPun, IInteractableEnhanced
     public bool CanInteract(string playerTag)
     {
         // Only Guard can carry the thief
-        return playerTag == "Guard";
+        return playerTag == "Guard" && gameObject.GetComponent<ThiefController>().IsKnockedOut();
     }
 
     public void Interact()
@@ -91,7 +92,7 @@ public class KnockedOut : MonoBehaviourPun, IInteractableEnhanced
     
     public string GetInteractionPrompt()
     {
-        return isCarried ? "Put Down Thief" : "Carry Thief";
+        return isCarried ? "" : "Detain Thief";
     }
     
     public Transform GetPromptPosition()
@@ -123,55 +124,59 @@ public class KnockedOut : MonoBehaviourPun, IInteractableEnhanced
     
     private void StartCarrying(GameObject guard)
     {
-        currentGuard = guard;
-        Debug.Log(guard);
+        // currentGuard = guard;
+        // Debug.Log(guard);
+        //
+        // // Get guard's animator and trigger carrying animation
+        // Animator guardAnimator = guard.GetComponent<Animator>();
+        // if (guardAnimator != null)
+        // {
+        //     guardAnimator.SetBool("IsCarrying", true);
+        // }
+        //
+        // // Get guard's carry position (should be a child transform on the guard)
+        // GuardCarrySystem carrySystem = guard.GetComponent<GuardCarrySystem>();
+        // if (carrySystem != null)
+        // {
+        //     carryPosition = carrySystem.GetCarryPosition();
+        // }
+        //
+        // // Trigger thief carried animation
+        // if (thiefAnimator != null)
+        // {
+        //     thiefAnimator.SetBool(THIEF_CARRIED_ANIM, true);
+        // }
+        //
+        // // Disable thief's physics/movement
+        // if (thiefController != null)
+        // {
+        //     thiefController.enabled = false;
+        // }
+        //
+        // if (thiefRigidbody != null)
+        // {
+        //     thiefRigidbody.isKinematic = true;
+        //     thiefRigidbody.useGravity = false;
+        // }
+        //
+        // // Parent thief to guard's carry position
+        // if (carryPosition != null)
+        // {
+        //     Debug.Log("CarryPosition found");
+        //     transform.SetParent(carryPosition);
+        //     transform.localPosition = Vector3.zero;
+        //     transform.localRotation = Quaternion.Euler(0, 0, 0); // Adjust rotation as needed
+        // }
+        // else
+        // {
+        //     // Fallback: parent to guard directly with offset
+        //     transform.SetParent(guard.transform);
+        //     transform.localPosition = new Vector3(0.7f, 0f, 0.5f); // Offset to side
+        //     transform.localRotation = Quaternion.Euler(0, -90, 0);
+        // }
+        transform.position = carryPosition.position;
         
-        // Get guard's animator and trigger carrying animation
-        Animator guardAnimator = guard.GetComponent<Animator>();
-        if (guardAnimator != null)
-        {
-            guardAnimator.SetBool("IsCarrying", true);
-        }
         
-        // Get guard's carry position (should be a child transform on the guard)
-        GuardCarrySystem carrySystem = guard.GetComponent<GuardCarrySystem>();
-        if (carrySystem != null)
-        {
-            carryPosition = carrySystem.GetCarryPosition();
-        }
-        
-        // Trigger thief carried animation
-        if (thiefAnimator != null)
-        {
-            thiefAnimator.SetBool(THIEF_CARRIED_ANIM, true);
-        }
-        
-        // Disable thief's physics/movement
-        if (thiefController != null)
-        {
-            thiefController.enabled = false;
-        }
-        
-        if (thiefRigidbody != null)
-        {
-            thiefRigidbody.isKinematic = true;
-            thiefRigidbody.useGravity = false;
-        }
-        
-        // Parent thief to guard's carry position
-        if (carryPosition != null)
-        {
-            transform.SetParent(carryPosition);
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.Euler(0, 0, 0); // Adjust rotation as needed
-        }
-        else
-        {
-            // Fallback: parent to guard directly with offset
-            transform.SetParent(guard.transform);
-            transform.localPosition = new Vector3(0.7f, 0f, 0.5f); // Offset to side
-            transform.localRotation = Quaternion.Euler(0, -90, 0);
-        }
     }
     
     private void StopCarrying(GameObject guard)
@@ -212,17 +217,4 @@ public class KnockedOut : MonoBehaviourPun, IInteractableEnhanced
         currentGuard = null;
     }
     
-    // Optional: Update to smoothly follow guard if not using parenting
-    void LateUpdate()
-    {
-        if (isCarried && currentGuard != null && carryPosition == null)
-        {
-            // Fallback smooth follow if no carry position
-            transform.position = Vector3.Lerp(
-                transform.position, 
-                currentGuard.transform.position + currentGuard.transform.right * 0.7f + Vector3.up * 0.5f,
-                Time.deltaTime * 10f
-            );
-        }
-    }
 }
