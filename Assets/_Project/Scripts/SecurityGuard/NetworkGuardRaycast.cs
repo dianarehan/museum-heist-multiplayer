@@ -27,6 +27,8 @@ namespace _Project.Scripts.Player
         [SerializeField] private LayerMask chargerLayer;
 
         public float RechargeTime => rechargeTime;
+        public int CurrentCharges => currentCharges;
+        public int MaxCharges => maxCharges;
 
 
         [Header("Inhaler Interaction")]
