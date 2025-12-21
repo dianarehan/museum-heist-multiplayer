@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using Photon.Pun;
+using _Project.Scripts.Player;
 
 /// <summary>
 /// Shows a briefing at game start with typewriter text effect.
@@ -43,6 +44,8 @@ public class BriefingHUD : MonoBehaviourPun
     
     public void ShowBriefing()
     {
+        Debug.Log("[BriefingHUD] ShowBriefing called");
+        
         if (briefingPanel != null)
         {
             briefingPanel.SetActive(true);
@@ -58,12 +61,74 @@ public class BriefingHUD : MonoBehaviourPun
             spaceToContinueText.alpha = 0f;
         }
         
+        // Disable player controls during briefing
+        DisablePlayerControls();
+        
         // Pause game during briefing
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         
         StartCoroutine(TypeBriefing());
+    }
+    
+    private MonoBehaviour[] disabledScripts;
+    private AudioSource[] mutedAudioSources;
+    
+    private void DisablePlayerControls()
+    {
+        // Disable common player control scripts
+        var scriptsToDisable = new System.Type[] {
+            typeof(PlayerController),
+            typeof(NetworkGuardRaycast)
+        };
+        
+        var disabledList = new System.Collections.Generic.List<MonoBehaviour>();
+        
+        foreach (var scriptType in scriptsToDisable)
+        {
+            var script = GetComponent(scriptType) as MonoBehaviour;
+            if (script != null && script.enabled)
+            {
+                script.enabled = false;
+                disabledList.Add(script);
+            }
+        }
+        
+        disabledScripts = disabledList.ToArray();
+        
+        // Mute all audio sources on this object
+        var audioList = new System.Collections.Generic.List<AudioSource>();
+        foreach (var audio in GetComponentsInChildren<AudioSource>())
+        {
+            if (audio.isPlaying)
+            {
+                audio.Pause();
+                audioList.Add(audio);
+            }
+        }
+        mutedAudioSources = audioList.ToArray();
+    }
+    
+    private void EnablePlayerControls()
+    {
+        // Re-enable disabled scripts
+        if (disabledScripts != null)
+        {
+            foreach (var script in disabledScripts)
+            {
+                if (script != null) script.enabled = true;
+            }
+        }
+        
+        // Resume muted audio
+        if (mutedAudioSources != null)
+        {
+            foreach (var audio in mutedAudioSources)
+            {
+                if (audio != null) audio.UnPause();
+            }
+        }
     }
     
     private IEnumerator TypeBriefing()
@@ -144,6 +209,9 @@ public class BriefingHUD : MonoBehaviourPun
         {
             briefingPanel.SetActive(false);
         }
+        
+        // Re-enable player controls
+        EnablePlayerControls();
         
         // Resume game
         Time.timeScale = 1f;

@@ -1,5 +1,7 @@
 ﻿using Photon.Pun;
 using UnityEngine;
+using TMPro;
+using _Project.Scripts.Player;
 
 namespace _Project.Scripts.UI
 {
@@ -7,6 +9,12 @@ namespace _Project.Scripts.UI
     {
         public static GuardHUD Instance;
         private Canvas canvas;
+        
+        [Header("Charges Display")]
+        [SerializeField] private TMP_Text chargesText;
+        [SerializeField] private string chargesFormat = "CHARGES: {0}/{1}";
+        
+        private NetworkGuardRaycast guardRaycast;
         
         private void Awake()
         {
@@ -52,6 +60,9 @@ namespace _Project.Scripts.UI
                         {
                             Debug.LogError("Guard camera not found!");
                         }
+                        
+                        // Get NetworkGuardRaycast for charges
+                        guardRaycast = guardPlayer.GetComponent<NetworkGuardRaycast>();
                     }
                     else
                     {
@@ -65,6 +76,20 @@ namespace _Project.Scripts.UI
                 gameObject.SetActive(false);
                 return;
             }
+        }
+        
+        private void Update()
+        {
+            UpdateChargesDisplay();
+        }
+        
+        private void UpdateChargesDisplay()
+        {
+            if (chargesText == null || guardRaycast == null) return;
+            
+            chargesText.text = string.Format(chargesFormat, 
+                guardRaycast.CurrentCharges, 
+                guardRaycast.MaxCharges);
         }
     }
 }
