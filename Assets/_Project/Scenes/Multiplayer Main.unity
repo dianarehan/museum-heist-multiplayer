@@ -6793,6 +6793,22 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 6851356010568029129, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851356010568029129, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851356010568029129, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851356010568029129, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7278867315974013372, guid: e436c7bb22345494caaaa7d7b514b450, type: 3}
       propertyPath: sceneViewId
       value: 14
@@ -7987,8 +8003,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf905dd1651b99b4cab04930b63a8773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebugMode: 1
-  useOfflineMode: 1
+  enableDebugMode: 0
+  useOfflineMode: 0
   debugRole: 1
   debugPlayerName: DebugPlayer
   sceneGuard: {fileID: 2145829873}
@@ -8363,7 +8379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8530347482223586906, guid: 2b95a05895f16614c9127cfe20311c37, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
