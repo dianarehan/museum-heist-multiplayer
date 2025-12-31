@@ -2,10 +2,11 @@ using UnityEngine;
 using Photon.Pun;
 using System.Collections.Generic;
 using System.Collections;
+
 [RequireComponent(typeof(PhotonView))]
 public class LaserGrid : MonoBehaviour
 {
-    [Tooltip("Drag all pressure plates here in the Inspector")]
+    [Tooltip("Drag all pressure plates here in order. First plates are enabled first based on player count.")]
     [SerializeField] private List<PressurePlate> requiredPlates;
 
     [SerializeField] private GameObject[] laserLinesObject;
@@ -17,9 +18,16 @@ public class LaserGrid : MonoBehaviour
     [SerializeField] private AudioClip successSound;
     [SerializeField] private AudioSource audioSource;
     
+    [Header("Player Scaling")]
+    [Tooltip("Minimum number of plates to enable (even with 1 player)")]
+    [SerializeField] private int minActivePlates = 1;
+    [Tooltip("Enable one plate per X thieves")]
+    [SerializeField] private int platesPerPlayer = 1;
+    
     private HashSet<PressurePlate> activePlates = new HashSet<PressurePlate>();
     private PhotonView photonView;
     private bool isPuzzleSolved = false;
+    private int enabledPlateCount = 0;
 
     void Awake()
     {
@@ -29,10 +37,82 @@ public class LaserGrid : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         }
     }
+    
+    void Start()
+    {
+        // Configure plates based on player count
+        ConfigurePlatesForPlayerCount();
+    }
+    
+    /// <summary>
+    /// Enable/disable pressure plates based on number of thieves in session
+    /// </summary>
+    private void ConfigurePlatesForPlayerCount()
+    {
+        // Count thieves in the room
+        int thiefCount = CountThievesInRoom();
+        
+        // Calculate how many plates to enable
+        int platesToEnable = Mathf.Max(minActivePlates, thiefCount * platesPerPlayer);
+        platesToEnable = Mathf.Min(platesToEnable, requiredPlates.Count); // Don't exceed available plates
+        
+        enabledPlateCount = platesToEnable;
+        
+        Debug.Log($"[LaserGrid] {thiefCount} thieves in session. Enabling {platesToEnable}/{requiredPlates.Count} plates.");
+        
+        // Enable/disable plates
+        for (int i = 0; i < requiredPlates.Count; i++)
+        {
+            if (requiredPlates[i] != null)
+            {
+                bool shouldEnable = i < platesToEnable;
+                requiredPlates[i].gameObject.SetActive(shouldEnable);
+                
+                if (shouldEnable)
+                {
+                    Debug.Log($"[LaserGrid] Plate {i + 1} ENABLED");
+                }
+                else
+                {
+                    Debug.Log($"[LaserGrid] Plate {i + 1} DISABLED");
+                }
+            }
+        }
+    }
+    
+    private int CountThievesInRoom()
+    {
+        int count = 0;
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            if (player.CustomProperties.TryGetValue("Role", out object role))
+            {
+                if ((string)role == "Thief")
+                {
+                    count++;
+                }
+            }
+        }
+        
+        // Fallback: if no roles set yet, count players minus 1 (assume 1 guard)
+        if (count == 0 && PhotonNetwork.PlayerList.Length > 1)
+        {
+            count = PhotonNetwork.PlayerList.Length - 1;
+        }
+        else if (count == 0)
+        {
+            count = 1; // At least 1 for testing
+        }
+        
+        return count;
+    }
 
     public void PlateActivated(bool isSteppedOn, PressurePlate plate)
     {
         if (isPuzzleSolved) return;
+        
+        // Only count plates that are enabled
+        if (!plate.gameObject.activeInHierarchy) return;
 
         if (isSteppedOn)
         {
@@ -48,7 +128,8 @@ public class LaserGrid : MonoBehaviour
 
     private void CheckForSolution()
     {
-        if (activePlates.Count == requiredPlates.Count)
+        // Only need to activate the enabled plates
+        if (activePlates.Count >= enabledPlateCount && enabledPlateCount > 0)
         {
             Debug.Log("Puzzle Solved! Disabling lasers.");
             isPuzzleSolved = true;
@@ -121,3 +202,4 @@ public class LaserGrid : MonoBehaviour
         lineRenderer.endWidth = endWidth;
     }
 }
+
